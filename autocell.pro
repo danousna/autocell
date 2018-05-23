@@ -25,10 +25,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    automate.cpp \
+    automateexception.cpp \
+    etat.cpp \
+    simulateur.cpp \
+    automatemanager.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    automate.h \
+    automateexception.h \
+    etat.h \
+    simulateur.h \
+    automatemanager.h
 
 FORMS += \
         mainwindow.ui
