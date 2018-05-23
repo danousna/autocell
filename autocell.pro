@@ -24,21 +24,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-    sources/automate.cpp \
-    sources/automateexception.cpp \
-    sources/automatemanager.cpp \
-    sources/etat.cpp \
-    sources/main.cpp \
-    sources/mainwindow.cpp \
-    sources/simulateur.cpp
+    src/automate.cpp \
+    src/automateexception.cpp \
+    src/automatemanager.cpp \
+    src/etat.cpp \
+    src/simulateur.cpp \
+    src/main.cpp \
+    src/ui/mainwindow.cpp
 
 HEADERS += \
-    headers/automate.h \
-    headers/automateexception.h \
-    headers/automatemanager.h \
-    headers/etat.h \
-    headers/mainwindow.h \
-    headers/simulateur.h
+    src/automate.h \
+    src/automateexception.h \
+    src/automatemanager.h \
+    src/etat.h \
+    src/simulateur.h \
+    src/ui/mainwindow.h
 
 FORMS += \
-        mainwindow.ui
+    src/ui/mainwindow.ui
