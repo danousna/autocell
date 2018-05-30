@@ -1,10 +1,10 @@
 #ifndef AUTOMATEMANAGER_H
 #define AUTOMATEMANAGER_H
 
-#include "automate.h"
+#include "automate1d.h"
 
 class AutomateManager {
-    Automate* automates[256];
+    Automate1D* automates[256];
     AutomateManager();
     ~AutomateManager();
     AutomateManager(const AutomateManager& a);
@@ -16,8 +16,8 @@ class AutomateManager {
     };
     static Handler handler;
 public:
-    const Automate& getAutomate(unsigned short int num);
-    const Automate& getAutomate(const std::string& num);
+    const Automate& getAutomate(unsigned int d, unsigned int e, unsigned int num);
+    const Automate& getAutomate(unsigned int d, unsigned int e, const std::string& num);
     static AutomateManager& getAutomateManager();
     static void libererAutomateManager();
 };

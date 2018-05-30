@@ -26,12 +26,12 @@ void AutomateManager::libererAutomateManager() {
     handler.instance = nullptr;
 }
 
-const Automate& AutomateManager::getAutomate(unsigned short int num) {
+const Automate& AutomateManager::getAutomate(unsigned int d, unsigned int e, unsigned int num) {
     if (!automates[num]) {
-        automates[num] = new Automate(num);
+        automates[num] = new Automate1D(d, e, num);
     }
     return *automates[num];
 }
-const Automate& AutomateManager::getAutomate(const std::string& numBit) {
-    return getAutomate(NumBitToNum(numBit));
+const Automate& AutomateManager::getAutomate(unsigned int d, unsigned int e, const std::string& numBit) {
+    return getAutomate(d, e, NumBitToNum(numBit));
 }

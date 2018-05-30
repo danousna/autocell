@@ -1,13 +1,13 @@
 #include "simulateur.h"
 
-Simulateur::Simulateur(const Automate& a, unsigned int buffer):
+Simulateur::Simulateur(const Automate1D& a, unsigned int buffer):
     automate(a), etats(nullptr), depart(nullptr), nbMaxEtats(buffer), rang(0) {
     etats = new Etat*[nbMaxEtats];
     for (unsigned int i = 0; i < nbMaxEtats; i++) {
         etats[i] = nullptr;
     }
 }
-Simulateur::Simulateur(const Automate& a, const Etat& dep, unsigned int buffer):
+Simulateur::Simulateur(const Automate1D& a, const Etat& dep, unsigned int buffer):
     automate(a), etats(nullptr), depart(&dep), nbMaxEtats(buffer),rang(0) {
     etats = new Etat*[nbMaxEtats];
     for (unsigned int i = 0; i < nbMaxEtats; i++) {

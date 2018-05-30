@@ -30,7 +30,9 @@ SOURCES += \
     src/etat.cpp \
     src/simulateur.cpp \
     src/main.cpp \
-    src/ui/mainwindow.cpp
+    src/ui/mainwindow.cpp \
+    src/automate1d.cpp \
+    src/automategol.cpp
 
 HEADERS += \
     src/automate.h \
@@ -38,7 +40,9 @@ HEADERS += \
     src/automatemanager.h \
     src/etat.h \
     src/simulateur.h \
-    src/ui/mainwindow.h
+    src/ui/mainwindow.h \
+    src/automate1d.h \
+    src/automategol.h
 
 FORMS += \
     src/ui/mainwindow.ui

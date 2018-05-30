@@ -26,7 +26,7 @@ Etat::Etat(const Etat& e): dimension(e.dimension), valeur(new bool[e.dimension])
 std::ostream& operator<<(std::ostream& f, const Etat& e) {
     for (unsigned int i = 0; i < e.getDimension(); i++) {
         if (e.getCellule(i)) {
-            f << char(178);
+            f << "X";
         } else {
             f << " ";
         }
