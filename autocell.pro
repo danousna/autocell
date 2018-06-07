@@ -33,7 +33,8 @@ SOURCES += \
     src/ui/mainwindow.cpp \
     src/automate1d.cpp \
     src/automategol.cpp \
-    src/cell.cpp
+    src/cell.cpp \
+    src/grille.cpp
 
 HEADERS += \
     src/automate.h \
@@ -44,7 +45,8 @@ HEADERS += \
     src/ui/mainwindow.h \
     src/automate1d.h \
     src/automategol.h \
-    src/cell.h
+    src/cell.h \
+    src/grille.h
 
 FORMS += \
     src/ui/mainwindow.ui

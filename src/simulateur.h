@@ -4,11 +4,12 @@
 #include "automate1d.h"
 #include "etat.h"
 #include "cell.h"
+#include "grille.h"
 
 class Simulateur {
     const Automate& automate;
-    Cell*** grilles;
-    const Cell** grilleInitiale;
+    Grille* grilles;
+    const Grille grilleInitiale;
     unsigned int taille;
     unsigned int buffer;
     unsigned int rang;
@@ -18,17 +19,15 @@ class Simulateur {
 public:
     Simulateur(const Automate& a, unsigned int t, unsigned int b = 2);
 
-    Simulateur(const Automate& a, const Cell** depart, unsigned int t, unsigned int b = 2):
-    automate(a), grilles(nullptr), grilleInitiale(nullptr), taille(t), buffer(b), rang(0) {
-        // Implement me.
-    }
+    Simulateur(const Automate& a, const Grille depart, unsigned int t, unsigned int b = 2):
+    automate(a), taille(t), buffer(b), rang(0);
 
     ~Simulateur();
 
-    void setGrilleInitiale(const Cell** depart);
+    void setGrilleInitiale(const Grille depart);
     void run(unsigned int nbSteps);
     void next();
-    Cell** dernier() const;
+    Grille dernier() const;
     unsigned int getRangDernier() const { return rang; }
     void reset();
     

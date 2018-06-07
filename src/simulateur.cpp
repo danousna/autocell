@@ -1,7 +1,7 @@
 #include "simulateur.h"
 
 Simulateur::Simulateur(const Automate& a, unsigned int t, unsigned int b): 
-automate(a), grilles(nullptr), grilleInitiale(nullptr), taille(t), buffer(b), rang(0) {
+automate(a), taille(t), buffer(b), rang(0) {
     unsigned int dimension = a.getDimension();
     const Etat* etatsPossibles = a.getEtatsPossibles();
 
@@ -11,7 +11,7 @@ automate(a), grilles(nullptr), grilleInitiale(nullptr), taille(t), buffer(b), ra
     // des objets Cell.
 
     if (dimension == 2) {
-        grilles = new Cell**[buffer];
+        grilles = new Grille[buffer];
 
         for (unsigned int i = 0; i < buffer; i++) {
             grilles[i] = new Cell*[taille];
