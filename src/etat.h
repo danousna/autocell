@@ -7,17 +7,16 @@
 #include "automateexception.h"
 
 class Etat {
-    unsigned int dimension;
-    bool* valeur;
+    int valeur;
+    std::string desc;
 public:
-    Etat(): dimension(0), valeur(nullptr) {}
-    Etat(unsigned int n);
-    ~Etat() { delete[] valeur; }
-    Etat(const Etat& e);
+    Etat(): valeur(0), desc("morte") {}
+    Etat(int v, std::string d): valeur(v), desc(d) {}
+    Etat(int v): valeur(v), desc("pas de description") {}
+    Etat(const Etat& e): valeur(e.getValeur()), desc(e.getDesc()) {}
+    int getValeur() const { return valeur; }
+    std::string getDesc() const { return desc; }
     Etat& operator=(const Etat& e);
-    void setCellule(unsigned int i, bool val);
-    bool getCellule(unsigned int) const;
-    unsigned int getDimension() const { return dimension; }
 };
 
 std::ostream& operator<<(std::ostream& f, const Etat& e);

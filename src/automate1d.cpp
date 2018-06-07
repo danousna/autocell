@@ -1,26 +1,26 @@
 #include "automate1d.h"
 
-void Automate1D::appliquerTransition(const Etat& dep, Etat& dest) const {
-    if (dep.getDimension() != dest.getDimension()) {
-        dest = dep;
-    }
+void AutomateElementaire::appliquerTransition(Cell** dep, Cell** dest) const {
+    // if (dep.getDimension() != dest.getDimension()) {
+    //     dest = dep;
+    // }
 
-    for (unsigned int i = 0; i < dep.getDimension(); i++) {
-        unsigned int conf=0;
+    // for (unsigned int i = 0; i < dep.getDimension(); i++) {
+    //     unsigned int conf=0;
         
-        if (i > 0) {
-            conf += dep.getCellule(i - 1) * 4;
-        }
+    //     if (i > 0) {
+    //         conf += dep.getCellule(i - 1) * 4;
+    //     }
 
-        conf += dep.getCellule(i) * 2;
-        if (i < dep.getDimension() - 1) {
-            conf += dep.getCellule(i + 1);
-        }
-        dest.setCellule(i, numeroBit[7-conf] - '0');
-    }
+    //     conf += dep.getCellule(i) * 2;
+    //     if (i < dep.getDimension() - 1) {
+    //         conf += dep.getCellule(i + 1);
+    //     }
+    //     dest.setCellule(i, numeroBit[7-conf] - '0');
+    // }
 }
 
-std::ostream& operator<<(std::ostream& f, const Automate1D& a) {
+std::ostream& operator<<(std::ostream& f, const AutomateElementaire& a) {
     f << a.getNumero() << " : " << a.getNumeroBit() << "\n";
     return f;
 }

@@ -1,28 +1,24 @@
-// #include "src/ui/mainwindow.h"
-// #include <QApplication>
+#include "src/ui/mainwindow.h"
+#include <QApplication>
 
 #include "automate1d.h"
 #include "simulateur.h"
 
 int main(int argc, char *argv[]) {
-    // QApplication a(argc, argv);
-    // MainWindow w;
-    // w.show();
+     // QApplication a(argc, argv);
+     // MainWindow w;
+     // w.setFixedSize(1000, 500);
+     // w.show();
+     // return a.exec();
 
-    // return a.exec();
+    AutomateElementaire a(30);
+    std::cout << "automate élémentaire : " << a << "\n";
 
-    Automate1D a(1, 2, 30);
-    std::cout << "automate : " << a << "\n";
+    Simulateur s(a, 10);
 
-    Etat e(22);
-    e.setCellule(11, true);
-
-    Simulateur s(a, e);
-
-    std::cout << e << "\n";   
     for (unsigned int i = 0; i < 10; i++) {
-        s.next();
-        std::cout << s.dernier() << "\n";
+       s.next();
+       std::cout << s.dernier() << "\n";
     }
 
     return 0;

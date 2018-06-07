@@ -3,14 +3,19 @@
 
 #include "automateexception.h"
 #include "etat.h"
+#include "cell.h"
 
 class Automate {
 protected:
     unsigned int dimension;
-    unsigned int etatsPossibles;
+    Etat* etatsPossibles;
 public:
-    Automate(unsigned int d, unsigned int e): dimension(d), etatsPossibles(e) {}
-    virtual void appliquerTransition(const Etat& dep, Etat& dest) const = 0;
+    Automate(unsigned int d);
+    Automate(unsigned int d, Etat* etats): dimension(d), etatsPossibles(etats) {}
+    virtual ~Automate() { delete[] etatsPossibles; }
+    unsigned int getDimension() const { return dimension; }
+    const Etat* getEtatsPossibles() const { return etatsPossibles; }
+    virtual void appliquerTransition(Cell** dep, Cell** dest) const = 0;
 };
 
 #endif // AUTOMATE_H

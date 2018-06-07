@@ -4,7 +4,7 @@
 #include "automate1d.h"
 
 class AutomateManager {
-    Automate1D* automates[256];
+    AutomateElementaire* automates[256];
     AutomateManager();
     ~AutomateManager();
     AutomateManager(const AutomateManager& a);

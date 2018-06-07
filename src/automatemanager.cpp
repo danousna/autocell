@@ -28,7 +28,7 @@ void AutomateManager::libererAutomateManager() {
 
 const Automate& AutomateManager::getAutomate(unsigned int d, unsigned int e, unsigned int num) {
     if (!automates[num]) {
-        automates[num] = new Automate1D(d, e, num);
+        automates[num] = new AutomateElementaire(num);
     }
     return *automates[num];
 }

@@ -11,16 +11,24 @@ std::string NumToNumBit(unsigned int num);
 
 class Automate1D : public Automate
 {
+public:
+    Automate1D(): Automate(1) {};
+    Automate1D(Etat* etats): Automate(1, etats) {};
+    virtual void appliquerTransition(Cell** dep, Cell** dest) const = 0;
+};
+
+class AutomateElementaire : public Automate1D
+{
     unsigned int numero;
     std::string numeroBit;
 public:
-    Automate1D(unsigned int d, unsigned int e, unsigned int n): Automate(d, e), numero(n), numeroBit(NumToNumBit(n)) {};
-    Automate1D(unsigned int d, unsigned int e, const std::string& num): Automate(d, e), numero(NumBitToNum(num)), numeroBit(num) {};
+    AutomateElementaire(unsigned int n): numero(n), numeroBit(NumToNumBit(n)) {}
+    AutomateElementaire(const std::string& num): numero(NumBitToNum(num)), numeroBit(num) {}
     unsigned int getNumero() const { return numero; }
     const std::string& getNumeroBit() const { return numeroBit; }
-    void appliquerTransition(const Etat& dep, Etat& dest) const;
+    void appliquerTransition(Cell** dep, Cell** dest) const;
 };
 
-std::ostream& operator<<(std::ostream& f, const Automate1D& t);
+std::ostream& operator<<(std::ostream& f, const AutomateElementaire& t);
 
 #endif // AUTOMATE1D_H

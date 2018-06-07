@@ -1,45 +1,68 @@
 #include "simulateur.h"
 
-Simulateur::Simulateur(const Automate1D& a, unsigned int buffer):
-    automate(a), etats(nullptr), depart(nullptr), nbMaxEtats(buffer), rang(0) {
-    etats = new Etat*[nbMaxEtats];
-    for (unsigned int i = 0; i < nbMaxEtats; i++) {
-        etats[i] = nullptr;
+Simulateur::Simulateur(const Automate& a, unsigned int t, unsigned int b): 
+automate(a), grilles(nullptr), grilleInitiale(nullptr), taille(t), buffer(b), rang(0) {
+    unsigned int dimension = a.getDimension();
+    const Etat* etatsPossibles = a.getEtatsPossibles();
+
+    // On crée un pointeur vers une liste de pointeurs de taille buffer.
+    // Cette liste contient des pointeurs vers des tableaux de pointeurs de
+    // taille NMAX par NMAX. Ces tableaux contiennent des pointeurs vers
+    // des objets Cell.
+
+    if (dimension == 2) {
+        grilles = new Cell**[buffer];
+
+        for (unsigned int i = 0; i < buffer; i++) {
+            grilles[i] = new Cell*[taille];
+
+            for (unsigned int j = 0; j < taille; j++) {
+                grilles[i][j] = new Cell[taille];
+
+                for (unsigned int k = 0; k < taille; k++) {
+                    // TODO(Natan): Voir si on crée vraiment avec le premier
+                    // etat possible.
+                    Cell* newCell = new Cell(etatsPossibles[0]);
+                    grilles[i][j][k] = *newCell; // PK CA MARCHE ?!
+                }
+            }
+        }
+    } else {
+        grilles = new Cell**[buffer];
+
+        for (unsigned int i = 0; i < taille; i++) {
+            grilles[i] = new Cell*[taille];
+
+            for (unsigned int j = 0; j < taille; j++) {
+                // TODO(Natan): Voir si on crée vraiment avec le premier
+                // etat possible.
+                
+            }
+        }
     }
-}
-Simulateur::Simulateur(const Automate1D& a, const Etat& dep, unsigned int buffer):
-    automate(a), etats(nullptr), depart(&dep), nbMaxEtats(buffer),rang(0) {
-    etats = new Etat*[nbMaxEtats];
-    for (unsigned int i = 0; i < nbMaxEtats; i++) {
-        etats[i] = nullptr;
-    }
-    etats[0] = new Etat(dep);
 }
 
-void Simulateur::build(unsigned int cellule) {
-    if (cellule >= nbMaxEtats) throw AutomateException("erreur taille buffer");
-    if (etats[cellule] == nullptr) {
-        etats[cellule] = new Etat;
-    }
+void Simulateur::build(unsigned int r) {
+    // Implement me.
 }
 
-void Simulateur::setEtatDepart(const Etat& e) {
-    depart = &e;
+void Simulateur::setGrilleInitiale(const Cell** depart) {
+    grilleInitiale = depart;
     reset();
 }
 
 void Simulateur::reset() {
-    if (depart==nullptr) throw AutomateException("etat depart indefini");
+    if (grilleInitiale == nullptr) throw AutomateException("Grille initiale indefinie.");
     build(0);
-    *etats[0] = *depart;
+    grilles[0] = const_cast<Cell**>(grilleInitiale);
     rang = 0;
 }
 
 void Simulateur::next() {
-    if (depart == nullptr) throw AutomateException("etat depart indefini");
+    if (grilleInitiale == nullptr) throw AutomateException("Grille initiale indefinie.");
     rang++;
-    build(rang%nbMaxEtats);
-    automate.appliquerTransition(*etats[(rang - 1) % nbMaxEtats], *etats[rang%nbMaxEtats]);
+    build(rang % buffer);
+    automate.appliquerTransition(grilles[(rang - 1) % buffer], grilles[rang % buffer]);
 }
 
 void Simulateur::run(unsigned int nb_steps) {
@@ -48,13 +71,15 @@ void Simulateur::run(unsigned int nb_steps) {
     }
 }
 
-const Etat& Simulateur::dernier() const {
-    return *etats[rang%nbMaxEtats];
+Cell** Simulateur::dernier() const {
+    return grilles[rang % buffer];
 }
 
 Simulateur::~Simulateur() {
-    for (unsigned int i = 0; i < nbMaxEtats; i++) {
-        delete etats[i];
+    for (unsigned int i = 0; i < buffer; i++) {
+        for (unsigned int j = 0; j < taille; j++) {
+            delete grilles[i][j];
+        }
     }
-    delete[] etats;
+    delete[] grilles;
 }
