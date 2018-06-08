@@ -19,4 +19,6 @@ public:
     const Etat& getEtat() const { return etat; }
 };
 
+std::ostream& operator<<(std::ostream& f, const Cell& c);
+
 #endif // CELL_H

@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
 
     Simulateur s(a, 10);
 
-    for (unsigned int i = 0; i < 10; i++) {
+    for (unsigned int i = 0; i < 2; i++) {
        s.next();
        std::cout << s.dernier() << "\n";
     }

@@ -9,6 +9,8 @@ class Grille
     Cell** valeurs;
     unsigned int taille;
 public:
+    Grille();
+
     Grille(unsigned int t): taille(t) {
         valeurs = new Cell*[taille];
 
@@ -16,15 +18,17 @@ public:
             valeurs[i] = new Cell[taille];
 
             for (unsigned int j = 0; j < taille; j++) {
-                Cell* newCell = new Cell(etatsPossibles[0]);
-                grilles[i][j][k] = *newCell;
+                Cell* newCell = new Cell();
+                valeurs[i][j] = *newCell;
             }
         }
     }
 
-    // Set cell here
+    const Cell& getCell(unsigned int i, unsigned int j) const { return valeurs[i][j]; }
     void setCell(unsigned i, unsigned int j, Cell& c);
     const unsigned int getTaille() const { return taille; }
 };
+
+std::ostream& operator<<(std::ostream& f, const Grille& g);
 
 #endif // GRILLE_H

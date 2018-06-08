@@ -8,8 +8,8 @@
 
 class Simulateur {
     const Automate& automate;
-    Grille* grilles;
-    const Grille grilleInitiale;
+    Grille** grilles;
+    const Grille* grilleInitiale;
     unsigned int taille;
     unsigned int buffer;
     unsigned int rang;
@@ -19,15 +19,14 @@ class Simulateur {
 public:
     Simulateur(const Automate& a, unsigned int t, unsigned int b = 2);
 
-    Simulateur(const Automate& a, const Grille depart, unsigned int t, unsigned int b = 2):
-    automate(a), taille(t), buffer(b), rang(0);
+    Simulateur(const Automate& a, const Grille depart, unsigned int t, unsigned int b = 2);
 
     ~Simulateur();
 
-    void setGrilleInitiale(const Grille depart);
+    void setGrilleInitiale(const Grille* depart);
     void run(unsigned int nbSteps);
     void next();
-    Grille dernier() const;
+    Grille& dernier() const;
     unsigned int getRangDernier() const { return rang; }
     void reset();
     
@@ -50,8 +49,8 @@ public:
             return *this;
         }
 
-        Cell* operator*() const {
-            return *sim->grilles[i % sim->buffer];
+        Grille* operator*() const {
+            return sim->grilles[i % sim->buffer];
         }
 
         bool operator!=(iterator it) const { return sim != it.sim || i != it.i; }
@@ -87,8 +86,8 @@ public:
             return *this;
         }
 
-        const Cell* operator*() const {
-            return *sim->grilles[i % sim->buffer];
+        const Grille* operator*() const {
+            return sim->grilles[i % sim->buffer];
         }
 
         bool operator!=(const_iterator it) const { return sim != it.sim || i != it.i; }

@@ -7,3 +7,9 @@ Cell& Cell::operator=(const Cell& c) {
 
     return *this;
 }
+
+std::ostream& operator<<(std::ostream& f, const Cell& c) {
+    Etat e = c.getEtat();
+    f << e.getValeur();
+    return f;
+}

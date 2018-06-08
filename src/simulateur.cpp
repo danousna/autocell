@@ -11,34 +11,13 @@ automate(a), taille(t), buffer(b), rang(0) {
     // des objets Cell.
 
     if (dimension == 2) {
-        grilles = new Grille[buffer];
-
-        for (unsigned int i = 0; i < buffer; i++) {
-            grilles[i] = new Cell*[taille];
-
-            for (unsigned int j = 0; j < taille; j++) {
-                grilles[i][j] = new Cell[taille];
-
-                for (unsigned int k = 0; k < taille; k++) {
-                    // TODO(Natan): Voir si on crée vraiment avec le premier
-                    // etat possible.
-                    Cell* newCell = new Cell(etatsPossibles[0]);
-                    grilles[i][j][k] = *newCell; // PK CA MARCHE ?!
-                }
-            }
-        }
+        grilles = new Grille*[buffer];
+        grilles[0] = new Grille(taille);
+        grilles[1] = new Grille(taille);
     } else {
-        grilles = new Cell**[buffer];
-
-        for (unsigned int i = 0; i < taille; i++) {
-            grilles[i] = new Cell*[taille];
-
-            for (unsigned int j = 0; j < taille; j++) {
-                // TODO(Natan): Voir si on crée vraiment avec le premier
-                // etat possible.
-                
-            }
-        }
+        grilles = new Grille*[buffer];
+        grilles[0] = new Grille(taille);
+        grilles[1] = new Grille(taille);
     }
 }
 
@@ -46,7 +25,7 @@ void Simulateur::build(unsigned int r) {
     // Implement me.
 }
 
-void Simulateur::setGrilleInitiale(const Cell** depart) {
+void Simulateur::setGrilleInitiale(const Grille* depart) {
     grilleInitiale = depart;
     reset();
 }
@@ -54,7 +33,7 @@ void Simulateur::setGrilleInitiale(const Cell** depart) {
 void Simulateur::reset() {
     if (grilleInitiale == nullptr) throw AutomateException("Grille initiale indefinie.");
     build(0);
-    grilles[0] = const_cast<Cell**>(grilleInitiale);
+    grilles[0] = const_cast<Grille*>(grilleInitiale);
     rang = 0;
 }
 
@@ -71,15 +50,14 @@ void Simulateur::run(unsigned int nb_steps) {
     }
 }
 
-Cell** Simulateur::dernier() const {
-    return grilles[rang % buffer];
+Grille& Simulateur::dernier() const {
+    return *grilles[rang % buffer];
 }
 
 Simulateur::~Simulateur() {
     for (unsigned int i = 0; i < buffer; i++) {
-        for (unsigned int j = 0; j < taille; j++) {
-            delete grilles[i][j];
-        }
+        delete grilles[i];
     }
+
     delete[] grilles;
 }

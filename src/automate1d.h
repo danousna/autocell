@@ -14,7 +14,7 @@ class Automate1D : public Automate
 public:
     Automate1D(): Automate(1) {};
     Automate1D(Etat* etats): Automate(1, etats) {};
-    virtual void appliquerTransition(Cell** dep, Cell** dest) const = 0;
+    virtual void appliquerTransition(Grille* dep, Grille* dest) const = 0;
 };
 
 class AutomateElementaire : public Automate1D
@@ -26,7 +26,7 @@ public:
     AutomateElementaire(const std::string& num): numero(NumBitToNum(num)), numeroBit(num) {}
     unsigned int getNumero() const { return numero; }
     const std::string& getNumeroBit() const { return numeroBit; }
-    void appliquerTransition(Cell** dep, Cell** dest) const;
+    void appliquerTransition(Grille* dep, Grille* dest) const;
 };
 
 std::ostream& operator<<(std::ostream& f, const AutomateElementaire& t);
