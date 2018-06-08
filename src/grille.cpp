@@ -5,6 +5,7 @@ std::ostream& operator<<(std::ostream& f, const Grille& g) {
         for (unsigned int j = 0; j < g.getTaille(); j++) {
             f << g.getCell(i, j);
         }
+        f << std::endl;
     }
 
     return f;

@@ -10,15 +10,9 @@ automate(a), taille(t), buffer(b), rang(0) {
     // taille NMAX par NMAX. Ces tableaux contiennent des pointeurs vers
     // des objets Cell.
 
-    if (dimension == 2) {
-        grilles = new Grille*[buffer];
-        grilles[0] = new Grille(taille);
-        grilles[1] = new Grille(taille);
-    } else {
-        grilles = new Grille*[buffer];
-        grilles[0] = new Grille(taille);
-        grilles[1] = new Grille(taille);
-    }
+    grilles = new Grille*[buffer];
+    grilles[0] = new Grille(taille, dimension);
+    grilles[1] = new Grille(taille, dimension);
 }
 
 void Simulateur::build(unsigned int r) {

@@ -11,20 +11,35 @@ class Grille
 public:
     Grille();
 
-    Grille(unsigned int t): taille(t) {
+    Grille(unsigned int t, unsigned int d): taille(t) {
         valeurs = new Cell*[taille];
 
-        for (unsigned int i = 0; i < taille; i++) {
-            valeurs[i] = new Cell[taille];
+        if (d == 1) {
+            valeurs[0] = new Cell[taille];
 
-            for (unsigned int j = 0; j < taille; j++) {
+            for (unsigned int i = 0; i < taille; i++) {
                 Cell* newCell = new Cell();
-                valeurs[i][j] = *newCell;
+                valeurs[0][i] = *newCell;
             }
+
+            for (unsigned int i = 1; i < taille; i++) {
+                valeurs[i] = nullptr;
+            }
+        } else if (d == 2) {
+            for (unsigned int i = 0; i < taille; i++) {
+                valeurs[i] = new Cell[taille];
+
+                for (unsigned int j = 0; j < taille; j++) {
+                    Cell* newCell = new Cell();
+                    valeurs[i][j] = *newCell;
+                }
+            }
+        } else {
+            throw new AutomateException("Dimension non valide");
         }
     }
 
-    const Cell& getCell(unsigned int i, unsigned int j) const { return valeurs[i][j]; }
+    const Cell& getCell(unsigned int i, unsigned int j) const { if (valeurs[i] != nullptr) return valeurs[i][j]; }
     void setCell(unsigned i, unsigned int j, Cell& c);
     const unsigned int getTaille() const { return taille; }
 };
