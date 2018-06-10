@@ -2,16 +2,16 @@
 #define GRILLE_H
 
 #include "cell.h"
-#include "etat.h"
 
 class Grille
 {
     Cell** valeurs;
     unsigned int taille;
+	unsigned int dimension;
 public:
-    Grille();
+	Grille(){};
 
-    Grille(unsigned int t, unsigned int d): taille(t) {
+    Grille(unsigned int t, unsigned int d): taille(t),dimension(d) {
         valeurs = new Cell*[taille];
 
         if (d == 1) {
@@ -38,9 +38,10 @@ public:
             throw new AutomateException("Dimension non valide");
         }
     }
-
-    const Cell& getCell(unsigned int i, unsigned int j) const { if (valeurs[i] != nullptr) return valeurs[i][j]; }
-    void setCell(unsigned i, unsigned int j, Cell& c);
+	const Cell& getCell(unsigned int i) const;
+	const Cell& getCell(unsigned int i, unsigned int j) const;
+    void setCell(unsigned i, unsigned int j, unsigned int e);
+	void setCell(unsigned i, unsigned int e);
     const unsigned int getTaille() const { return taille; }
 };
 

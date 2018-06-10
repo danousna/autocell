@@ -3,7 +3,6 @@
 
 #include <string>
 #include <iostream>
-
 #include "automate.h"
 
 unsigned int NumBitToNum(const std::string& num);
@@ -13,7 +12,7 @@ class Automate1D : public Automate
 {
 public:
     Automate1D(): Automate(1) {};
-    Automate1D(Etat* etats): Automate(1, etats) {};
+    Automate1D(std::string* etats): Automate(1, etats) {};
     virtual void appliquerTransition(Grille* dep, Grille* dest) const = 0;
 };
 

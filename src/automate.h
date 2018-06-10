@@ -2,20 +2,21 @@
 #define AUTOMATE_H
 
 #include "automateexception.h"
-#include "etat.h"
 #include "cell.h"
 #include "grille.h"
+#include <string>
+#include <iostream>
 
 class Automate {
 protected:
     unsigned int dimension;
-    Etat* etatsPossibles;
+    std::string* etatsPossibles;
 public:
     Automate(unsigned int d);
-    Automate(unsigned int d, Etat* etats): dimension(d), etatsPossibles(etats) {}
+    Automate(unsigned int d, std::string*  etats): dimension(d), etatsPossibles(etats) {}
     virtual ~Automate() { delete[] etatsPossibles; }
     unsigned int getDimension() const { return dimension; }
-    const Etat* getEtatsPossibles() const { return etatsPossibles; }
+    const std::string* getEtatsPossibles() const { return etatsPossibles; }
     virtual void appliquerTransition(Grille* dep, Grille* dest) const = 0;
 };
 

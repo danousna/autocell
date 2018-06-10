@@ -4,19 +4,18 @@
 #include <iostream>
 #include <string>
 
-#include "etat.h"
 #include "automateexception.h"
 
 class Cell
 {
-    Etat etat;
+    unsigned int etat;
 public:
     Cell() {}
-    Cell(const Etat& e): etat(e) {}
+    Cell(const unsigned int e): etat(e) {}
     Cell(const Cell& c): etat(c.getEtat()) {}
     Cell& operator=(const Cell& c);
-    void setEtat(const Etat& e) { etat = e; }
-    const Etat& getEtat() const { return etat; }
+    void setEtat(const int e) { etat = e; }
+    const unsigned int& getEtat() const { return etat; }
 };
 
 std::ostream& operator<<(std::ostream& f, const Cell& c);

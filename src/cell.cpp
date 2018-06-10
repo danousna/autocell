@@ -9,7 +9,7 @@ Cell& Cell::operator=(const Cell& c) {
 }
 
 std::ostream& operator<<(std::ostream& f, const Cell& c) {
-    Etat e = c.getEtat();
-    f << e.getValeur();
+    unsigned int e = c.getEtat();
+	f << e;
     return f;
 }

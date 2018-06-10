@@ -1,19 +1,19 @@
 #include "automate1d.h"
 
 void AutomateElementaire::appliquerTransition(Grille* dep, Grille* dest) const {
-    // for (unsigned int i = 0; i < dep.getDimension(); i++) {
-    //     unsigned int conf=0;
+    for (unsigned int i = 0; i < dep->getTaille(); i++) {
+         unsigned int conf=0;
         
-    //     if (i > 0) {
-    //         conf += dep.getCellule(i - 1) * 4;
-    //     }
+         if (i > 0) {
+             conf += dep->getCell(i-1).getEtat()* 4;
+         }
 
-    //     conf += dep.getCellule(i) * 2;
-    //     if (i < dep.getDimension() - 1) {
-    //         conf += dep.getCellule(i + 1);
-    //     }
-    //     dest.setCellule(i, numeroBit[7-conf] - '0');
-    // }
+         conf += dep->getCell(i).getEtat() * 2;
+         if (i < dep->getTaille() - 1) {
+             conf += dep->getCell(i+ 1).getEtat();
+         }
+         dest->setCell(i, numeroBit[7-conf] - '0');
+     }
 }
 
 std::ostream& operator<<(std::ostream& f, const AutomateElementaire& a) {

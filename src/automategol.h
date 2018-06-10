@@ -6,9 +6,14 @@
 
 #include "automate.h"
 
-class AutomateGoL
+class AutomateGoL:public Automate
 {
 public:
+	AutomateGoL() :Automate(2) {};
+	AutomateGoL(std::string* etats) :Automate(2, etats) {};
+	void appliquerTransition(Grille* dep,Grille* dest);
+
+
 };
 
 #endif // AUTOMATEGOL_H
