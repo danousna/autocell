@@ -10,16 +10,33 @@ int main(int argc, char *argv[]) {
      // w.show();
      // return a.exec();
 
-    AutomateElementaire a(30);
-    std::cout << "automate élémentaire : " << a << "\n";
 
-    Grille1D g(23);
+    // Automate Elementaire
+    
+    // AutomateElementaire a(30);
+    // std::cout << a << "\n";
+
+    // Grille1D g(23);
+    // Cell c(Etat(1, "vivante"));
+    // g.setCell(c, 11);
+
+    // Simulateur s(a, g, 23);
+    // s.run(11);
+
+
+    // Automate Jeu de la Vie
+
+    AutomateGoL a;
+    std::cout << a << "\n";
+
+    Grille2D g(7);
     Cell c(Etat(1, "vivante"));
-    g.setCell(c, 11);
+    g.setCell(c, 2, 1);
+    g.setCell(c, 2, 2);
+    g.setCell(c, 2, 3);
 
-    Simulateur s(a, g, 23);
-
-    s.run(11);
+    Simulateur s(a, g, 7);
+    s.run(3);
 
     return 0;
 }

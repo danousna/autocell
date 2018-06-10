@@ -56,7 +56,7 @@ void Simulateur::next() {
 
 void Simulateur::run(unsigned int nb_steps) {
     for (unsigned int i = 0; i < nb_steps; i++) {
-        std::cout << dernier() << "\n";
+        std::cout << dernier() << std::endl;
         next();
     }
 }

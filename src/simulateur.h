@@ -2,6 +2,7 @@
 #define SIMULATEUR_H
 
 #include "automate1d.h"
+#include "automate2d.h"
 #include "grille.h"
 
 class Simulateur {

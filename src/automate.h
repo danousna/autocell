@@ -1,6 +1,9 @@
 #ifndef AUTOMATE_H
 #define AUTOMATE_H
 
+#include <string>
+#include <iostream>
+
 #include "automateexception.h"
 #include "etat.h"
 #include "cell.h"

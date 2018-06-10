@@ -1,9 +1,6 @@
 #ifndef AUTOMATE1D_H
 #define AUTOMATE1D_H
 
-#include <string>
-#include <iostream>
-
 #include "automate.h"
 
 unsigned int NumBitToNum(const std::string& num);
@@ -30,6 +27,6 @@ public:
     void appliquerTransition(Grille* dep, Grille* dest) const;
 };
 
-std::ostream& operator<<(std::ostream& f, const AutomateElementaire& t);
+std::ostream& operator<<(std::ostream& f, const AutomateElementaire& a);
 
 #endif // AUTOMATE1D_H

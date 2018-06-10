@@ -3,24 +3,18 @@
 void AutomateElementaire::appliquerTransition(Grille* dep, Grille* dest) const {
     if (dep->getTaille() != dest->getTaille()) throw new AutomateException("Erreur : La grille de départ n'a pas la même dimension que la grille d'arrivée.");
 
+    // Code du TD.
     for (unsigned int i = 0; i < dep->getTaille(); i++) {
-        // Parmi les états possibles, setCell avec le bon état.
-        // if (valResult == etatsPossibles[0].getValeur()) {
-        //     dest->setCell(Cell(etatsPossibles[0]), i, 0);
-        // } else if (valResult == etatsPossibles[1].getValeur()) {
-        //     dest->setCell(Cell(etatsPossibles[1]), i, 0);
-        // } else throw new AutomateException("Erreur : Etats possibles.");
-
         unsigned int conf = 0;
         
         if (i > 0) {
-            conf += dep->getCell(i - 1, 0).getEtat().getValeur() * 4;
+            conf += dep->getCellVal(i - 1, 0) * 4;
         }
 
-        conf += dep->getCell(i, 0).getEtat().getValeur() * 2;
+        conf += dep->getCellVal(i, 0) * 2;
         
         if (i < dep->getTaille() - 1) {
-            conf += dep->getCell(i + 1, 0).getEtat().getValeur();
+            conf += dep->getCellVal(i + 1, 0);
         }
 
         dest->setCell(Cell(Etat(numeroBit[7 - conf] - '0')), i, 0);
@@ -28,7 +22,7 @@ void AutomateElementaire::appliquerTransition(Grille* dep, Grille* dest) const {
 }
 
 std::ostream& operator<<(std::ostream& f, const AutomateElementaire& a) {
-    f << a.getNumero() << " : " << a.getNumeroBit() << "\n";
+    f << "Automate Elementaire " << a.getNumero() << " : " << a.getNumeroBit() << "\n";
     return f;
 }
 

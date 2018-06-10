@@ -32,9 +32,9 @@ SOURCES += \
     src/main.cpp \
     src/ui/mainwindow.cpp \
     src/automate1d.cpp \
-    src/automategol.cpp \
     src/cell.cpp \
-    src/grille.cpp
+    src/grille.cpp \
+    src/automate2d.cpp
 
 HEADERS += \
     src/automate.h \
@@ -44,9 +44,9 @@ HEADERS += \
     src/simulateur.h \
     src/ui/mainwindow.h \
     src/automate1d.h \
-    src/automategol.h \
     src/cell.h \
-    src/grille.h
+    src/grille.h \
+    src/automate2d.h
 
 FORMS += \
     src/ui/mainwindow.ui

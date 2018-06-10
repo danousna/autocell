@@ -23,6 +23,7 @@ public:
     const unsigned int getTaille() const { return taille; }
     const unsigned int getDimension() const { return dimension; }
     virtual const Cell& getCell(unsigned int, unsigned int j) const = 0;
+    virtual const int getCellVal(unsigned int i, unsigned int j) const = 0;
     virtual void setCell(const Cell& c, unsigned i, unsigned int j) = 0;
     virtual std::ostream& afficher(std::ostream& f) const = 0;
 };
@@ -52,6 +53,7 @@ public:
     Grille1D* clone() const { return new Grille1D(*this); }
 
     const Cell& getCell(unsigned int i, unsigned int j = 0) const { return valeurs[i]; }
+    const int getCellVal(unsigned int i, unsigned int j = 0) const { return valeurs[i].getEtat().getValeur(); }
     void setCell(const Cell& c, unsigned i, unsigned int j = 0);
     virtual std::ostream& afficher(std::ostream& f) const;
 };
@@ -87,6 +89,7 @@ public:
     Grille2D* clone() const { return new Grille2D(*this); }
 
     const Cell& getCell(unsigned int i, unsigned int j) const { return valeurs[i][j]; }
+    const int getCellVal(unsigned int i, unsigned int j) const { return valeurs[i][j].getEtat().getValeur(); }
     void setCell(const Cell& c, unsigned i, unsigned int j);
     virtual std::ostream& afficher(std::ostream& f) const;
 };
