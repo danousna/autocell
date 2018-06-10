@@ -35,6 +35,7 @@ void AutomateGoL::appliquerTransition(Grille* dep, Grille* dest) {
 
 			default:
 				dest->setCell(i, j, 0);
+				break;
 			}
 
 		}
