@@ -13,8 +13,13 @@ int main(int argc, char *argv[]) {
     AutomateElementaire a(30);
     std::cout << "automate élémentaire : " << a << "\n";
 
-    Simulateur s(a, 10);
-    std::cout << s << "\n";
+    Grille1D g(10);
+    Cell c(Etat(1, "vivante"));
+    g.setCell(c, 5);
+
+    Simulateur s(a, g, 10);
+
+    s.run(10);
 
     return 0;
 }

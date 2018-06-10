@@ -16,7 +16,7 @@ class Simulateur {
     Simulateur& operator=(const Simulateur& s);
 public:
     Simulateur(const Automate& a, unsigned int t, unsigned int b = 2);
-    Simulateur(const Automate& a, const Grille depart, unsigned int t, unsigned int b = 2);
+    Simulateur(const Automate& a, const Grille& depart, unsigned int t, unsigned int b = 2);
     ~Simulateur();
     void setGrilleInitiale(const Grille* depart);
     void run(unsigned int nbSteps);
@@ -51,7 +51,7 @@ public:
     iterator begin() {
         return iterator(this);
     }
-    
+
     iterator end() {
         if (rang < buffer) {
             return iterator(this, -1);

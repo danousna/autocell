@@ -4,18 +4,26 @@
 #include "cell.h"
 #include "etat.h"
 
+/*
+    TODO(Natan): 
+        - destructeur pour tableau dynamique
+*/
+
 class Grille
 {
 protected:
     unsigned int taille;
     unsigned int dimension;
 public:
-    Grille();
     Grille(unsigned int t, unsigned int d): taille(t), dimension(d) {}
+
+    virtual ~Grille() {}
+    virtual Grille* clone() const = 0;
+
     const unsigned int getTaille() const { return taille; }
     const unsigned int getDimension() const { return dimension; }
     virtual const Cell& getCell(unsigned int i, unsigned int j) const = 0;
-    virtual void setCell(unsigned i, unsigned int j) = 0;
+    virtual void setCell(const Cell& c, unsigned i, unsigned int j) = 0;
     virtual std::ostream& afficher(std::ostream& f) const = 0;
 };
 
@@ -33,8 +41,18 @@ public:
         }
     }
 
+    Grille1D(const Grille1D& g): Grille(g.getTaille(), g.getDimension()) {
+        valeurs = new Cell[taille];
+
+        for (unsigned int i = 0; i < taille; i++) {
+            valeurs[i] = Cell(g.getCell(i));
+        }
+    }
+
+    Grille1D* clone() const { return new Grille1D(*this); }
+
     const Cell& getCell(unsigned int i, unsigned int j = 0) const { return valeurs[i]; }
-    void setCell(unsigned i, unsigned int j = 0);
+    void setCell(const Cell& c, unsigned i, unsigned int j = 0);
     virtual std::ostream& afficher(std::ostream& f) const;
 };
 
@@ -54,8 +72,22 @@ public:
         }
     }
 
+    Grille2D(const Grille2D& g): Grille(g.getTaille(), g.getDimension()) {
+        valeurs = new Cell*[taille];
+
+        for (unsigned int i = 0; i < taille; i++) {
+            valeurs[i] = new Cell[taille];
+
+            for (unsigned int j = 0; j < taille; j++) {
+                valeurs[i][j] = Cell(g.getCell(i, j));
+            }
+        }
+    }
+
+    Grille2D* clone() const { return new Grille2D(*this); }
+
     const Cell& getCell(unsigned int i, unsigned int j) const { return valeurs[i][j]; }
-    void setCell(unsigned i, unsigned int j);
+    void setCell(const Cell& c, unsigned i, unsigned int j);
     virtual std::ostream& afficher(std::ostream& f) const;
 };
 
