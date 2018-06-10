@@ -22,7 +22,7 @@ public:
 
     const unsigned int getTaille() const { return taille; }
     const unsigned int getDimension() const { return dimension; }
-    virtual const Cell& getCell(unsigned int i, unsigned int j) const = 0;
+    virtual const Cell& getCell(unsigned int, unsigned int j) const = 0;
     virtual void setCell(const Cell& c, unsigned i, unsigned int j) = 0;
     virtual std::ostream& afficher(std::ostream& f) const = 0;
 };
