@@ -1,7 +1,6 @@
 #include "src/ui/mainwindow.h"
 #include <QApplication>
 
-#include "automate1d.h"
 #include "simulateur.h"
 
 int main(int argc, char *argv[]) {
@@ -15,7 +14,7 @@ int main(int argc, char *argv[]) {
     std::cout << "automate élémentaire : " << a << "\n";
 
     Simulateur s(a, 10);
-    std::cout << s.dernier() << "\n";
+    std::cout << s << "\n";
 
     return 0;
 }

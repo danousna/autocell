@@ -2,8 +2,6 @@
 #define SIMULATEUR_H
 
 #include "automate1d.h"
-#include "etat.h"
-#include "cell.h"
 #include "grille.h"
 
 class Simulateur {
@@ -18,11 +16,8 @@ class Simulateur {
     Simulateur& operator=(const Simulateur& s);
 public:
     Simulateur(const Automate& a, unsigned int t, unsigned int b = 2);
-
     Simulateur(const Automate& a, const Grille depart, unsigned int t, unsigned int b = 2);
-
     ~Simulateur();
-
     void setGrilleInitiale(const Grille* depart);
     void run(unsigned int nbSteps);
     void next();
@@ -37,8 +32,7 @@ public:
         iterator(Simulateur* s): sim(s), i(s->rang) {}
         iterator(Simulateur* s, int dep): sim(s), i(dep) {}
     public:
-        iterator(): sim(nullptr), i(0) {}
-        
+        iterator(): sim(nullptr), i(0) {}   
         iterator& operator++() {
             i--;
 
@@ -48,17 +42,16 @@ public:
 
             return *this;
         }
-
         Grille* operator*() const {
             return sim->grilles[i % sim->buffer];
         }
-
         bool operator!=(iterator it) const { return sim != it.sim || i != it.i; }
     };
 
     iterator begin() {
         return iterator(this);
     }
+    
     iterator end() {
         if (rang < buffer) {
             return iterator(this, -1);
@@ -75,7 +68,6 @@ public:
         const_iterator(const Simulateur* s, int dep): sim(s), i(dep) {}
     public:
         const_iterator(): sim(nullptr), i(0) {}
-
         const_iterator& operator++() {
             i--;
 
@@ -85,11 +77,9 @@ public:
 
             return *this;
         }
-
         const Grille* operator*() const {
             return sim->grilles[i % sim->buffer];
         }
-
         bool operator!=(const_iterator it) const { return sim != it.sim || i != it.i; }
     };
 
@@ -105,5 +95,7 @@ public:
         }
     }
 };
+
+std::ostream& operator<<(std::ostream& f, const Simulateur& s);
 
 #endif // SIMULATEUR_H

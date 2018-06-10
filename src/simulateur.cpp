@@ -3,7 +3,7 @@
 Simulateur::Simulateur(const Automate& a, unsigned int t, unsigned int b): 
 automate(a), taille(t), buffer(b), rang(0) {
     unsigned int dimension = a.getDimension();
-    const Etat* etatsPossibles = a.getEtatsPossibles();
+    // const Etat* etatsPossibles = a.getEtatsPossibles();
 
     // On crée un pointeur vers une liste de pointeurs de taille buffer.
     // Cette liste contient des pointeurs vers des tableaux de pointeurs de
@@ -11,8 +11,14 @@ automate(a), taille(t), buffer(b), rang(0) {
     // des objets Cell.
 
     grilles = new Grille*[buffer];
-    grilles[0] = new Grille(taille, dimension);
-    grilles[1] = new Grille(taille, dimension);
+
+    if (dimension == 1) {
+        grilles[0] = new Grille1D(taille);
+        grilles[1] = new Grille1D(taille);
+    } else {
+        grilles[0] = new Grille2D(taille);
+        grilles[1] = new Grille2D(taille);
+    }
 }
 
 void Simulateur::build(unsigned int r) {
@@ -54,4 +60,9 @@ Simulateur::~Simulateur() {
     }
 
     delete[] grilles;
+}
+
+std::ostream& operator<<(std::ostream& f, const Simulateur& s) {
+    f << s.dernier();
+    return f;
 }
