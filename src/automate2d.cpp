@@ -3,34 +3,40 @@
 void AutomateGoL::appliquerTransition(Grille* dep, Grille* dest) const {
     if (dep->getTaille() != dest->getTaille()) throw new AutomateException("Erreur : La grille de départ n'a pas la même dimension que la grille d'arrivée.");
 
-    for (unsigned int i = 0; i < dep->getTaille(); i++) {
-        for (unsigned int j = 0; j < dep->getTaille(); j++) {
+    unsigned int taille = dep->getTaille();
+    int newValeurs[taille][taille];
 
-            // Calcul somme des voisins.
-            int sum = 0;
-            if ((i > 0) && (i < dep->getTaille() - 1) && (j > 0) && (j < dep->getTaille() - 1)) {
-                sum = dep->getCellVal(i, j - 1) +
-                        dep->getCellVal(i - 1, j - 1) +
-                        dep->getCellVal(i - 1, j) +
-                        dep->getCellVal(i - 1, j + 1) +
-                        dep->getCellVal(i, j + 1) +
-                        dep->getCellVal(i + 1, j + 1) +
-                        dep->getCellVal(i + 1, j) +
-                        dep->getCellVal(i + 1, j - 1);
+    for (unsigned int i = 0; i < taille; i++) {
+        for (unsigned int j = 0; j < taille; j++) {
+            
+            // Calcul de la somme
+            unsigned int sum = 0;
+
+            for (unsigned int k = i - 1; k <= j + 1; k++) {
+                for (unsigned int l = j - 1; l <= j + 1; l++) {         
+                    if (dep->getCellVal((k + taille) % taille, (l + taille) % taille) == 1) {
+                        sum++;
+                    }
+                }
             }
 
-            // Elle nait
-            if (sum == voisinsVivantsMax && !dep->getCellVal(i, j)) {
-                dest->setCell(Cell(Etat(1, "vivante")), i, j);
+            if (dep->getCellVal(i, j) == 1) {
+                sum--;
             }
-            // Elle meurt 
-            else if ((sum < voisinsVivantsMin || sum > voisinsVivantsMax) && dep->getCellVal(i, j)) {
-                dest->setCell(Cell(Etat(0, "morte")), i, j);
+
+            if (sum == voisinsVivantsMax || (sum == voisinsVivantsMin && dep->getCellVal(i, j) == 1)) {
+                newValeurs[i][j] = 1;
+            } else {
+                newValeurs[i][j] = 0;
             }
-            // Else, elle ne change pas d'état.
-            else {
-                dest->setCell(Cell(dep->getCell(i, j)), i, j);
-            }
+
+            std::cout << "(" << i << ", " << j << ") : " << sum << "\n";
+        }
+    }
+
+    for (unsigned int i = 0; i < taille; i++) {
+        for (unsigned int j = 0; j < taille; j++) {
+            dest->setCell(Cell(Etat(newValeurs[i][j])), i, j);
         }
     }
 }

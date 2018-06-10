@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QLineEdit>
 #include <QIntValidator>
-#include <QStandardItemModel>
+#include <QTableWidget>
 #include "../automate1d.h"
 
 namespace Ui {

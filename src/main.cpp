@@ -4,13 +4,6 @@
 #include "simulateur.h"
 
 int main(int argc, char *argv[]) {
-     // QApplication a(argc, argv);
-     // MainWindow w;
-     // w.setFixedSize(1000, 500);
-     // w.show();
-     // return a.exec();
-
-
     // Automate Elementaire
     
     // AutomateElementaire a(30);
@@ -39,4 +32,11 @@ int main(int argc, char *argv[]) {
     s.run(3);
 
     return 0;
+
+    // QApplication a(argc, argv);
+    // MainWindow w;
+    // w.setFixedSize(1000, 500);
+    // w.show();
+
+    // return a.exec();
 }
