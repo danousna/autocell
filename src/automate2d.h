@@ -22,6 +22,7 @@ public:
     unsigned int getVoisinsVivantsMin() const { return voisinsVivantsMin; }
     unsigned int getVoisinsVivantsMax() const { return voisinsVivantsMax; }
     void appliquerTransition(Grille* dep, Grille* dest) const;
+    int calculerSommeVoisins(Grille* g, unsigned int y, unsigned int x) const;
 };
 
 std::ostream& operator<<(std::ostream& f, const AutomateGoL& a);

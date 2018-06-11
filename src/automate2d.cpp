@@ -9,28 +9,13 @@ void AutomateGoL::appliquerTransition(Grille* dep, Grille* dest) const {
     for (unsigned int i = 0; i < taille; i++) {
         for (unsigned int j = 0; j < taille; j++) {
             
-            // Calcul de la somme
-            unsigned int sum = 0;
-
-            for (unsigned int k = i - 1; k <= j + 1; k++) {
-                for (unsigned int l = j - 1; l <= j + 1; l++) {         
-                    if (dep->getCellVal((k + taille) % taille, (l + taille) % taille) == 1) {
-                        sum++;
-                    }
-                }
-            }
-
-            if (dep->getCellVal(i, j) == 1) {
-                sum--;
-            }
+            int sum = this->calculerSommeVoisins(dep, i, j);
 
             if (sum == voisinsVivantsMax || (sum == voisinsVivantsMin && dep->getCellVal(i, j) == 1)) {
                 newValeurs[i][j] = 1;
             } else {
                 newValeurs[i][j] = 0;
             }
-
-            std::cout << "(" << i << ", " << j << ") : " << sum << "\n";
         }
     }
 
@@ -39,6 +24,25 @@ void AutomateGoL::appliquerTransition(Grille* dep, Grille* dest) const {
             dest->setCell(Cell(Etat(newValeurs[i][j])), i, j);
         }
     }
+}
+
+int AutomateGoL::calculerSommeVoisins(Grille* g, unsigned int y, unsigned int x) const {
+    unsigned int t = g->getTaille();
+    int sum = 0;
+
+    for (unsigned int i = y - 1; i <= y + 1; i++) {
+        for (unsigned int j = x - 1; j <= x + 1; j++) {     
+            if (g->getCellVal((i + t) % t, (j + t) % t) == 1) {
+                sum++;
+            }
+        }
+    }
+
+    if (g->getCellVal(y, x) == 1) {
+        sum--;
+    }
+
+    return sum;
 }
 
 std::ostream& operator<<(std::ostream& f, const AutomateGoL& a) {

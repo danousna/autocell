@@ -49,8 +49,9 @@ public:
             valeurs[i] = Cell(g.getCell(i));
         }
     }
-
     Grille1D* clone() const { return new Grille1D(*this); }
+
+    ~Grille1D() { delete[] valeurs; }
 
     const Cell& getCell(unsigned int i, unsigned int j = 0) const { return valeurs[i]; }
     int getCellVal(unsigned int i, unsigned int j = 0) const { return valeurs[i].getEtat().getValeur(); }
@@ -85,8 +86,15 @@ public:
             }
         }
     }
-
     Grille2D* clone() const { return new Grille2D(*this); }
+
+    ~Grille2D() {
+        for (unsigned int i = 0; i < taille; i++) {
+            delete[] valeurs[i];
+        }
+
+        delete[] valeurs;
+    }
 
     const Cell& getCell(unsigned int i, unsigned int j) const { return valeurs[i][j]; }
     int getCellVal(unsigned int i, unsigned int j) const { return valeurs[i][j].getEtat().getValeur(); }
