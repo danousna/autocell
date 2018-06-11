@@ -5,7 +5,7 @@
 #include <string>
 
 #include "etat.h"
-#include "automateexception.h"
+#include "autocellexception.h"
 
 class Cell
 {

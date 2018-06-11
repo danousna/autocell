@@ -1,7 +1,17 @@
+/**
+ * \file        automate.h
+ * \brief       Fichier d'en-tête de la classe abstraite Automate.
+ * \author      Natan Danous, Yiwen Wang, Bertille de Pesquidoux
+ * \version     0.1
+ */
+
 #ifndef AUTOMATE_H
 #define AUTOMATE_H
 
-#include "automateexception.h"
+#include <string>
+#include <iostream>
+
+#include "autocellexception.h"
 #include "etat.h"
 #include "cell.h"
 #include "grille.h"

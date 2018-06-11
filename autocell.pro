@@ -25,28 +25,28 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     src/automate.cpp \
-    src/automateexception.cpp \
     src/automatemanager.cpp \
     src/etat.cpp \
     src/simulateur.cpp \
     src/main.cpp \
     src/ui/mainwindow.cpp \
     src/automate1d.cpp \
-    src/automategol.cpp \
     src/cell.cpp \
-    src/grille.cpp
+    src/grille.cpp \
+    src/automate2d.cpp \
+    src/autocellexception.cpp
 
 HEADERS += \
     src/automate.h \
-    src/automateexception.h \
     src/automatemanager.h \
     src/etat.h \
     src/simulateur.h \
     src/ui/mainwindow.h \
     src/automate1d.h \
-    src/automategol.h \
     src/cell.h \
-    src/grille.h
+    src/grille.h \
+    src/automate2d.h \
+    src/autocellexception.h
 
 FORMS += \
     src/ui/mainwindow.ui

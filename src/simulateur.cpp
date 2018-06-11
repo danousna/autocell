@@ -3,7 +3,7 @@
 Simulateur::Simulateur(const Automate& a, unsigned int t, unsigned int b): 
 automate(a), taille(t), buffer(b), rang(0) {
     unsigned int dimension = a.getDimension();
-    const Etat* etatsPossibles = a.getEtatsPossibles();
+    // const Etat* etatsPossibles = a.getEtatsPossibles();
 
     // On crée un pointeur vers une liste de pointeurs de taille buffer.
     // Cette liste contient des pointeurs vers des tableaux de pointeurs de
@@ -11,12 +11,30 @@ automate(a), taille(t), buffer(b), rang(0) {
     // des objets Cell.
 
     grilles = new Grille*[buffer];
-    grilles[0] = new Grille(taille, dimension);
-    grilles[1] = new Grille(taille, dimension);
+
+    if (dimension == 1) {
+        grilles[0] = new Grille1D(taille);
+        grilles[1] = new Grille1D(taille);
+    } else {
+        grilles[0] = new Grille2D(taille);
+        grilles[1] = new Grille2D(taille);
+    }
 }
 
-void Simulateur::build(unsigned int r) {
-    // Implement me.
+Simulateur::Simulateur(const Automate& a, const Grille& depart, unsigned int t, unsigned int b):
+automate(a), grilleInitiale(depart.clone()), taille(t), buffer(b), rang(0) {
+    unsigned int dimension = a.getDimension();
+    // const Etat* etatsPossibles = a.getEtatsPossibles();
+
+    grilles = new Grille*[buffer];
+
+    if (dimension == 1) {
+        grilles[0] = depart.clone();
+        grilles[1] = new Grille1D(taille);
+    } else {
+        grilles[0] = depart.clone();
+        grilles[1] = new Grille2D(taille);
+    }
 }
 
 void Simulateur::setGrilleInitiale(const Grille* depart) {
@@ -25,21 +43,20 @@ void Simulateur::setGrilleInitiale(const Grille* depart) {
 }
 
 void Simulateur::reset() {
-    if (grilleInitiale == nullptr) throw AutomateException("Grille initiale indefinie.");
-    build(0);
+    if (grilleInitiale == nullptr) throw AutoCellException("Grille initiale indefinie.");
     grilles[0] = const_cast<Grille*>(grilleInitiale);
     rang = 0;
 }
 
 void Simulateur::next() {
-    if (grilleInitiale == nullptr) throw AutomateException("Grille initiale indefinie.");
+    if (grilleInitiale == nullptr) throw AutoCellException("Grille initiale indefinie.");
     rang++;
-    build(rang % buffer);
     automate.appliquerTransition(grilles[(rang - 1) % buffer], grilles[rang % buffer]);
 }
 
 void Simulateur::run(unsigned int nb_steps) {
     for (unsigned int i = 0; i < nb_steps; i++) {
+        std::cout << dernier() << std::endl;
         next();
     }
 }
@@ -54,4 +71,9 @@ Simulateur::~Simulateur() {
     }
 
     delete[] grilles;
+}
+
+std::ostream& operator<<(std::ostream& f, const Simulateur& s) {
+    f << s.dernier();
+    return f;
 }
