@@ -1,0 +1,6 @@
+<map id="AutomateGoL::appliquerTransition" name="AutomateGoL::appliquerTransition">
+<area shape="rect" id="node2" href="$class_grille.html#a6969d0c620fcd249f543979327522c14" title="Grille::getTaille" alt="" coords="525,9,633,35"/>
+<area shape="rect" id="node3" href="$class_automate_go_l.html#a3564973909f7b8c8d7eb124bcdd6b6fc" title="AutomateGoL::calculerSomme\lVoisins" alt="" coords="272,28,472,69"/>
+<area shape="rect" id="node4" href="$class_grille.html#ac5164cab0909b89edde59e62792687b2" title="Grille::getCellVal" alt="" coords="520,63,639,90"/>
+<area shape="rect" id="node5" href="$class_grille.html#ab0aaac9029e9e78eff4a22082cb5ec4a" title="Grille::setCell" alt="" coords="321,145,423,171"/>
+</map>

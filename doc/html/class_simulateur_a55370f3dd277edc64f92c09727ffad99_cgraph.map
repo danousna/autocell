@@ -1,0 +1,5 @@
+<map id="Simulateur::run" name="Simulateur::run">
+<area shape="rect" id="node2" href="$class_simulateur.html#a4a9dba15408f6cc0527c48bad0963950" title="Simulateur::dernier" alt="" coords="164,5,295,32"/>
+<area shape="rect" id="node3" href="$class_simulateur.html#a47b0c7fb6d7519c0e484772842e655d6" title="Simulateur::next" alt="" coords="171,56,288,83"/>
+<area shape="rect" id="node4" href="$class_automate.html#a432d90e0751da593d81d0c42746e4577" title="Automate::appliquerTransition" alt="" coords="343,56,537,83"/>
+</map>

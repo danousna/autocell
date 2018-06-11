@@ -1,0 +1,4 @@
+<map id="Grille" name="Grille">
+<area shape="rect" id="node2" href="$class_grille1_d.html" title="Grille1D" alt="" coords="5,80,75,107"/>
+<area shape="rect" id="node3" href="$class_grille2_d.html" title="Grille2D" alt="" coords="99,80,168,107"/>
+</map>
