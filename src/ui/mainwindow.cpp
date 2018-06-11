@@ -5,6 +5,13 @@ MainWindow::MainWindow(QWidget *parent):
 QMainWindow(parent), ui(new Ui::MainWindow), taille(23), tailleCell(40), steps(11) {
     ui->setupUi(this);
 
+    // Connection des actions aux fenetres
+    connect(ui->actionElementaire, SIGNAL(triggered()), this, SLOT(showFenetreAutomateElementaire()));
+    connect(ui->actionGoL, SIGNAL(triggered()), this, SLOT(showFenetreAutomateGoL()));
+    connect(ui->actionWireworld, SIGNAL(triggered()), this, SLOT(showFenetreAutomateWireworld()));
+
+    // Setup des UI des trois automates
+
     numeroBit[0] = ui->bit1;
     numeroBit[1] = ui->bit2;
     numeroBit[2] = ui->bit3;
@@ -48,6 +55,8 @@ QMainWindow(parent), ui(new Ui::MainWindow), taille(23), tailleCell(40), steps(1
     ui->grille->setFixedSize(tailleCell * taille + 2, tailleCell * steps);
 
     for (unsigned int i = 0; i < steps; ++i) {
+        ui->grille->setRowHeight(i, tailleCell - 5);
+
         for (unsigned int j = 0; j < taille; j++) {
             ui->grille->setColumnWidth(j, tailleCell);
             ui->grille->setItem(i, j, new QTableWidgetItem(""));
@@ -59,6 +68,18 @@ QMainWindow(parent), ui(new Ui::MainWindow), taille(23), tailleCell(40), steps(1
 
 MainWindow::~MainWindow() {
     delete ui;
+}
+
+void MainWindow::showFenetreAutomateElementaire() {
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::showFenetreAutomateGoL() {
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::showFenetreAutomateWireworld() {
+    ui->stackedWidget->setCurrentIndex(2);
 }
 
 void MainWindow::toggleCell(QTableWidgetItem* item) {

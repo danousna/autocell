@@ -26,10 +26,12 @@ class MainWindow : public QMainWindow {
     int taille;
     int tailleCell;
     int steps;
-public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
 private slots:
+    // Chargement Fenetres
+    void showFenetreAutomateElementaire();
+    void showFenetreAutomateGoL();
+    void showFenetreAutomateWireworld();
+
     void toggleCell(QTableWidgetItem* item);
     void playSimulation();
 
@@ -38,10 +40,25 @@ private slots:
 
     // Sync de la grille de l'automate avec la TableWidget.
     void syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT);
-    
+
     void viderGrille();
     void synchronizeNumToNumBit(int i);
     void synchronizeNumBitToNum(const QString& s);
+public:
+    explicit MainWindow(QWidget *parent = 0);
+    ~MainWindow();
+
+    class AutomateGoLWindow {
+
+    }
+
+    class AutomateElementaireWindow {
+        
+    }
+
+    class AutomateWireworldWindow {
+        
+    }
 };
 
 #endif // MAINWINDOW_H
