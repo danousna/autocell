@@ -1,7 +1,7 @@
 #include "automate2d.h"
 
 void AutomateGoL::appliquerTransition(Grille* dep, Grille* dest) const {
-    if (dep->getTaille() != dest->getTaille()) throw new AutomateException("Erreur : La grille de départ n'a pas la même dimension que la grille d'arrivée.");
+    if (dep->getTaille() != dest->getTaille()) throw new AutoCellException("Erreur : La grille de départ n'a pas la même dimension que la grille d'arrivée.");
 
     unsigned int taille = dep->getTaille();
     int newValeurs[taille][taille];
@@ -42,6 +42,8 @@ void AutomateGoL::appliquerTransition(Grille* dep, Grille* dest) const {
 }
 
 std::ostream& operator<<(std::ostream& f, const AutomateGoL& a) {
-    f << "Automate du Jeu de la Vie \n";
+    f << "Automate du Jeu de la Vie : \n";
+    f << "Nombre de voisins minimum : " << a.getVoisinsVivantsMin() << "\n";
+    f << "Nombre de voisins maximum : " << a.getVoisinsVivantsMax() << "\n";
     return f;
 }

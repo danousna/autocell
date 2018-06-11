@@ -43,13 +43,13 @@ void Simulateur::setGrilleInitiale(const Grille* depart) {
 }
 
 void Simulateur::reset() {
-    if (grilleInitiale == nullptr) throw AutomateException("Grille initiale indefinie.");
+    if (grilleInitiale == nullptr) throw AutoCellException("Grille initiale indefinie.");
     grilles[0] = const_cast<Grille*>(grilleInitiale);
     rang = 0;
 }
 
 void Simulateur::next() {
-    if (grilleInitiale == nullptr) throw AutomateException("Grille initiale indefinie.");
+    if (grilleInitiale == nullptr) throw AutoCellException("Grille initiale indefinie.");
     rang++;
     automate.appliquerTransition(grilles[(rang - 1) % buffer], grilles[rang % buffer]);
 }

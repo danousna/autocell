@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 
-#include "automateexception.h"
+#include "autocellexception.h"
 #include "etat.h"
 #include "cell.h"
 #include "grille.h"

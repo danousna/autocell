@@ -19,8 +19,8 @@ public:
     AutomateGoL(): voisinsVivantsMin(2), voisinsVivantsMax(3) {}
     AutomateGoL(unsigned int vMin, unsigned int vMax): voisinsVivantsMin(vMin), voisinsVivantsMax(vMax) {}
 
-    const unsigned int getVoisinsVivantsMin() const { return voisinsVivantsMin; }
-    const unsigned int getVoisinsVivantsMax() const { return voisinsVivantsMax; }
+    unsigned int getVoisinsVivantsMin() const { return voisinsVivantsMin; }
+    unsigned int getVoisinsVivantsMax() const { return voisinsVivantsMax; }
     void appliquerTransition(Grille* dep, Grille* dest) const;
 };
 

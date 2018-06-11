@@ -1,7 +1,7 @@
 #include "automate1d.h"
 
 void AutomateElementaire::appliquerTransition(Grille* dep, Grille* dest) const {
-    if (dep->getTaille() != dest->getTaille()) throw new AutomateException("Erreur : La grille de départ n'a pas la même dimension que la grille d'arrivée.");
+    if (dep->getTaille() != dest->getTaille()) throw new AutoCellException("Erreur : La grille de départ n'a pas la même dimension que la grille d'arrivée.");
 
     // Code du TD.
     for (unsigned int i = 0; i < dep->getTaille(); i++) {
@@ -30,13 +30,13 @@ std::ostream& operator<<(std::ostream& f, const AutomateElementaire& a) {
 // Fonctions helpers
 
 unsigned int NumBitToNum(const std::string& num) {
-    if (num.size() != 8) throw AutomateException("Numero d'automate indefini");
+    if (num.size() != 8) throw AutoCellException("Numero d'automate indefini");
     int puissance = 1;
     unsigned int numero = 0;
     for (int i = 7; i >= 0; i--) {
         if (num[i] == '1') {
             numero += puissance;
-        } else if (num[i] != '0') throw AutomateException("Numero d'automate indefini");
+        } else if (num[i] != '0') throw AutoCellException("Numero d'automate indefini");
         puissance *= 2;
     }
     return numero;
@@ -44,7 +44,7 @@ unsigned int NumBitToNum(const std::string& num) {
 
 std::string NumToNumBit(unsigned int num) {
     std::string numeroBit;
-    if (num > 256) throw AutomateException("Numero d'automate indefini");
+    if (num > 256) throw AutoCellException("Numero d'automate indefini");
     unsigned int p = 128;
     int i = 7;
     while (i >= 0) {
