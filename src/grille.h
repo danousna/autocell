@@ -4,11 +4,6 @@
 #include "cell.h"
 #include "etat.h"
 
-/*
-    TODO(Natan): 
-        - destructeur pour tableau dynamique
-*/
-
 class Grille
 {
 protected:
