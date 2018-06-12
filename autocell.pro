@@ -25,7 +25,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     src/automate.cpp \
-    src/automatemanager.cpp \
     src/etat.cpp \
     src/simulateur.cpp \
     src/main.cpp \
@@ -39,7 +38,6 @@ SOURCES += \
 
 HEADERS += \
     src/automate.h \
-    src/automatemanager.h \
     src/etat.h \
     src/simulateur.h \
     src/ui/mainwindow.h \

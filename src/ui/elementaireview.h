@@ -25,17 +25,19 @@ class ElementaireView : public QWidget
     int taille;
     int tailleCell;
     int steps;
+
+    // L'automate de cette view. C'est un singleton.
+    AutomateElementaire* automate;
 public:
     explicit ElementaireView(QWidget *parent = 0);
     ~ElementaireView();
 private slots:
     void toggleCell(QTableWidgetItem* item);
     void playSimulation();
-
-    // Sync des grilles.
+    void refreshTaille();
     void syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT, int step = 0, bool set = true);
-
     void viderGrille();
+    void drawGrille(QTableWidget* grille, unsigned int tCell, unsigned int t, unsigned int r);
     void synchronizeNumToNumBit(int i);
     void synchronizeNumBitToNum(const QString& s);
 };

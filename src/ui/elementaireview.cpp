@@ -2,9 +2,13 @@
 #include "ui_elementaireview.h"
 
 ElementaireView::ElementaireView(QWidget *parent): 
-QWidget(parent), ui(new Ui::ElementaireView), taille(23), tailleCell(40), steps(11) {
+QWidget(parent), ui(new Ui::ElementaireView), taille(23), tailleCell(40), steps(11), automate(AutomateElementaire::getInstance(30)) {
     ui->setupUi(this);
 
+    // UI Taille
+    connect(ui->btnRefreshTaille, SIGNAL(clicked()), this, SLOT(refreshTaille()));
+
+    // UI Règle
     numeroBit[0] = ui->bit1;
     numeroBit[1] = ui->bit2;
     numeroBit[2] = ui->bit3;
@@ -26,42 +30,24 @@ QWidget(parent), ui(new Ui::ElementaireView), taille(23), tailleCell(40), steps(
     }
 
     // Affichage et interaction avec la grille de départ.
-    ui->grilleDepart->setColumnCount(taille);
-    ui->grilleDepart->setRowCount(1);
-    ui->grilleDepart->setFixedSize(tailleCell * taille + 2, tailleCell);
-
-    for(unsigned int i = 0; i < taille; i++) {
-        ui->grilleDepart->setColumnWidth(i, tailleCell);
-        ui->grilleDepart->setItem(0, i, new QTableWidgetItem(""));
-        if (ui->grilleDepart->item(0, i) != NULL) {
-            ui->grilleDepart->item(0, i)->setBackgroundColor("white");
-            ui->grilleDepart->item(0, i)->setTextColor("white");
-        }
-    }
+    drawGrille(ui->grilleDepart, tailleCell, taille, 1);
 
     connect(ui->grilleDepart, SIGNAL(itemClicked(QTableWidgetItem*)), this, SLOT(toggleCell(QTableWidgetItem*)));
     connect(ui->btnPlaySimulation, SIGNAL(clicked()), this, SLOT(playSimulation()));
 
     // Affichage de la grille.
-    ui->grille->setColumnCount(taille);
-    ui->grille->setRowCount(steps);
-    ui->grille->setFixedSize(tailleCell * taille + 2, tailleCell * steps - 40);
-
-    for (unsigned int i = 0; i < steps; ++i) {
-        ui->grille->setRowHeight(i, tailleCell - 5);
-
-        for (unsigned int j = 0; j < taille; j++) {
-            ui->grille->setColumnWidth(j, tailleCell);
-            ui->grille->setItem(i, j, new QTableWidgetItem(""));
-            ui->grille->item(i, j)->setBackgroundColor("white");
-            ui->grille->item(i, j)->setTextColor("white");
-        }
-    }
+    drawGrille(ui->grille, tailleCell, taille, steps);
 }
 
 ElementaireView::~ElementaireView()
 {
     delete ui;
+}
+
+void ElementaireView::refreshTaille() {
+    taille = ui->inputTaille->value();
+    drawGrille(ui->grilleDepart, tailleCell, taille, 1);
+    drawGrille(ui->grille, tailleCell, taille, steps);
 }
 
 void ElementaireView::toggleCell(QTableWidgetItem* item) {
@@ -78,12 +64,10 @@ void ElementaireView::toggleCell(QTableWidgetItem* item) {
 void ElementaireView::playSimulation() {
     this->viderGrille();
 
-    AutomateElementaire a(30);
-
     Grille1D g(taille);
     this->syncGrilles(&g, ui->grilleDepart, 0, false);
 
-    Simulateur s(a, g, taille);
+    Simulateur s(*automate, g, taille);
 
     for (int i = 0; i < steps; i++) {
         this->syncGrilles(&s.dernier(), ui->grille, i, true);
@@ -124,6 +108,40 @@ void ElementaireView::viderGrille() {
         for (unsigned int j = 0; j < taille; j++) {
             ui->grille->item(i, j)->setBackgroundColor("white");
             ui->grille->item(i, j)->setTextColor("white");
+        }
+    }
+}
+
+void ElementaireView::drawGrille(QTableWidget* grille, unsigned int tCell, unsigned int t, unsigned int r) {
+    grille->setColumnCount(t);
+    grille->setRowCount(r);
+
+    // 1D
+    if (r == 1) {
+        grille->setFixedSize(tCell * t + 2, tCell);
+
+        for(unsigned int i = 0; i < t; i++) {
+            grille->setColumnWidth(i, tCell);
+            grille->setItem(0, i, new QTableWidgetItem(""));
+            if (grille->item(0, i) != NULL) {
+                grille->item(0, i)->setBackgroundColor("white");
+                grille->item(0, i)->setTextColor("white");
+            }
+        }
+    }
+    // 2D 
+    else {
+        grille->setFixedSize(tCell * t + 2, tCell * r - 40);
+
+        for (unsigned int i = 0; i < r; ++i) {
+            grille->setRowHeight(i, tCell - 5);
+
+            for (unsigned int j = 0; j < t; j++) {
+                grille->setColumnWidth(j, tCell);
+                grille->setItem(i, j, new QTableWidgetItem(""));
+                grille->item(i, j)->setBackgroundColor("white");
+                grille->item(i, j)->setTextColor("white");
+            }
         }
     }
 }
