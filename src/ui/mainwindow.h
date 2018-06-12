@@ -12,7 +12,6 @@
 #include "../automate1d.h"
 
 // TODO : AutomateManager to only get one instace of every automate.
-// TODO : Sync two ways ! Automate->TableWiget && TableWidget->Automate.
 
 namespace Ui {
 class MainWindow;
@@ -35,11 +34,8 @@ private slots:
     void toggleCell(QTableWidgetItem* item);
     void playSimulation();
 
-    // Sync de la TableWidget avec la grille de l'automate.
-    void syncGrilles(QTableWidget* grilleQT, Grille* grilleAutomate, int step = 0);
-
-    // Sync de la grille de l'automate avec la TableWidget.
-    void syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT);
+    // Sync des grilles.
+    void syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT, int step = 0, bool set = true);
 
     void viderGrille();
     void synchronizeNumToNumBit(int i);
@@ -48,17 +44,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    class AutomateGoLWindow {
-
-    };
-
-    class AutomateElementaireWindow {
-        
-    };
-
-    class AutomateWireworldWindow {
-        
-    };
+    void setupAutomateElementaireWindow();
+    void setupAutomateGoLWindow();
 };
 
 #endif // MAINWINDOW_H

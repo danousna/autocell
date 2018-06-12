@@ -11,7 +11,27 @@ QMainWindow(parent), ui(new Ui::MainWindow), taille(23), tailleCell(40), steps(1
     connect(ui->actionWireworld, SIGNAL(triggered()), this, SLOT(showFenetreAutomateWireworld()));
 
     // Setup des UI des trois automates
+    setupAutomateElementaireWindow();
+    setupAutomateGoLWindow();
+}
 
+MainWindow::~MainWindow() {
+    delete ui;
+}
+
+void MainWindow::showFenetreAutomateElementaire() {
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::showFenetreAutomateGoL() {
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::showFenetreAutomateWireworld() {
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+void MainWindow::setupAutomateElementaireWindow() {
     numeroBit[0] = ui->bit1;
     numeroBit[1] = ui->bit2;
     numeroBit[2] = ui->bit3;
@@ -52,7 +72,7 @@ QMainWindow(parent), ui(new Ui::MainWindow), taille(23), tailleCell(40), steps(1
     // Affichage de la grille.
     ui->grille->setColumnCount(taille);
     ui->grille->setRowCount(steps);
-    ui->grille->setFixedSize(tailleCell * taille + 2, tailleCell * steps);
+    ui->grille->setFixedSize(tailleCell * taille + 2, tailleCell * steps - 40);
 
     for (unsigned int i = 0; i < steps; ++i) {
         ui->grille->setRowHeight(i, tailleCell - 5);
@@ -66,20 +86,8 @@ QMainWindow(parent), ui(new Ui::MainWindow), taille(23), tailleCell(40), steps(1
     }
 }
 
-MainWindow::~MainWindow() {
-    delete ui;
-}
-
-void MainWindow::showFenetreAutomateElementaire() {
-    ui->stackedWidget->setCurrentIndex(0);
-}
-
-void MainWindow::showFenetreAutomateGoL() {
-    ui->stackedWidget->setCurrentIndex(1);
-}
-
-void MainWindow::showFenetreAutomateWireworld() {
-    ui->stackedWidget->setCurrentIndex(2);
+void MainWindow::setupAutomateGoLWindow() {
+    
 }
 
 void MainWindow::toggleCell(QTableWidgetItem* item) {
@@ -99,40 +107,40 @@ void MainWindow::playSimulation() {
     AutomateElementaire a(30);
 
     Grille1D g(taille);
-    this->syncGrilles(&g, ui->grilleDepart);
+    this->syncGrilles(&g, ui->grilleDepart, 0, false);
 
     Simulateur s(a, g, taille);
 
     for (int i = 0; i < steps; i++) {
-        this->syncGrilles(ui->grille, &s.dernier(), i);
+        this->syncGrilles(&s.dernier(), ui->grille, i, true);
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
         QCoreApplication::processEvents();
         s.next();
     }
 }
 
-void MainWindow::syncGrilles(QTableWidget* grilleQT, Grille* grilleAutomate, int step) {
+// Si set TRUE, grilleAutomate SET les valeurs de TableWidget.
+// Si set FALSE, grilleAutomate GET les valeurs de TableWidget.
+void MainWindow::syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT, int step, bool set) {
     if (grilleQT->columnCount() != grilleAutomate->getTaille()) throw new AutoCellException("La grille Qt n'a pas la même taille que la grille de l'automate.");
 
-    for (unsigned int i = 0; i < grilleAutomate->getTaille(); i++) {
-        if (grilleAutomate->getCellVal(i, 0)) {
-            grilleQT->item(step, i)->setBackgroundColor("black");
-        } else {
-            grilleQT->item(step, i)->setBackgroundColor("white");
+    if (set) {
+        for (unsigned int i = 0; i < grilleAutomate->getTaille(); i++) {
+            if (grilleAutomate->getCellVal(i, 0)) {
+                grilleQT->item(step, i)->setBackgroundColor("black");
+            } else {
+                grilleQT->item(step, i)->setBackgroundColor("white");
+            }
         }
-    }
-}
-
-void MainWindow::syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT) {
-    if (grilleQT->columnCount() != grilleAutomate->getTaille()) throw new AutoCellException("La grille Qt n'a pas la même taille que la grille de l'automate.");
-
-    for (unsigned int i = 0; i < grilleAutomate->getTaille(); i++) {
-        if (grilleQT->item(0, i)->background().color() == QColor("black")) {
-            Cell c(Etat(1, "vivante"));
-            grilleAutomate->setCell(c, i, 0);
-        } else {
-            Cell c(Etat(0, "morte"));
-            grilleAutomate->setCell(c, i, 0);
+    } else {
+        for (unsigned int i = 0; i < grilleAutomate->getTaille(); i++) {
+            if (grilleQT->item(0, i)->background().color() == QColor("black")) {
+                Cell c(Etat(1, "vivante"));
+                grilleAutomate->setCell(c, i, 0);
+            } else {
+                Cell c(Etat(0, "morte"));
+                grilleAutomate->setCell(c, i, 0);
+            }
         }
     }    
 }
