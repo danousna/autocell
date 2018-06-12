@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Autocell:  Fichier source de /mnt/DATA/aranelle/Documents/Scolaire/École/HuTech 04/LO21/autocell/src/etat.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Autocell
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Automates cellulaires dans le cadre de l&#39;UV LO21</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','Recherche');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('etat_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">etat.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="etat_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ETAT_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ETAT_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="autocellexception_8h.html">autocellexception.h</a>&quot;</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_etat.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_etat.html">Etat</a> {</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">int</span> valeur;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    std::string desc;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_etat.html#a44b4313a1a0bc0584a36be447802f2f4">   13</a></span>&#160;    <a class="code" href="class_etat.html#a44b4313a1a0bc0584a36be447802f2f4">Etat</a>(): valeur(0), desc(<span class="stringliteral">&quot;morte&quot;</span>) {}</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_etat.html#ad6b711c4d3cfa6b08bc7bd44f75aa689">   14</a></span>&#160;    <a class="code" href="class_etat.html#ad6b711c4d3cfa6b08bc7bd44f75aa689">Etat</a>(<span class="keywordtype">int</span> v, std::string d): valeur(v), desc(d) {}</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_etat.html#a791c2a702d57d7486d76d838980c1ee6">   15</a></span>&#160;    <a class="code" href="class_etat.html#a791c2a702d57d7486d76d838980c1ee6">Etat</a>(<span class="keywordtype">int</span> v): valeur(v), desc(<span class="stringliteral">&quot;pas de description&quot;</span>) {}</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_etat.html#a4e8daa1c9d8366a505bb60423c5eba53">   16</a></span>&#160;    <a class="code" href="class_etat.html#a4e8daa1c9d8366a505bb60423c5eba53">Etat</a>(<span class="keyword">const</span> <a class="code" href="class_etat.html">Etat</a>&amp; e): valeur(e.<a class="code" href="class_etat.html#afc9196c30288f94f5e2be8218e99db42">getValeur</a>()), desc(e.<a class="code" href="class_etat.html#a55c54f3ad36919b749a7d4fe8d3b12b9">getDesc</a>()) {}</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_etat.html#afc9196c30288f94f5e2be8218e99db42">   17</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_etat.html#afc9196c30288f94f5e2be8218e99db42">getValeur</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> valeur; }</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_etat.html#a55c54f3ad36919b749a7d4fe8d3b12b9">   18</a></span>&#160;    std::string <a class="code" href="class_etat.html#a55c54f3ad36919b749a7d4fe8d3b12b9">getDesc</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> desc; }</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_etat.html">Etat</a>&amp; <a class="code" href="class_etat.html#a67d761262450f83149baafb06c97cab6">operator=</a>(<span class="keyword">const</span> <a class="code" href="class_etat.html">Etat</a>&amp; e);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;std::ostream&amp; <a class="code" href="etat_8h.html#ad20c00244d1f36df670c202fdc9379fa">operator&lt;&lt;</a>(std::ostream&amp; f, <span class="keyword">const</span> <a class="code" href="class_etat.html">Etat</a>&amp; e);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif // ETAT_H</span></div><div class="ttc" id="class_etat_html_a67d761262450f83149baafb06c97cab6"><div class="ttname"><a href="class_etat.html#a67d761262450f83149baafb06c97cab6">Etat::operator=</a></div><div class="ttdeci">Etat &amp; operator=(const Etat &amp;e)</div><div class="ttdef"><b>Definition:</b> <a href="etat_8cpp_source.html#l00003">etat.cpp:3</a></div></div>
+<div class="ttc" id="class_etat_html_ad6b711c4d3cfa6b08bc7bd44f75aa689"><div class="ttname"><a href="class_etat.html#ad6b711c4d3cfa6b08bc7bd44f75aa689">Etat::Etat</a></div><div class="ttdeci">Etat(int v, std::string d)</div><div class="ttdef"><b>Definition:</b> <a href="etat_8h_source.html#l00014">etat.h:14</a></div></div>
+<div class="ttc" id="class_etat_html_a55c54f3ad36919b749a7d4fe8d3b12b9"><div class="ttname"><a href="class_etat.html#a55c54f3ad36919b749a7d4fe8d3b12b9">Etat::getDesc</a></div><div class="ttdeci">std::string getDesc() const</div><div class="ttdef"><b>Definition:</b> <a href="etat_8h_source.html#l00018">etat.h:18</a></div></div>
+<div class="ttc" id="class_etat_html_afc9196c30288f94f5e2be8218e99db42"><div class="ttname"><a href="class_etat.html#afc9196c30288f94f5e2be8218e99db42">Etat::getValeur</a></div><div class="ttdeci">int getValeur() const</div><div class="ttdef"><b>Definition:</b> <a href="etat_8h_source.html#l00017">etat.h:17</a></div></div>
+<div class="ttc" id="etat_8h_html_ad20c00244d1f36df670c202fdc9379fa"><div class="ttname"><a href="etat_8h.html#ad20c00244d1f36df670c202fdc9379fa">operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;f, const Etat &amp;e)</div><div class="ttdef"><b>Definition:</b> <a href="etat_8cpp_source.html#l00012">etat.cpp:12</a></div></div>
+<div class="ttc" id="class_etat_html_a4e8daa1c9d8366a505bb60423c5eba53"><div class="ttname"><a href="class_etat.html#a4e8daa1c9d8366a505bb60423c5eba53">Etat::Etat</a></div><div class="ttdeci">Etat(const Etat &amp;e)</div><div class="ttdef"><b>Definition:</b> <a href="etat_8h_source.html#l00016">etat.h:16</a></div></div>
+<div class="ttc" id="autocellexception_8h_html"><div class="ttname"><a href="autocellexception_8h.html">autocellexception.h</a></div></div>
+<div class="ttc" id="class_etat_html_a44b4313a1a0bc0584a36be447802f2f4"><div class="ttname"><a href="class_etat.html#a44b4313a1a0bc0584a36be447802f2f4">Etat::Etat</a></div><div class="ttdeci">Etat()</div><div class="ttdef"><b>Definition:</b> <a href="etat_8h_source.html#l00013">etat.h:13</a></div></div>
+<div class="ttc" id="class_etat_html_a791c2a702d57d7486d76d838980c1ee6"><div class="ttname"><a href="class_etat.html#a791c2a702d57d7486d76d838980c1ee6">Etat::Etat</a></div><div class="ttdeci">Etat(int v)</div><div class="ttdef"><b>Definition:</b> <a href="etat_8h_source.html#l00015">etat.h:15</a></div></div>
+<div class="ttc" id="class_etat_html"><div class="ttname"><a href="class_etat.html">Etat</a></div><div class="ttdef"><b>Definition:</b> <a href="etat_8h_source.html#l00009">etat.h:9</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="etat_8h.html">etat.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

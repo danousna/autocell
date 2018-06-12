@@ -18,7 +18,7 @@ std::ostream& Grille1D::afficher(std::ostream& f) const {
 }
 
 void Grille2D::setCell(const Cell& c, unsigned i, unsigned int j) {
-    if (i > taille || j > taille) throw new AutoCellException("L'index est plus grand que la taille de la grille.");
+    if (i > taille || j > taille) throw new AutoCellException("L'index est plus grand que la taille de la grille.");
     valeurs[i][j] = c;
 }
 
