@@ -50,15 +50,15 @@ public:
 
     class AutomateGoLWindow {
 
-    }
+    };
 
     class AutomateElementaireWindow {
         
-    }
+    };
 
     class AutomateWireworldWindow {
         
-    }
+    };
 };
 
 #endif // MAINWINDOW_H

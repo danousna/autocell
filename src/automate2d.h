@@ -27,4 +27,19 @@ public:
 
 std::ostream& operator<<(std::ostream& f, const AutomateGoL& a);
 
+class AutomateWW : public Automate2D
+{
+    unsigned int voisinsTeteMin;
+    unsigned int voisinsTeteMax;
+public:
+    AutomateWW();
+    AutomateWW(unsigned int vMin, unsigned int vMax);
+
+    unsigned int getVoisinsTeteMin() const { return voisinsTeteMin; }
+    unsigned int getVoisinsTeteMax() const { return voisinsTeteMax; }
+    void appliquerTransition(Grille* dep, Grille* dest) const;
+    int calculerSommeVoisinsTete(Grille* g, unsigned int y, unsigned int x) const;
+};
+
+
 #endif // AUTOMATEGOL_H
