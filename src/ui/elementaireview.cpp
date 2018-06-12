@@ -21,7 +21,7 @@ QWidget(parent), ui(new Ui::ElementaireView), taille(23), tailleCell(40), steps(
     zeroOneValidator = new QIntValidator(this);
     zeroOneValidator->setRange(0, 1);
 
-    // Configuration de l'automate.
+    // Configuration de la règle de l'automate.
     connect(ui->numeroInput, SIGNAL(valueChanged(int)), this, SLOT(synchronizeNumToNumBit(int)));
 
     for (unsigned int i = 0; i < 8; i++) {
@@ -31,7 +31,6 @@ QWidget(parent), ui(new Ui::ElementaireView), taille(23), tailleCell(40), steps(
 
     // Affichage et interaction avec la grille de départ.
     drawGrille(ui->grilleDepart, tailleCell, taille, 1);
-
     connect(ui->grilleDepart, SIGNAL(itemClicked(QTableWidgetItem*)), this, SLOT(toggleCell(QTableWidgetItem*)));
     connect(ui->btnPlaySimulation, SIGNAL(clicked()), this, SLOT(playSimulation()));
 
@@ -153,6 +152,9 @@ void ElementaireView::synchronizeNumToNumBit(int i) {
     {
         numeroBit[i]->setText((QString) numBit[i]);
     }
+
+    // Charger l'automate correspondant.
+    automate = AutomateElementaire::getInstance(i);
 }
 
 void ElementaireView::synchronizeNumBitToNum(const QString& s) {
@@ -168,4 +170,7 @@ void ElementaireView::synchronizeNumBitToNum(const QString& s) {
     short unsigned int numero = NumBitToNum(string);
 
     ui->numeroInput->setValue(numero);
+
+    // Charger l'automate correspondant.
+    automate = AutomateElementaire::getInstance(numero);
 }

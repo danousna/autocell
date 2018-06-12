@@ -27,7 +27,7 @@ public:
         if (!singleton) {
             singleton = new AutomateElementaire(n);
         } else {
-            if (true == false) {
+            if (n != singleton->getNumero()) {
                 delete singleton;
                 singleton = new AutomateElementaire(n);
             }
@@ -39,7 +39,7 @@ public:
         if (!singleton) {
             singleton = new AutomateElementaire(num);
         } else {
-            if (true == false) {
+            if (num != singleton->getNumeroBit()) {
                 delete singleton;
                 singleton = new AutomateElementaire(num);
             }
