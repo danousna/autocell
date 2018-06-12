@@ -1,4 +1,5 @@
 <map id="Grille::setCell" name="Grille::setCell">
-<area shape="rect" id="node2" href="$class_automate_elementaire.html#adab333b65d44a50986ddb024bc475121" title="AutomateElementaire\l::appliquerTransition" alt="" coords="191,5,337,47"/>
-<area shape="rect" id="node3" href="$class_automate_go_l.html#a59a931d6cd6a3f4d2b9f4ebd8d533abc" title="AutomateGoL::appliquerTransition" alt="" coords="155,71,373,98"/>
+<area shape="rect" id="node2" href="$class_automate_elementaire.html#adab333b65d44a50986ddb024bc475121" title="AutomateElementaire\l::appliquerTransition" alt="" coords="191,5,338,47"/>
+<area shape="rect" id="node3" href="$class_automate_go_l.html#a59a931d6cd6a3f4d2b9f4ebd8d533abc" title="AutomateGoL::appliquerTransition" alt="" coords="155,71,374,98"/>
+<area shape="rect" id="node4" href="$class_automate_w_w.html#aeae4ba577e39c738ef4c6524910e2fc0" title="AutomateWW::appliquerTransition" alt="" coords="155,122,375,149"/>
 </map>

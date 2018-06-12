@@ -1,5 +1,7 @@
 <map id="Grille::getCellVal" name="Grille::getCellVal">
-<area shape="rect" id="node2" href="$class_automate_elementaire.html#adab333b65d44a50986ddb024bc475121" title="AutomateElementaire\l::appliquerTransition" alt="" coords="199,5,345,47"/>
-<area shape="rect" id="node3" href="$class_automate_go_l.html#a59a931d6cd6a3f4d2b9f4ebd8d533abc" title="AutomateGoL::appliquerTransition" alt="" coords="420,101,639,127"/>
-<area shape="rect" id="node4" href="$class_automate_go_l.html#a3564973909f7b8c8d7eb124bcdd6b6fc" title="AutomateGoL::calculerSomme\lVoisins" alt="" coords="172,123,372,164"/>
+<area shape="rect" id="node2" href="$class_automate_elementaire.html#adab333b65d44a50986ddb024bc475121" title="AutomateElementaire\l::appliquerTransition" alt="" coords="200,5,347,47"/>
+<area shape="rect" id="node3" href="$class_automate_go_l.html#a59a931d6cd6a3f4d2b9f4ebd8d533abc" title="AutomateGoL::appliquerTransition" alt="" coords="423,101,642,127"/>
+<area shape="rect" id="node4" href="$class_automate_go_l.html#a3564973909f7b8c8d7eb124bcdd6b6fc" title="AutomateGoL::calculerSomme\lVoisins" alt="" coords="173,123,373,164"/>
+<area shape="rect" id="node5" href="$class_automate_w_w.html#aeae4ba577e39c738ef4c6524910e2fc0" title="AutomateWW::appliquerTransition" alt="" coords="423,218,643,245"/>
+<area shape="rect" id="node6" href="$class_automate_w_w.html#a2d82956550cc6039a8f26c950c746c1d" title="AutomateWW::calculerSomme\lVoisinsTete" alt="" coords="172,240,375,281"/>
 </map>

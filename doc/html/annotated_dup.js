@@ -7,6 +7,7 @@ var annotated_dup =
     [ "AutomateElementaire", "class_automate_elementaire.html", "class_automate_elementaire" ],
     [ "AutomateGoL", "class_automate_go_l.html", "class_automate_go_l" ],
     [ "AutomateManager", "class_automate_manager.html", "class_automate_manager" ],
+    [ "AutomateWW", "class_automate_w_w.html", "class_automate_w_w" ],
     [ "Cell", "class_cell.html", "class_cell" ],
     [ "Etat", "class_etat.html", "class_etat" ],
     [ "Grille", "class_grille.html", "class_grille" ],
