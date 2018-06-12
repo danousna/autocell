@@ -59,20 +59,7 @@ AutomateWW::AutomateWW(): voisinsTeteMin(1), voisinsTeteMax(2) {
     const Etat tete(2, "tête d'élection");
     const Etat queue(3, "queue d'électron");
 
-    etatsPossibles = new Etat[2];
-    etatsPossibles[0] = vide;
-    etatsPossibles[1] = conducteur;
-    etatsPossibles[1] = tete;
-    etatsPossibles[1] = queue;
-}
-
-AutomateWW::AutomateWW(unsigned int vMin, unsigned int vMax): voisinsTeteMin(vMin), voisinsTeteMax(vMax) {
-    const Etat vide(0, "vide");
-    const Etat conducteur(1, "conductrice");
-    const Etat tete(2, "tête d'élection");
-    const Etat queue(3, "queue d'électron");
-
-    etatsPossibles = new Etat[2];
+    etatsPossibles = new Etat[4];
     etatsPossibles[0] = vide;
     etatsPossibles[1] = conducteur;
     etatsPossibles[1] = tete;
@@ -146,4 +133,14 @@ int AutomateWW::calculerSommeVoisinsTete(Grille* g, unsigned int y, unsigned int
     }
 
     return sum;
+}
+
+std::ostream& operator<<(std::ostream& f, const AutomateWW& a) {
+    f << "Automate Wireworld : \n";
+    f << "Une cellule vide reste vide.\n";
+    f << "Une tête d'électron devient une queue d'électron.\n";
+    f << "Une queue d'électron devient un conducteur.\n";
+    f << "Un conducteur devient une tête d'électron si " << a.getVoisinsTeteMin() << " ou " << a.getVoisinsTeteMax() << " des cellules voisines sont des têtes d'électron.\n";
+
+    return f;
 }

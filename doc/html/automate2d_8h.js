@@ -3,5 +3,6 @@ var automate2d_8h =
     [ "Automate2D", "class_automate2_d.html", "class_automate2_d" ],
     [ "AutomateGoL", "class_automate_go_l.html", "class_automate_go_l" ],
     [ "AutomateWW", "class_automate_w_w.html", "class_automate_w_w" ],
-    [ "operator<<", "automate2d_8h.html#aeb45079682192e3d5b7bb7272c0f408d", null ]
+    [ "operator<<", "automate2d_8h.html#aeb45079682192e3d5b7bb7272c0f408d", null ],
+    [ "operator<<", "automate2d_8h.html#a27823ea2b5f2887c9f7f224c00e1484e", null ]
 ];
