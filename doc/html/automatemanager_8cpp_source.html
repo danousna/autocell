@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Autocell:  Fichier source de /mnt/DATA/aranelle/Documents/Scolaire/École/HuTech 04/LO21/autocell/src/automatemanager.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Autocell
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Automates cellulaires dans le cadre de l&#39;UV LO21</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','Recherche');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('automatemanager_8cpp_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">automatemanager.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="automatemanager_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="automatemanager_8h.html">automatemanager.h</a>&quot;</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;AutomateManager::AutomateManager() {</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; 256; i++) {</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;        automates[i] = <span class="keyword">nullptr</span>;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    }</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;}</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;AutomateManager::~AutomateManager() {</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; 256; i++) {</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keyword">delete</span> automates[i];</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    }</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;AutomateManager::Handler AutomateManager::handler = Handler();</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_automate_manager.html#a338e03d989806f8f41806f48098353c1">   17</a></span>&#160;<a class="code" href="class_automate_manager.html">AutomateManager</a>&amp; <a class="code" href="class_automate_manager.html#a338e03d989806f8f41806f48098353c1">AutomateManager::getAutomateManager</a>() {</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">if</span> (!handler.instance) {</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        handler.instance = <span class="keyword">new</span> <a class="code" href="class_automate_manager.html">AutomateManager</a>;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    }</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">return</span> *handler.instance;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_automate_manager.html#a8bf59dcc4148630d79ff662e5e63ba43">   24</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_automate_manager.html#a8bf59dcc4148630d79ff662e5e63ba43">AutomateManager::libererAutomateManager</a>() {</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">delete</span> handler.instance;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    handler.instance = <span class="keyword">nullptr</span>;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_automate_manager.html#abaee66dd967aab7af88099467077f217">   29</a></span>&#160;<span class="keyword">const</span> <a class="code" href="class_automate.html">Automate</a>&amp; <a class="code" href="class_automate_manager.html#abaee66dd967aab7af88099467077f217">AutomateManager::getAutomate</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> d, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> e, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> num) {</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span> (!automates[num]) {</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        automates[num] = <span class="keyword">new</span> <a class="code" href="class_automate_elementaire.html">AutomateElementaire</a>(num);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">return</span> *automates[num];</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div><div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_automate_manager.html#acdc83ea53e3888eb9f54aff5c86a2acf">   35</a></span>&#160;<span class="keyword">const</span> <a class="code" href="class_automate.html">Automate</a>&amp; <a class="code" href="class_automate_manager.html#abaee66dd967aab7af88099467077f217">AutomateManager::getAutomate</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> d, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> e, <span class="keyword">const</span> std::string&amp; numBit) {</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_automate_manager.html#abaee66dd967aab7af88099467077f217">getAutomate</a>(d, e, <a class="code" href="automate1d_8cpp.html#a14cc6c5fe0b278d7ef819693e5b0a7fd">NumBitToNum</a>(numBit));</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div><div class="ttc" id="class_automate_html"><div class="ttname"><a href="class_automate.html">Automate</a></div><div class="ttdef"><b>Definition:</b> <a href="automate_8h_source.html#l00019">automate.h:19</a></div></div>
+<div class="ttc" id="automate1d_8cpp_html_a14cc6c5fe0b278d7ef819693e5b0a7fd"><div class="ttname"><a href="automate1d_8cpp.html#a14cc6c5fe0b278d7ef819693e5b0a7fd">NumBitToNum</a></div><div class="ttdeci">unsigned int NumBitToNum(const std::string &amp;num)</div><div class="ttdef"><b>Definition:</b> <a href="automate1d_8cpp_source.html#l00032">automate1d.cpp:32</a></div></div>
+<div class="ttc" id="class_automate_manager_html_a8bf59dcc4148630d79ff662e5e63ba43"><div class="ttname"><a href="class_automate_manager.html#a8bf59dcc4148630d79ff662e5e63ba43">AutomateManager::libererAutomateManager</a></div><div class="ttdeci">static void libererAutomateManager()</div><div class="ttdef"><b>Definition:</b> <a href="automatemanager_8cpp_source.html#l00024">automatemanager.cpp:24</a></div></div>
+<div class="ttc" id="class_automate_manager_html_a338e03d989806f8f41806f48098353c1"><div class="ttname"><a href="class_automate_manager.html#a338e03d989806f8f41806f48098353c1">AutomateManager::getAutomateManager</a></div><div class="ttdeci">static AutomateManager &amp; getAutomateManager()</div><div class="ttdef"><b>Definition:</b> <a href="automatemanager_8cpp_source.html#l00017">automatemanager.cpp:17</a></div></div>
+<div class="ttc" id="class_automate_elementaire_html"><div class="ttname"><a href="class_automate_elementaire.html">AutomateElementaire</a></div><div class="ttdef"><b>Definition:</b> <a href="automate1d_8h_source.html#l00017">automate1d.h:17</a></div></div>
+<div class="ttc" id="class_automate_manager_html_abaee66dd967aab7af88099467077f217"><div class="ttname"><a href="class_automate_manager.html#abaee66dd967aab7af88099467077f217">AutomateManager::getAutomate</a></div><div class="ttdeci">const Automate &amp; getAutomate(unsigned int d, unsigned int e, unsigned int num)</div><div class="ttdef"><b>Definition:</b> <a href="automatemanager_8cpp_source.html#l00029">automatemanager.cpp:29</a></div></div>
+<div class="ttc" id="automatemanager_8h_html"><div class="ttname"><a href="automatemanager_8h.html">automatemanager.h</a></div></div>
+<div class="ttc" id="class_automate_manager_html"><div class="ttname"><a href="class_automate_manager.html">AutomateManager</a></div><div class="ttdef"><b>Definition:</b> <a href="automatemanager_8h_source.html#l00006">automatemanager.h:6</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="automatemanager_8cpp.html">automatemanager.cpp</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>
