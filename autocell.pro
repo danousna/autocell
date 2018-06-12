@@ -34,7 +34,8 @@ SOURCES += \
     src/cell.cpp \
     src/grille.cpp \
     src/automate2d.cpp \
-    src/autocellexception.cpp
+    src/autocellexception.cpp \
+    src/ui/elementaireview.cpp
 
 HEADERS += \
     src/automate.h \
@@ -46,7 +47,9 @@ HEADERS += \
     src/cell.h \
     src/grille.h \
     src/automate2d.h \
-    src/autocellexception.h
+    src/autocellexception.h \
+    src/ui/elementaireview.h
 
 FORMS += \
-    src/ui/mainwindow.ui
+    src/ui/mainwindow.ui \
+    src/ui/elementaireview.ui
