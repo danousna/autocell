@@ -2,7 +2,9 @@
 #include "ui_elementaireview.h"
 
 ElementaireView::ElementaireView(QWidget *parent): 
-QWidget(parent), ui(new Ui::ElementaireView), taille(23), tailleCell(40), steps(11), automate(AutomateElementaire::getInstance(30)) {
+QWidget(parent), ui(new Ui::ElementaireView), 
+taille(23), tailleCell(40), steps(11), stepState(0), paused(true),
+automate(AutomateElementaire::getInstance(30)) {
     ui->setupUi(this);
 
     // UI Taille
@@ -32,7 +34,7 @@ QWidget(parent), ui(new Ui::ElementaireView), taille(23), tailleCell(40), steps(
     // Affichage et interaction avec la grille de départ.
     drawGrille(ui->grilleDepart, tailleCell, taille, 1);
     connect(ui->grilleDepart, SIGNAL(itemClicked(QTableWidgetItem*)), this, SLOT(toggleCell(QTableWidgetItem*)));
-    connect(ui->btnPlaySimulation, SIGNAL(clicked()), this, SLOT(playSimulation()));
+    connect(ui->btnPlay, SIGNAL(clicked()), this, SLOT(togglePlayPause()));
 
     // Affichage de la grille.
     drawGrille(ui->grille, tailleCell, taille, steps);
@@ -60,20 +62,57 @@ void ElementaireView::toggleCell(QTableWidgetItem* item) {
     }
 }
 
-void ElementaireView::playSimulation() {
-    this->viderGrille();
+void ElementaireView::togglePlayPause() {
+    toggleUI();
 
+    if (paused) {
+        paused = false;
+        ui->btnPlay->setText("Mettre en pause");
+        
+        // On a atteint la fin, on veut rejouer la simulation.
+        if (stepState == steps) {
+            viderGrille();
+        }
+
+        play(stepState);
+    } else {
+        paused = true;
+        ui->btnPlay->setText("Lancer la simulation");
+    }
+}
+
+void ElementaireView::play(int startStep) {
     Grille1D g(taille);
     this->syncGrilles(&g, ui->grilleDepart, 0, false);
 
     Simulateur s(*automate, g, taille);
 
     for (int i = 0; i < steps; i++) {
-        this->syncGrilles(&s.dernier(), ui->grille, i, true);
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-        QCoreApplication::processEvents();
-        s.next();
+        stepState = i;
+
+        // Si on est pas encore à l'étape ou on avait pausé, on fait juste avancer le simulateur au point atteint.
+        if (i < startStep) {
+            s.next();
+        }
+        else {
+            if (!paused) {
+                this->syncGrilles(&s.dernier(), ui->grille, i, true);
+                std::this_thread::sleep_for(std::chrono::milliseconds(100));
+                QCoreApplication::processEvents();
+                s.next();
+            } else {
+                return;
+            }
+        }
     }
+}
+
+void ElementaireView::pause() {
+
+}
+
+void ElementaireView::reset() {
+
 }
 
 // Si set TRUE, grilleAutomate SET les valeurs de TableWidget.
@@ -143,6 +182,23 @@ void ElementaireView::drawGrille(QTableWidget* grille, unsigned int tCell, unsig
             }
         }
     }
+}
+
+void ElementaireView::toggleUI() {
+    bool enabled = ui->grilleDepart->isEnabled();
+
+    ui->inputTaille->setEnabled(!enabled);
+    ui->btnRefreshTaille->setEnabled(!enabled);
+    ui->numeroInput->setEnabled(!enabled);
+    ui->bit1->setEnabled(!enabled);
+    ui->bit2->setEnabled(!enabled);
+    ui->bit3->setEnabled(!enabled);
+    ui->bit4->setEnabled(!enabled);
+    ui->bit5->setEnabled(!enabled);
+    ui->bit6->setEnabled(!enabled);
+    ui->bit7->setEnabled(!enabled);
+    ui->bit8->setEnabled(!enabled);
+    ui->grilleDepart->setEnabled(!enabled);
 }
 
 void ElementaireView::synchronizeNumToNumBit(int i) {
