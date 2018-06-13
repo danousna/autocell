@@ -34,6 +34,7 @@ automate(AutomateElementaire::getInstance(30)) {
     connect(ui->grilleDepart, SIGNAL(itemClicked(QTableWidgetItem*)), this, SLOT(toggleCell(QTableWidgetItem*)));
     
     // Boutons play/pause et reset
+    connect(ui->btnNext, SIGNAL(clicked()), this, SLOT(next()));
     connect(ui->btnPlay, SIGNAL(clicked()), this, SLOT(togglePlayPause()));
     connect(ui->btnReset, SIGNAL(clicked()), this, SLOT(reset()));
 
@@ -61,6 +62,33 @@ void ElementaireView::toggleCell(QTableWidgetItem* item) {
     else {
         ui->grilleDepart->item(0, item->column())->setBackgroundColor("white");
     }
+}
+
+void ElementaireView::next() {
+    Grille1D g(taille);
+    this->syncGrilles(&g, ui->grilleDepart, 0, false);
+    Simulateur s(*automate, g, taille);
+
+    for (int i = 0; i < steps; i++) {
+        if (i <= stepState) {
+            this->syncGrilles(&s.dernier(), ui->grille, i, true);
+            s.next();
+        }
+
+        if (i > stepState) {
+            stepState++;
+            return;
+        }
+    }
+
+    // Si on a atteint la fin, on met en pause.
+    if (stepState == steps - 1) {
+        // On disable bouton next.
+        ui->btnNext->setEnabled(false);
+        return;
+    }
+
+    stepState++;
 }
 
 void ElementaireView::togglePlayPause() {
@@ -116,6 +144,7 @@ void ElementaireView::pause() {
 
 void ElementaireView::reset() {
     viderGrille();
+    ui->btnNext->setEnabled(true);
     ui->btnPlay->setEnabled(true);
     stepState = 0;
 }

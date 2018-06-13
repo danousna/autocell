@@ -35,6 +35,7 @@ public:
     ~ElementaireView();
 private slots:
     void toggleCell(QTableWidgetItem* item);
+    void next();
     void play(int startStep = 0);
     void pause();
     void togglePlayPause();
