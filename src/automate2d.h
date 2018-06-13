@@ -15,9 +15,32 @@ class AutomateGoL : public Automate2D
 {
     unsigned int voisinsVivantsMin;
     unsigned int voisinsVivantsMax;
-public:
+
+    static AutomateGoL* singleton;
     AutomateGoL(): voisinsVivantsMin(2), voisinsVivantsMax(3) {}
     AutomateGoL(unsigned int vMin, unsigned int vMax): voisinsVivantsMin(vMin), voisinsVivantsMax(vMax) {}
+public:
+    static AutomateGoL* getInstance() {
+        if (!singleton) {
+            singleton = new AutomateGoL();
+        }
+
+        return singleton;
+    }
+    static AutomateGoL* getInstance(unsigned int vMin, unsigned int vMax) {
+        if (!singleton) {
+            singleton = new AutomateGoL(vMin, vMax);
+        } else {
+            if ((vMin != singleton->getVoisinsVivantsMin()) && (vMax != singleton->getVoisinsVivantsMax())) {
+                delete singleton;
+                singleton = new AutomateGoL(vMin, vMax);
+            }
+        }
+
+        return singleton;
+    }
+    AutomateGoL(const AutomateGoL&) = delete;
+    AutomateGoL& operator=(const AutomateGoL&) = delete;
 
     unsigned int getVoisinsVivantsMin() const { return voisinsVivantsMin; }
     unsigned int getVoisinsVivantsMax() const { return voisinsVivantsMax; }

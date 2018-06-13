@@ -1,5 +1,5 @@
-#ifndef ELEMENTAIREVIEW_H
-#define ELEMENTAIREVIEW_H
+#ifndef GOLVIEW_H
+#define GOLVIEW_H
 
 #include <thread>
 #include <chrono>
@@ -10,21 +10,22 @@
 #include <QLineEdit>
 #include <QIntValidator>
 #include <QTableWidget>
+#include <QString>
 
 #include "../simulateur.h"
-#include "../automate1d.h"
+#include "../automate2d.h"
 
 namespace Ui {
-class ElementaireView;
+class GoLView;
 }
 
-class ElementaireView : public QWidget
+class GoLView : public QWidget
 {
     Q_OBJECT
-    Ui::ElementaireView *ui;
-    QIntValidator* zeroOneValidator;
-    QLineEdit* numeroBit[8];
-    int taille;
+    Ui::GoLView *ui;
+    int voisinsMin;
+    int voisinsMax;
+    int dimensions;
     int tailleCell;
     int steps;
     int stepState;
@@ -32,10 +33,10 @@ class ElementaireView : public QWidget
     bool paused;
 
     // L'automate de cette view. C'est un singleton.
-    AutomateElementaire* automate;
+    AutomateGoL* automate;
 public:
-    explicit ElementaireView(QWidget *parent = 0);
-    ~ElementaireView();
+    explicit GoLView(QWidget *parent = 0);
+    ~GoLView();
 private slots:
     void toggleCell(QTableWidgetItem* item);
     void next();
@@ -43,15 +44,15 @@ private slots:
     void togglePlayPause();
     void reset();
     void refreshTaille();
-    void syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT, int step = 0, bool set = true);
+    void syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT, bool set = true);
     void viderGrille();
-    void drawGrille(QTableWidget* grille, unsigned int tCell, unsigned int t, unsigned int r);
+    void drawGrille(QTableWidget* grille, unsigned int tCell, unsigned int n);
     void toggleUI();
-    void synchronizeNumToNumBit(int i);
-    void synchronizeNumBitToNum(const QString& s);
+    void changeVoisinsMin(int vMin);
+    void changeVoisinsMax(int vMax);
     void changeSpeed(int s);
     void changeSteps(int n);
     void randomGen();
 };
 
-#endif // ELEMENTAIREVIEW_H
+#endif // GOLVIEW_H

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>685</width>
-    <height>447</height>
+    <width>877</width>
+    <height>620</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,7 +33,78 @@
    </item>
    <item>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="1">
+     <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout_11">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Vitesse (ms) : </string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="inputSpeed">
+           <property name="minimum">
+            <number>50</number>
+           </property>
+           <property name="maximum">
+            <number>1000</number>
+           </property>
+           <property name="singleStep">
+            <number>50</number>
+           </property>
+           <property name="value">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Nombre de cases :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="inputTaille">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>50</number>
+           </property>
+           <property name="value">
+            <number>23</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="1">
+      <spacer name="horizontalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Minimum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>30</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="2">
       <layout class="QHBoxLayout" name="regleForm">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout">
@@ -226,24 +297,24 @@
        </item>
       </layout>
      </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Règle de transition :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Nombre de cases :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <layout class="QVBoxLayout" name="tailleForm">
+     <item row="5" column="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="0,0,1,0">
        <item>
-        <widget class="QSpinBox" name="inputTaille">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Nombre de générations :</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stepsLabel">
+         <property name="text">
+          <string>0 sur</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="inputSteps">
          <property name="minimum">
           <number>1</number>
          </property>
@@ -251,24 +322,71 @@
           <number>50</number>
          </property>
          <property name="value">
-          <number>23</number>
+          <number>11</number>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btnRefreshTaille">
-         <property name="enabled">
-          <bool>true</bool>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
-         <property name="styleSheet">
-          <string notr="true"/>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>500</width>
+           <height>20</height>
+          </size>
          </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item row="5" column="0">
+      <widget class="QPushButton" name="btnRefreshTaille">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Rafraichir les grilles</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <layout class="QVBoxLayout" name="verticalLayout_12">
+       <item>
+        <widget class="QPushButton" name="btnGenRandom">
          <property name="text">
-          <string>Rafraichir les grilles</string>
+          <string>Génération aléatoire</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="bntGenSym">
+         <property name="text">
+          <string>Génération ...</string>
          </property>
         </widget>
        </item>
       </layout>
+     </item>
+     <item row="0" column="4">
+      <spacer name="horizontalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Minimum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>100</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </item>
@@ -297,6 +415,26 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnNext">
+       <property name="text">
+        <string>État suivant</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="btnPlay">
        <property name="enabled">
         <bool>true</bool>
@@ -313,12 +451,25 @@
        </property>
       </widget>
      </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
     </layout>
    </item>
    <item>
     <widget class="QTableWidget" name="grille">
      <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
+      <enum>Qt::ScrollBarAlwaysOn</enum>
      </property>
      <attribute name="horizontalHeaderVisible">
       <bool>false</bool>
