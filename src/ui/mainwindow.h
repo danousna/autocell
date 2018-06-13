@@ -5,11 +5,13 @@
 #include <QWidget>
 
 #include "elementaireview.h"
+#include "golview.h"
 
 #include "../simulateur.h"
 #include "../automate1d.h"
 
-// TODO : AutomateManager to only get one instance of every automate.
+// TODO : Si on quitte, enregistrer config dans un xml qq part.
+// TODO : Enregistrer, importer à faire.
 
 namespace Ui {
 class MainWindow;

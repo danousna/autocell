@@ -3,9 +3,14 @@
 
 ElementaireView::ElementaireView(QWidget *parent): 
 QWidget(parent), ui(new Ui::ElementaireView), 
-taille(23), tailleCell(40), steps(11), stepState(0), paused(true),
+taille(23), tailleCell(40), steps(11), stepState(0), speed(100), paused(true),
 automate(AutomateElementaire::getInstance(30)) {
     ui->setupUi(this);
+
+    srand(time(NULL));
+
+    // UI Speed
+    connect(ui->inputSpeed, SIGNAL(valueChanged(int)), this, SLOT(changeSpeed(int)));
 
     // UI Taille
     connect(ui->btnRefreshTaille, SIGNAL(clicked()), this, SLOT(refreshTaille()));
@@ -29,11 +34,18 @@ automate(AutomateElementaire::getInstance(30)) {
         connect(numeroBit[i], SIGNAL(textChanged(QString)), this, SLOT(synchronizeNumBitToNum(QString)));
     }
 
+    // UI Steps
+    connect(ui->inputSteps, SIGNAL(valueChanged(int)), this, SLOT(changeSteps(int)));
+
+    // UI Gen
+    connect(ui->btnGenRandom, SIGNAL(clicked()), this, SLOT(randomGen()));
+
     // Affichage et interaction avec la grille de départ.
     drawGrille(ui->grilleDepart, tailleCell, taille, 1);
     connect(ui->grilleDepart, SIGNAL(itemClicked(QTableWidgetItem*)), this, SLOT(toggleCell(QTableWidgetItem*)));
     
     // Boutons play/pause et reset
+    connect(ui->btnNext, SIGNAL(clicked()), this, SLOT(next()));
     connect(ui->btnPlay, SIGNAL(clicked()), this, SLOT(togglePlayPause()));
     connect(ui->btnReset, SIGNAL(clicked()), this, SLOT(reset()));
 
@@ -46,12 +58,6 @@ ElementaireView::~ElementaireView()
     delete ui;
 }
 
-void ElementaireView::refreshTaille() {
-    taille = ui->inputTaille->value();
-    drawGrille(ui->grilleDepart, tailleCell, taille, 1);
-    drawGrille(ui->grille, tailleCell, taille, steps);
-}
-
 void ElementaireView::toggleCell(QTableWidgetItem* item) {
     // Si elle était vivante (blanche), on la rends morte.
     if (ui->grilleDepart->item(0, item->column())->backgroundColor() == "white") {
@@ -61,6 +67,33 @@ void ElementaireView::toggleCell(QTableWidgetItem* item) {
     else {
         ui->grilleDepart->item(0, item->column())->setBackgroundColor("white");
     }
+}
+
+void ElementaireView::next() {
+    Grille1D g(taille);
+    this->syncGrilles(&g, ui->grilleDepart, 0, false);
+    Simulateur s(*automate, g, taille);
+
+    for (int i = 0; i < steps; i++) {
+        if (i <= stepState) {
+            this->syncGrilles(&s.dernier(), ui->grille, i, true);
+            s.next();
+        }
+
+        if (i > stepState) {
+            stepState++;
+            return;
+        }
+    }
+
+    // Si on a atteint la fin, on met en pause.
+    if (stepState == steps - 1) {
+        // On disable bouton next.
+        ui->btnNext->setEnabled(false);
+        return;
+    }
+
+    stepState++;
 }
 
 void ElementaireView::togglePlayPause() {
@@ -92,7 +125,7 @@ void ElementaireView::play(int startStep) {
         else {
             if (!paused) {
                 this->syncGrilles(&s.dernier(), ui->grille, i, true);
-                std::this_thread::sleep_for(std::chrono::milliseconds(100));
+                std::this_thread::sleep_for(std::chrono::milliseconds(speed));
                 QCoreApplication::processEvents();
                 s.next();
 
@@ -110,14 +143,17 @@ void ElementaireView::play(int startStep) {
     }
 }
 
-void ElementaireView::pause() {
-
-}
-
 void ElementaireView::reset() {
     viderGrille();
+    ui->btnNext->setEnabled(true);
     ui->btnPlay->setEnabled(true);
     stepState = 0;
+}
+
+void ElementaireView::refreshTaille() {
+    taille = ui->inputTaille->value();
+    drawGrille(ui->grilleDepart, tailleCell, taille, 1);
+    drawGrille(ui->grille, tailleCell, taille, steps);
 }
 
 // Si set TRUE, grilleAutomate SET les valeurs de TableWidget.
@@ -174,7 +210,7 @@ void ElementaireView::drawGrille(QTableWidget* grille, unsigned int tCell, unsig
     }
     // 2D 
     else {
-        grille->setFixedSize(tCell * t + 2, tCell * r - 40);
+        grille->setFixedSize(tCell * t + 2, tCell * 11 - 40);
 
         for (unsigned int i = 0; i < r; ++i) {
             grille->setRowHeight(i, tCell - 5);
@@ -192,6 +228,7 @@ void ElementaireView::drawGrille(QTableWidget* grille, unsigned int tCell, unsig
 void ElementaireView::toggleUI() {
     bool enabled = ui->grilleDepart->isEnabled();
 
+    ui->inputSpeed->setEnabled(!enabled);
     ui->inputTaille->setEnabled(!enabled);
     ui->btnRefreshTaille->setEnabled(!enabled);
     ui->numeroInput->setEnabled(!enabled);
@@ -203,6 +240,7 @@ void ElementaireView::toggleUI() {
     ui->bit6->setEnabled(!enabled);
     ui->bit7->setEnabled(!enabled);
     ui->bit8->setEnabled(!enabled);
+    ui->inputSteps->setEnabled(!enabled);
     ui->grilleDepart->setEnabled(!enabled);
 }
 
@@ -234,4 +272,27 @@ void ElementaireView::synchronizeNumBitToNum(const QString& s) {
 
     // Charger l'automate correspondant.
     automate = AutomateElementaire::getInstance(numero);
+}
+
+void ElementaireView::changeSpeed(int s) {
+    speed = s;
+}
+
+void ElementaireView::changeSteps(int n) {
+    steps = n;
+    drawGrille(ui->grille, tailleCell, taille, steps);
+}
+
+void ElementaireView::randomGen() {
+    int randZeroOne = 0;    
+
+    for (unsigned int i = 0; i < taille; i++) {
+        randZeroOne = rand() % 2;
+
+        if (randZeroOne == 1) {
+            ui->grilleDepart->item(0, i)->setBackgroundColor("black");
+        } else {
+            ui->grilleDepart->item(0, i)->setBackgroundColor("white");
+        }
+    }
 }

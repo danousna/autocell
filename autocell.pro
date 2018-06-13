@@ -34,7 +34,8 @@ SOURCES += \
     src/grille.cpp \
     src/automate2d.cpp \
     src/autocellexception.cpp \
-    src/ui/elementaireview.cpp
+    src/ui/elementaireview.cpp \
+    src/ui/golview.cpp
 
 HEADERS += \
     src/automate.h \
@@ -46,8 +47,10 @@ HEADERS += \
     src/grille.h \
     src/automate2d.h \
     src/autocellexception.h \
-    src/ui/elementaireview.h
+    src/ui/elementaireview.h \
+    src/ui/golview.h
 
 FORMS += \
     src/ui/mainwindow.ui \
-    src/ui/elementaireview.ui
+    src/ui/elementaireview.ui \
+    src/ui/golview.ui
