@@ -18,9 +18,37 @@ class AutomateElementaire : public Automate1D
 {
     unsigned int numero;
     std::string numeroBit;
-public:
+
+    static AutomateElementaire* singleton;
     AutomateElementaire(unsigned int n): numero(n), numeroBit(NumToNumBit(n)) {}
     AutomateElementaire(const std::string& num): numero(NumBitToNum(num)), numeroBit(num) {}
+public:
+    static AutomateElementaire* getInstance(unsigned int n) {
+        if (!singleton) {
+            singleton = new AutomateElementaire(n);
+        } else {
+            if (n != singleton->getNumero()) {
+                delete singleton;
+                singleton = new AutomateElementaire(n);
+            }
+        }
+
+        return singleton;
+    }
+    static AutomateElementaire* getInstance(const std::string& num) {
+        if (!singleton) {
+            singleton = new AutomateElementaire(num);
+        } else {
+            if (num != singleton->getNumeroBit()) {
+                delete singleton;
+                singleton = new AutomateElementaire(num);
+            }
+        }
+
+        return singleton;
+    }
+    AutomateElementaire(const AutomateElementaire&) = delete;
+    AutomateElementaire& operator=(const AutomateElementaire&) = delete;
 
     unsigned int getNumero() const { return numero; }
     const std::string& getNumeroBit() const { return numeroBit; }
