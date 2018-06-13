@@ -25,7 +25,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     src/automate.cpp \
-    src/automatemanager.cpp \
     src/etat.cpp \
     src/simulateur.cpp \
     src/main.cpp \
@@ -34,11 +33,11 @@ SOURCES += \
     src/cell.cpp \
     src/grille.cpp \
     src/automate2d.cpp \
-    src/autocellexception.cpp
+    src/autocellexception.cpp \
+    src/ui/elementaireview.cpp
 
 HEADERS += \
     src/automate.h \
-    src/automatemanager.h \
     src/etat.h \
     src/simulateur.h \
     src/ui/mainwindow.h \
@@ -46,7 +45,9 @@ HEADERS += \
     src/cell.h \
     src/grille.h \
     src/automate2d.h \
-    src/autocellexception.h
+    src/autocellexception.h \
+    src/ui/elementaireview.h
 
 FORMS += \
-    src/ui/mainwindow.ui
+    src/ui/mainwindow.ui \
+    src/ui/elementaireview.ui

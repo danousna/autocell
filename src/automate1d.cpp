@@ -1,5 +1,7 @@
 #include "automate1d.h"
 
+AutomateElementaire* AutomateElementaire::singleton = nullptr;
+
 void AutomateElementaire::appliquerTransition(Grille* dep, Grille* dest) const {
     if (dep->getTaille() != dest->getTaille()) throw new AutoCellException("Erreur : La grille de départ n'a pas la même dimension que la grille d'arrivée.");
 
