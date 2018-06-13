@@ -1,3 +1,4 @@
 <map id="Simulateur::reset" name="Simulateur::reset">
-<area shape="rect" id="node2" href="$class_simulateur.html#ada5e599709ab8a0742418cebbab02fda" title="Simulateur::setGrilleInitiale" alt="" coords="175,5,353,32"/>
+<area shape="rect" id="node2" href="$class_simulateur.html#ada5e599709ab8a0742418cebbab02fda" title="Simulateur::setGrilleInitiale" alt="" coords="199,5,377,32"/>
+<area shape="rect" id="node3" href="$class_elementaire_view.html#ae2127adf12e71441e4f85fc57f6a03f3" title="ElementaireView::ElementaireView" alt="" coords="175,56,401,83"/>
 </map>
