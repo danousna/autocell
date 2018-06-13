@@ -49,6 +49,7 @@ private slots:
     void synchronizeNumToNumBit(int i);
     void synchronizeNumBitToNum(const QString& s);
     void changeSpeed(int s);
+    void changeSteps(int n);
 };
 
 #endif // ELEMENTAIREVIEW_H

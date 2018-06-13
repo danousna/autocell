@@ -32,6 +32,9 @@ automate(AutomateElementaire::getInstance(30)) {
         connect(numeroBit[i], SIGNAL(textChanged(QString)), this, SLOT(synchronizeNumBitToNum(QString)));
     }
 
+    // UI Steps
+    connect(ui->inputSteps, SIGNAL(valueChanged(int)), this, SLOT(changeSteps(int)));
+
     // Affichage et interaction avec la grille de départ.
     drawGrille(ui->grilleDepart, tailleCell, taille, 1);
     connect(ui->grilleDepart, SIGNAL(itemClicked(QTableWidgetItem*)), this, SLOT(toggleCell(QTableWidgetItem*)));
@@ -206,7 +209,7 @@ void ElementaireView::drawGrille(QTableWidget* grille, unsigned int tCell, unsig
     }
     // 2D 
     else {
-        grille->setFixedSize(tCell * t + 2, tCell * r - 40);
+        grille->setFixedSize(tCell * t + 2, tCell * 11 - 40);
 
         for (unsigned int i = 0; i < r; ++i) {
             grille->setRowHeight(i, tCell - 5);
@@ -271,4 +274,9 @@ void ElementaireView::synchronizeNumBitToNum(const QString& s) {
 
 void ElementaireView::changeSpeed(int s) {
     speed = s;
+}
+
+void ElementaireView::changeSteps(int n) {
+    steps = n;
+    drawGrille(ui->grille, tailleCell, taille, steps);
 }
