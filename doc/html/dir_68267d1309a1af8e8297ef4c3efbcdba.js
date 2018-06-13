@@ -13,10 +13,6 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "automate1d.h", "automate1d_8h.html", "automate1d_8h" ],
     [ "automate2d.cpp", "automate2d_8cpp.html", "automate2d_8cpp" ],
     [ "automate2d.h", "automate2d_8h.html", "automate2d_8h" ],
-    [ "automatemanager.cpp", "automatemanager_8cpp.html", null ],
-    [ "automatemanager.h", "automatemanager_8h.html", [
-      [ "AutomateManager", "class_automate_manager.html", "class_automate_manager" ]
-    ] ],
     [ "cell.cpp", "cell_8cpp.html", "cell_8cpp" ],
     [ "cell.h", "cell_8h.html", "cell_8h" ],
     [ "etat.cpp", "etat_8cpp.html", "etat_8cpp" ],

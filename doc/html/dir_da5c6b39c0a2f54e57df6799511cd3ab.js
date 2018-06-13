@@ -1,10 +1,11 @@
 var dir_da5c6b39c0a2f54e57df6799511cd3ab =
 [
+    [ "elementaireview.cpp", "elementaireview_8cpp.html", null ],
+    [ "elementaireview.h", "elementaireview_8h.html", [
+      [ "ElementaireView", "class_elementaire_view.html", "class_elementaire_view" ]
+    ] ],
     [ "mainwindow.cpp", "mainwindow_8cpp.html", null ],
     [ "mainwindow.h", "mainwindow_8h.html", [
-      [ "MainWindow", "class_main_window.html", "class_main_window" ],
-      [ "AutomateGoLWindow", "class_main_window_1_1_automate_go_l_window.html", null ],
-      [ "AutomateElementaireWindow", "class_main_window_1_1_automate_elementaire_window.html", null ],
-      [ "AutomateWireworldWindow", "class_main_window_1_1_automate_wireworld_window.html", null ]
+      [ "MainWindow", "class_main_window.html", "class_main_window" ]
     ] ]
 ];

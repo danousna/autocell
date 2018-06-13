@@ -10,10 +10,6 @@ var hierarchy =
         [ "AutomateWW", "class_automate_w_w.html", null ]
       ] ]
     ] ],
-    [ "MainWindow::AutomateElementaireWindow", "class_main_window_1_1_automate_elementaire_window.html", null ],
-    [ "MainWindow::AutomateGoLWindow", "class_main_window_1_1_automate_go_l_window.html", null ],
-    [ "AutomateManager", "class_automate_manager.html", null ],
-    [ "MainWindow::AutomateWireworldWindow", "class_main_window_1_1_automate_wireworld_window.html", null ],
     [ "Cell", "class_cell.html", null ],
     [ "Simulateur::const_iterator", "class_simulateur_1_1const__iterator.html", null ],
     [ "Etat", "class_etat.html", null ],
@@ -24,6 +20,9 @@ var hierarchy =
     [ "Simulateur::iterator", "class_simulateur_1_1iterator.html", null ],
     [ "QMainWindow", null, [
       [ "MainWindow", "class_main_window.html", null ]
+    ] ],
+    [ "QWidget", null, [
+      [ "ElementaireView", "class_elementaire_view.html", null ]
     ] ],
     [ "Simulateur", "class_simulateur.html", null ]
 ];
