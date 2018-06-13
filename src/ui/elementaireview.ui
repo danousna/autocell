@@ -307,7 +307,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="btnReset">
        <property name="text">
         <string>Remise à zéro</string>
        </property>

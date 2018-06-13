@@ -23,9 +23,7 @@ automate(AutomateElementaire::getInstance(30)) {
     zeroOneValidator = new QIntValidator(this);
     zeroOneValidator->setRange(0, 1);
 
-    // Configuration de la règle de l'automate.
     connect(ui->numeroInput, SIGNAL(valueChanged(int)), this, SLOT(synchronizeNumToNumBit(int)));
-
     for (unsigned int i = 0; i < 8; i++) {
         numeroBit[i]->setValidator(zeroOneValidator);
         connect(numeroBit[i], SIGNAL(textChanged(QString)), this, SLOT(synchronizeNumBitToNum(QString)));
@@ -34,7 +32,10 @@ automate(AutomateElementaire::getInstance(30)) {
     // Affichage et interaction avec la grille de départ.
     drawGrille(ui->grilleDepart, tailleCell, taille, 1);
     connect(ui->grilleDepart, SIGNAL(itemClicked(QTableWidgetItem*)), this, SLOT(toggleCell(QTableWidgetItem*)));
+    
+    // Boutons play/pause et reset
     connect(ui->btnPlay, SIGNAL(clicked()), this, SLOT(togglePlayPause()));
+    connect(ui->btnReset, SIGNAL(clicked()), this, SLOT(reset()));
 
     // Affichage de la grille.
     drawGrille(ui->grille, tailleCell, taille, steps);
@@ -68,12 +69,6 @@ void ElementaireView::togglePlayPause() {
     if (paused) {
         paused = false;
         ui->btnPlay->setText("Mettre en pause");
-        
-        // On a atteint la fin, on veut rejouer la simulation.
-        if (stepState == steps) {
-            viderGrille();
-        }
-
         play(stepState);
     } else {
         paused = true;
@@ -100,6 +95,14 @@ void ElementaireView::play(int startStep) {
                 std::this_thread::sleep_for(std::chrono::milliseconds(100));
                 QCoreApplication::processEvents();
                 s.next();
+
+                // Si on a atteint la fin, on met en pause.
+                if (stepState == steps - 1) {
+                    togglePlayPause();
+                    // On disable bouton play, si on click sur reset, on remet enable.
+                    ui->btnPlay->setEnabled(false);
+                    return;
+                }
             } else {
                 return;
             }
@@ -112,7 +115,9 @@ void ElementaireView::pause() {
 }
 
 void ElementaireView::reset() {
-
+    viderGrille();
+    ui->btnPlay->setEnabled(true);
+    stepState = 0;
 }
 
 // Si set TRUE, grilleAutomate SET les valeurs de TableWidget.
