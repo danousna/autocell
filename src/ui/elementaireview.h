@@ -26,6 +26,7 @@ class ElementaireView : public QWidget
     int tailleCell;
     int steps;
     int stepState;
+    int speed;
     bool paused;
 
     // L'automate de cette view. C'est un singleton.
@@ -47,6 +48,7 @@ private slots:
     void toggleUI();
     void synchronizeNumToNumBit(int i);
     void synchronizeNumBitToNum(const QString& s);
+    void changeSpeed(int s);
 };
 
 #endif // ELEMENTAIREVIEW_H

@@ -3,9 +3,12 @@
 
 ElementaireView::ElementaireView(QWidget *parent): 
 QWidget(parent), ui(new Ui::ElementaireView), 
-taille(23), tailleCell(40), steps(11), stepState(0), paused(true),
+taille(23), tailleCell(40), steps(11), stepState(0), speed(100), paused(true),
 automate(AutomateElementaire::getInstance(30)) {
     ui->setupUi(this);
+
+    // UI Speed
+    connect(ui->inputSpeed, SIGNAL(valueChanged(int)), this, SLOT(changeSpeed(int)));
 
     // UI Taille
     connect(ui->btnRefreshTaille, SIGNAL(clicked()), this, SLOT(refreshTaille()));
@@ -120,7 +123,7 @@ void ElementaireView::play(int startStep) {
         else {
             if (!paused) {
                 this->syncGrilles(&s.dernier(), ui->grille, i, true);
-                std::this_thread::sleep_for(std::chrono::milliseconds(100));
+                std::this_thread::sleep_for(std::chrono::milliseconds(speed));
                 QCoreApplication::processEvents();
                 s.next();
 
@@ -221,6 +224,7 @@ void ElementaireView::drawGrille(QTableWidget* grille, unsigned int tCell, unsig
 void ElementaireView::toggleUI() {
     bool enabled = ui->grilleDepart->isEnabled();
 
+    ui->inputSpeed->setEnabled(!enabled);
     ui->inputTaille->setEnabled(!enabled);
     ui->btnRefreshTaille->setEnabled(!enabled);
     ui->numeroInput->setEnabled(!enabled);
@@ -263,4 +267,8 @@ void ElementaireView::synchronizeNumBitToNum(const QString& s) {
 
     // Charger l'automate correspondant.
     automate = AutomateElementaire::getInstance(numero);
+}
+
+void ElementaireView::changeSpeed(int s) {
+    speed = s;
 }
