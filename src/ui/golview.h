@@ -3,11 +3,14 @@
 
 #include <thread>
 #include <chrono>
+#include <stdlib.h>
+#include <time.h>
 
 #include <QWidget>
 #include <QLineEdit>
 #include <QIntValidator>
 #include <QTableWidget>
+#include <QString>
 
 #include "../simulateur.h"
 #include "../automate2d.h"
@@ -20,6 +23,8 @@ class GoLView : public QWidget
 {
     Q_OBJECT
     Ui::GoLView *ui;
+    int voisinsMin;
+    int voisinsMax;
     int dimensions;
     int tailleCell;
     int steps;
@@ -36,7 +41,6 @@ private slots:
     void toggleCell(QTableWidgetItem* item);
     void next();
     void play(int startStep = 0);
-    void pause();
     void togglePlayPause();
     void reset();
     void refreshTaille();
@@ -48,6 +52,7 @@ private slots:
     void changeVoisinsMax(int vMax);
     void changeSpeed(int s);
     void changeSteps(int n);
+    void randomGen();
 };
 
 #endif // GOLVIEW_H

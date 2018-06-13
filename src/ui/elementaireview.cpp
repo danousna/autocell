@@ -7,6 +7,8 @@ taille(23), tailleCell(40), steps(11), stepState(0), speed(100), paused(true),
 automate(AutomateElementaire::getInstance(30)) {
     ui->setupUi(this);
 
+    srand(time(NULL));
+
     // UI Speed
     connect(ui->inputSpeed, SIGNAL(valueChanged(int)), this, SLOT(changeSpeed(int)));
 
@@ -34,6 +36,9 @@ automate(AutomateElementaire::getInstance(30)) {
 
     // UI Steps
     connect(ui->inputSteps, SIGNAL(valueChanged(int)), this, SLOT(changeSteps(int)));
+
+    // UI Gen
+    connect(ui->btnGenRandom, SIGNAL(clicked()), this, SLOT(randomGen()));
 
     // Affichage et interaction avec la grille de départ.
     drawGrille(ui->grilleDepart, tailleCell, taille, 1);
@@ -136,10 +141,6 @@ void ElementaireView::play(int startStep) {
             }
         }
     }
-}
-
-void ElementaireView::pause() {
-
 }
 
 void ElementaireView::reset() {
@@ -280,4 +281,18 @@ void ElementaireView::changeSpeed(int s) {
 void ElementaireView::changeSteps(int n) {
     steps = n;
     drawGrille(ui->grille, tailleCell, taille, steps);
+}
+
+void ElementaireView::randomGen() {
+    int randZeroOne = 0;    
+
+    for (unsigned int i = 0; i < taille; i++) {
+        randZeroOne = rand() % 2;
+
+        if (randZeroOne == 1) {
+            ui->grilleDepart->item(0, i)->setBackgroundColor("black");
+        } else {
+            ui->grilleDepart->item(0, i)->setBackgroundColor("white");
+        }
+    }
 }

@@ -3,9 +3,11 @@
 
 GoLView::GoLView(QWidget *parent):
 QWidget(parent), ui(new Ui::GoLView),
-dimensions(25), tailleCell(25), steps(11), stepState(0), speed(100), paused(true),
+voisinsMin(2), voisinsMax(3), dimensions(25), tailleCell(25), steps(11), stepState(0), speed(100), paused(true),
 automate(AutomateGoL::getInstance()) {
     ui->setupUi(this);
+
+    srand(time(NULL));
 
     // UI Speed
     connect(ui->inputSpeed, SIGNAL(valueChanged(int)), this, SLOT(changeSpeed(int)));
@@ -19,6 +21,9 @@ automate(AutomateGoL::getInstance()) {
 
     // UI Steps
     connect(ui->inputSteps, SIGNAL(valueChanged(int)), this, SLOT(changeSteps(int)));
+
+    // UI Gen
+    connect(ui->btnGenRandom, SIGNAL(clicked()), this, SLOT(randomGen()));
     
     // UI play/pause et reset
     connect(ui->btnNext, SIGNAL(clicked()), this, SLOT(next()));
@@ -47,7 +52,31 @@ void GoLView::toggleCell(QTableWidgetItem* item) {
 }
 
 void GoLView::next() {
+    Grille2D g(dimensions);
+    this->syncGrilles(&g, ui->grille, false);
+    Simulateur s(*automate, g, dimensions);
 
+    for (int i = 0; i < steps; i++) {
+        if (i <= stepState) {
+            ui->stepsLabel->setText(QStringLiteral("%1 sur").arg(i));
+            this->syncGrilles(&s.dernier(), ui->grille, true);
+            s.next();
+        }
+
+        if (i > stepState) {
+            stepState++;
+            return;
+        }
+    }
+
+    // Si on a atteint la fin, on met en pause.
+    if (stepState == steps - 1) {
+        // On disable bouton next.
+        ui->btnNext->setEnabled(false);
+        return;
+    }
+
+    stepState++;
 }
 
 void GoLView::togglePlayPause() {
@@ -78,6 +107,7 @@ void GoLView::play(int startStep) {
         }
         else {
             if (!paused) {
+                ui->stepsLabel->setText(QStringLiteral("%1 sur").arg(i));
                 this->syncGrilles(&s.dernier(), ui->grille, true);
                 std::this_thread::sleep_for(std::chrono::milliseconds(speed));
                 QCoreApplication::processEvents();
@@ -95,10 +125,6 @@ void GoLView::play(int startStep) {
             }
         }
     }
-}
-
-void GoLView::pause() {
-
 }
 
 void GoLView::reset() {
@@ -183,11 +209,13 @@ void GoLView::toggleUI() {
 }
 
 void GoLView::changeVoisinsMin(int vMin) {
-
+    voisinsMin = vMin;
+    automate = AutomateGoL::getInstance(voisinsMin, voisinsMax);
 }
 
 void GoLView::changeVoisinsMax(int vMax) {
-
+    voisinsMax = vMax;
+    automate = AutomateGoL::getInstance(voisinsMin, voisinsMax);
 }
 
 void GoLView::changeSpeed(int s) {
@@ -196,5 +224,21 @@ void GoLView::changeSpeed(int s) {
 
 void GoLView::changeSteps(int n) {
     steps = n;
+}
+
+void GoLView::randomGen() {
+    int randZeroOne = 0;    
+
+    for (unsigned int i = 0; i < dimensions; i++) {
+        for (unsigned int j = 0; j < dimensions; j++) {
+            randZeroOne = rand() % 2;
+
+            if (randZeroOne == 1) {
+                ui->grille->item(j, i)->setBackgroundColor("black");
+            } else {
+                ui->grille->item(j, i)->setBackgroundColor("white");
+            }
+        }
+    }
 }
 

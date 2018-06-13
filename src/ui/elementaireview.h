@@ -3,6 +3,8 @@
 
 #include <thread>
 #include <chrono>
+#include <stdlib.h>
+#include <time.h>
 
 #include <QWidget>
 #include <QLineEdit>
@@ -38,7 +40,6 @@ private slots:
     void toggleCell(QTableWidgetItem* item);
     void next();
     void play(int startStep = 0);
-    void pause();
     void togglePlayPause();
     void reset();
     void refreshTaille();
@@ -50,6 +51,7 @@ private slots:
     void synchronizeNumBitToNum(const QString& s);
     void changeSpeed(int s);
     void changeSteps(int n);
+    void randomGen();
 };
 
 #endif // ELEMENTAIREVIEW_H
