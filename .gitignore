@@ -1,3 +1,6 @@
+# LibreOffice open documents
+.lock~*
+
 # C++ objects and libs
 *.slo
 *.lo
