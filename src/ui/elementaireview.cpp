@@ -53,12 +53,6 @@ ElementaireView::~ElementaireView()
     delete ui;
 }
 
-void ElementaireView::refreshTaille() {
-    taille = ui->inputTaille->value();
-    drawGrille(ui->grilleDepart, tailleCell, taille, 1);
-    drawGrille(ui->grille, tailleCell, taille, steps);
-}
-
 void ElementaireView::toggleCell(QTableWidgetItem* item) {
     // Si elle était vivante (blanche), on la rends morte.
     if (ui->grilleDepart->item(0, item->column())->backgroundColor() == "white") {
@@ -155,6 +149,12 @@ void ElementaireView::reset() {
     stepState = 0;
 }
 
+void ElementaireView::refreshTaille() {
+    taille = ui->inputTaille->value();
+    drawGrille(ui->grilleDepart, tailleCell, taille, 1);
+    drawGrille(ui->grille, tailleCell, taille, steps);
+}
+
 // Si set TRUE, grilleAutomate SET les valeurs de TableWidget.
 // Si set FALSE, grilleAutomate GET les valeurs de TableWidget.
 void ElementaireView::syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT, int step, bool set) {
@@ -239,6 +239,7 @@ void ElementaireView::toggleUI() {
     ui->bit6->setEnabled(!enabled);
     ui->bit7->setEnabled(!enabled);
     ui->bit8->setEnabled(!enabled);
+    ui->inputSteps->setEnabled(!enabled);
     ui->grilleDepart->setEnabled(!enabled);
 }
 
