@@ -15,6 +15,7 @@ QMainWindow(parent), ui(new Ui::MainWindow) {
     // Ajout des interfaces des automates au stackedWidget.
     ui->stackedWidget->insertWidget(0, new ElementaireView);
     ui->stackedWidget->insertWidget(1, new GoLView);
+    ui->stackedWidget->insertWidget(2, new WWView);
 }
 
 MainWindow::~MainWindow() {

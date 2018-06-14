@@ -6,6 +6,7 @@
 
 #include "elementaireview.h"
 #include "golview.h"
+#include "wwview.h"
 
 #include "../simulateur.h"
 #include "../automate1d.h"
