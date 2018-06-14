@@ -37,8 +37,8 @@
     <property name="title">
      <string>Fichier</string>
     </property>
-    <addaction name="actionOuvrir_un_Automate"/>
-    <addaction name="actionEnregistrer_l_automate"/>
+    <addaction name="actionImporter"/>
+    <addaction name="actionEnregistrer"/>
    </widget>
    <widget class="QMenu" name="menuAutomate">
     <property name="title">
@@ -51,12 +51,12 @@
    <addaction name="menuFichier"/>
    <addaction name="menuAutomate"/>
   </widget>
-  <action name="actionOuvrir_un_Automate">
+  <action name="actionImporter">
    <property name="text">
     <string>Ouvrir un automate</string>
    </property>
   </action>
-  <action name="actionEnregistrer_l_automate">
+  <action name="actionEnregistrer">
    <property name="text">
     <string>Enregistrer l'automate</string>
    </property>

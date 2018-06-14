@@ -298,3 +298,19 @@ void ElementaireView::randomGen() {
         }
     }
 }
+
+QString ElementaireView::save() {
+    QString output;
+    
+    QXmlStreamWriter stream(&output);
+    stream.setAutoFormatting(true);
+    stream.setCodec(QTextCodec::codecForName("UTF-8"));
+    stream.writeStartDocument();
+    stream.writeStartElement("bookmark");
+    stream.writeAttribute("href", "http://qt-project.org/");
+    stream.writeTextElement("title", "Qt Project");
+    stream.writeEndElement(); // bookmark
+    stream.writeEndDocument();
+
+    return output;
+}
