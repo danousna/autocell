@@ -55,6 +55,8 @@ std::ostream& operator<<(std::ostream& f, const AutomateGoL& a) {
 }
 
 
+AutomateWW* AutomateWW::singleton = nullptr;
+
 AutomateWW::AutomateWW(): voisinsTeteMin(1), voisinsTeteMax(2) {
     const Etat vide(0, "vide");
     const Etat conducteur(1, "conductrice");

@@ -62,13 +62,29 @@ class AutomateWW : public Automate2D
 {
     unsigned int voisinsTeteMin;
     unsigned int voisinsTeteMax;
-public:
+
+    static AutomateWW* singleton;
+
     AutomateWW();
     /* Il n'y a qu'un constructeur parce que les règle de la modélisation sont plus strictes que pour d'autres automates */
 
+public:
+    static AutomateWW* getInstance() {
+        if (!singleton) {
+            singleton = new AutomateWW();
+        }
+
+        return singleton;
+    }
+
+    AutomateWW(const AutomateWW&) = delete;
+    AutomateWW& operator=(const AutomateWW&) = delete;
+
     unsigned int getVoisinsTeteMin() const { return voisinsTeteMin; }
     unsigned int getVoisinsTeteMax() const { return voisinsTeteMax; }
+
     void appliquerTransition(Grille* dep, Grille* dest) const;
+
     int calculerSommeVoisinsTete(Grille* g, unsigned int y, unsigned int x) const;
 };
 
