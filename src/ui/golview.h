@@ -10,7 +10,9 @@
 #include <QLineEdit>
 #include <QIntValidator>
 #include <QTableWidget>
-#include <QString>
+#include <QXmlStreamWriter>
+#include <QTextCodec>
+#include <QFile>
 
 #include "../simulateur.h"
 #include "../automate2d.h"
@@ -37,6 +39,8 @@ class GoLView : public QWidget
 public:
     explicit GoLView(QWidget *parent = 0);
     ~GoLView();
+
+    void save(QFile* f);
 private slots:
     void toggleCell(QTableWidgetItem* item);
     void next();

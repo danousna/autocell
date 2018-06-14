@@ -2,10 +2,15 @@
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent):
-QMainWindow(parent), ui(new Ui::MainWindow) {
+QMainWindow(parent), ui(new Ui::MainWindow),
+elementaireAutomate(new ElementaireView), golAutomate(new GoLView) {
     ui->setupUi(this);
 
     ui->menuBar->setNativeMenuBar(false);
+
+    // Connection des save/import aux dialogues box.
+    connect(ui->actionImporter, SIGNAL(triggered()), this, SLOT(showImportDialog()));
+    connect(ui->actionEnregistrer, SIGNAL(triggered()), this, SLOT(showSaveDialog()));
 
     // Connection des actions aux fenetres
     connect(ui->actionElementaire, SIGNAL(triggered()), this, SLOT(showFenetreAutomateElementaire()));
@@ -20,6 +25,37 @@ QMainWindow(parent), ui(new Ui::MainWindow) {
 
 MainWindow::~MainWindow() {
     delete ui;
+}
+
+void MainWindow::showImportDialog() {
+
+}
+
+void MainWindow::showSaveDialog() {
+    QString filename = QFileDialog::getSaveFileName(this, tr("Enregistrer l'automate"), "", tr("Fichier XML (*.xml)"));
+
+    if (filename.isEmpty()) {
+        return;
+    } else {
+        QFile file(filename);
+        if (!file.open(QIODevice::WriteOnly)) {
+            QMessageBox::information(this, tr("Impossible d'ouvrir le fichier."), file.errorString());
+            return;
+        }
+
+        if (ui->stackedWidget->currentIndex() == 0) {
+            elementaireAutomate->save(&file);
+        } 
+        else if (ui->stackedWidget->currentIndex() == 1) {
+            golAutomate->save(&file);
+        } 
+        else if (ui->stackedWidget->currentIndex() == 2) {
+            return;
+        } 
+        else {
+            return;
+        }
+    }
 }
 
 void MainWindow::showFenetreAutomateElementaire() {

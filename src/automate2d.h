@@ -39,6 +39,14 @@ public:
 
         return singleton;
     }
+    // Nécessaire pour gérer sauvegarde de l'automate.
+    static AutomateGoL* getCurrentInstance() {
+        if (!singleton) {
+            return nullptr;
+        } else {
+            return singleton;
+        }
+    }
     AutomateGoL(const AutomateGoL&) = delete;
     AutomateGoL& operator=(const AutomateGoL&) = delete;
 

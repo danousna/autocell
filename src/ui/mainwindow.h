@@ -3,13 +3,14 @@
 
 #include <QMainWindow>
 #include <QWidget>
+#include <QFileDialog>
+#include <QMessageBox>
 
 #include "elementaireview.h"
 #include "golview.h"
 #include "wwview.h"
 
 #include "../simulateur.h"
-#include "../automate1d.h"
 
 // TODO : Si on quitte, enregistrer config dans un xml qq part.
 // TODO : Enregistrer, importer à faire.
@@ -24,7 +25,11 @@ class MainWindow : public QMainWindow {
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    ElementaireView* elementaireAutomate;
+    GoLView* golAutomate;
 private slots:
+    void showImportDialog();
+    void showSaveDialog();
     // Chargement Fenetres
     void showFenetreAutomateElementaire();
     void showFenetreAutomateGoL();

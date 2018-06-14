@@ -47,6 +47,14 @@ public:
 
         return singleton;
     }
+    // Nécessaire pour gérer sauvegarde de l'automate.
+    static AutomateElementaire* getCurrentInstance() {
+        if (!singleton) {
+            return nullptr;
+        } else {
+            return singleton;
+        }
+    }
     AutomateElementaire(const AutomateElementaire&) = delete;
     AutomateElementaire& operator=(const AutomateElementaire&) = delete;
 

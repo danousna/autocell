@@ -10,6 +10,9 @@
 #include <QLineEdit>
 #include <QIntValidator>
 #include <QTableWidget>
+#include <QXmlStreamWriter>
+#include <QTextCodec>
+#include <QFile>
 
 #include "../simulateur.h"
 #include "../automate1d.h"
@@ -36,6 +39,8 @@ class ElementaireView : public QWidget
 public:
     explicit ElementaireView(QWidget *parent = 0);
     ~ElementaireView();
+
+    void save(QFile* f);
 private slots:
     void toggleCell(QTableWidgetItem* item);
     void next();

@@ -298,3 +298,22 @@ void ElementaireView::randomGen() {
         }
     }
 }
+
+void ElementaireView::save(QFile* f) {
+    QDataStream output(f);
+    output.setVersion(QDataStream::Qt_4_5);
+
+    QXmlStreamWriter stream(output.device());
+    stream.setAutoFormatting(true);
+    stream.setCodec("UTF-8");
+    stream.writeStartDocument();
+    stream.writeStartElement("automate");
+    stream.writeAttribute("type", "elementaire");
+    stream.writeTextElement("numero", QString::number(ui->numeroInput->value()));
+    stream.writeTextElement("vitesse", QString::number(ui->inputSpeed->value()));
+    stream.writeTextElement("taille", QString::number(ui->inputTaille->value()));
+    stream.writeTextElement("taillecell", QString::number(ui->inputTailleCell->value()));
+    stream.writeTextElement("steps", QString::number(ui->inputSteps->value()));
+    stream.writeEndElement(); // automate
+    stream.writeEndDocument();
+}
