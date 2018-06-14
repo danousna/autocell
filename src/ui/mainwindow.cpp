@@ -5,6 +5,8 @@ MainWindow::MainWindow(QWidget *parent):
 QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
+    ui->menuBar->setNativeMenuBar(false);
+
     // Connection des actions aux fenetres
     connect(ui->actionElementaire, SIGNAL(triggered()), this, SLOT(showFenetreAutomateElementaire()));
     connect(ui->actionGoL, SIGNAL(triggered()), this, SLOT(showFenetreAutomateGoL()));
