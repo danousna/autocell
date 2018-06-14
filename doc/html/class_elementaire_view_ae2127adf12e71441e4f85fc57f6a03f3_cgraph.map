@@ -1,3 +1,5 @@
 <map id="ElementaireView::ElementaireView" name="ElementaireView::ElementaireView">
-<area shape="rect" id="node2" href="$class_simulateur.html#a35659145c6c2833a88804bd823a3a097" title="Simulateur::reset" alt="" coords="280,5,401,32"/>
+<area shape="rect" id="node2" href="$class_simulateur.html#a47b0c7fb6d7519c0e484772842e655d6" title="Simulateur::next" alt="" coords="282,5,399,32"/>
+<area shape="rect" id="node4" href="$class_simulateur.html#a35659145c6c2833a88804bd823a3a097" title="Simulateur::reset" alt="" coords="280,56,401,83"/>
+<area shape="rect" id="node3" href="$class_automate.html#a432d90e0751da593d81d0c42746e4577" title="Automate::appliquerTransition" alt="" coords="449,5,644,32"/>
 </map>

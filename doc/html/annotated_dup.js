@@ -10,9 +10,11 @@ var annotated_dup =
     [ "Cell", "class_cell.html", "class_cell" ],
     [ "ElementaireView", "class_elementaire_view.html", "class_elementaire_view" ],
     [ "Etat", "class_etat.html", "class_etat" ],
+    [ "GoLView", "class_go_l_view.html", "class_go_l_view" ],
     [ "Grille", "class_grille.html", "class_grille" ],
     [ "Grille1D", "class_grille1_d.html", "class_grille1_d" ],
     [ "Grille2D", "class_grille2_d.html", "class_grille2_d" ],
     [ "MainWindow", "class_main_window.html", "class_main_window" ],
-    [ "Simulateur", "class_simulateur.html", "class_simulateur" ]
+    [ "Simulateur", "class_simulateur.html", "class_simulateur" ],
+    [ "WWView", "class_w_w_view.html", "class_w_w_view" ]
 ];
