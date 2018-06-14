@@ -35,7 +35,8 @@ SOURCES += \
     src/automate2d.cpp \
     src/autocellexception.cpp \
     src/ui/elementaireview.cpp \
-    src/ui/golview.cpp
+    src/ui/golview.cpp \
+    src/ui/wwview.cpp
 
 HEADERS += \
     src/automate.h \
@@ -48,9 +49,11 @@ HEADERS += \
     src/automate2d.h \
     src/autocellexception.h \
     src/ui/elementaireview.h \
-    src/ui/golview.h
+    src/ui/golview.h \
+    src/ui/wwview.h
 
 FORMS += \
     src/ui/mainwindow.ui \
     src/ui/elementaireview.ui \
-    src/ui/golview.ui
+    src/ui/golview.ui \
+    src/ui/wwview.ui
