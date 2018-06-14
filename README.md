@@ -15,4 +15,4 @@ Réalisé par [@bertille-ddp](https://github.com/bertille-ddp), [@YiwenWW](https
 
 ## Documentation
 
-La documentation est générée automatiquement par Doxygen dans le dossier `doc/` (fichier `index.html`).
+La documentation est générée automatiquement par Doxygen dans le dossier `doc/` (fichier `html/index.html`).

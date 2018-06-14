@@ -136,6 +136,7 @@ void GoLView::reset() {
 
 void GoLView::refreshTaille() {
     dimensions = ui->inputDimensions->value();
+    tailleCell = ui->inputTailleCell->value();
     drawGrille(ui->grille, tailleCell, dimensions);
 }
 
