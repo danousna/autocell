@@ -152,6 +152,8 @@ void ElementaireView::reset() {
 
 void ElementaireView::refreshTaille() {
     taille = ui->inputTaille->value();
+    tailleCell = ui->inputTailleCell->value();
+
     drawGrille(ui->grilleDepart, tailleCell, taille, 1);
     drawGrille(ui->grille, tailleCell, taille, steps);
 }
@@ -210,10 +212,10 @@ void ElementaireView::drawGrille(QTableWidget* grille, unsigned int tCell, unsig
     }
     // 2D 
     else {
-        grille->setFixedSize(tCell * t + 2, tCell * 11 - 40);
+        grille->setFixedSize(tCell * t + 2, tCell * 11 + 2);
 
         for (unsigned int i = 0; i < r; ++i) {
-            grille->setRowHeight(i, tCell - 5);
+            grille->setRowHeight(i, tCell);
 
             for (unsigned int j = 0; j < t; j++) {
                 grille->setColumnWidth(j, tCell);
