@@ -140,6 +140,7 @@ void WWView::reset() {
 
 void WWView::refreshTaille() {
     dimensions = ui->inputDimensions->value();
+    tailleCell = ui->inputTailleCell->value();
     drawGrille(ui->grille, tailleCell, dimensions);
 }
 
