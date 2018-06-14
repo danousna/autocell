@@ -264,3 +264,7 @@ void GoLView::save(QFile* f) {
     stream.writeEndDocument();
 }
 
+void GoLView::import(QXmlStreamReader* reader) {
+    
+}
+

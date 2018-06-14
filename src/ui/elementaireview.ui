@@ -40,12 +40,15 @@
          <item>
           <widget class="QLabel" name="label_2">
            <property name="text">
-            <string>Vitesse (ms) : </string>
+            <string>Vitesse : </string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QSpinBox" name="inputSpeed">
+           <property name="suffix">
+            <string> ms</string>
+           </property>
            <property name="minimum">
             <number>50</number>
            </property>

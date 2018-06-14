@@ -317,3 +317,29 @@ void ElementaireView::save(QFile* f) {
     stream.writeEndElement(); // automate
     stream.writeEndDocument();
 }
+
+void ElementaireView::import(QXmlStreamReader* reader) {
+    while (reader->readNextStartElement()) {
+        if (reader->name() == "numero") {
+            ui->numeroInput->setValue(reader->readElementText().toInt());
+            synchronizeNumToNumBit(reader->readElementText().toInt());
+        }
+        else if (reader->name() == "vitesse") {
+            ui->inputSpeed->setValue(reader->readElementText().toInt());
+        } 
+        else if (reader->name() == "taille") {
+            ui->inputTaille->setValue(reader->readElementText().toInt());
+        } 
+        else if (reader->name() == "taillecell") {
+            ui->inputTailleCell->setValue(reader->readElementText().toInt());
+        }
+        else if (reader->name() == "steps") {
+            ui->inputSteps->setValue(reader->readElementText().toInt());
+        }
+        else {
+            reader->skipCurrentElement();
+        }
+    }
+
+    QMessageBox::information(this, tr("Succès !"), tr("Automate importé"));
+}
