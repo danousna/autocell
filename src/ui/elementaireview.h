@@ -12,6 +12,7 @@
 #include <QTableWidget>
 #include <QXmlStreamWriter>
 #include <QTextCodec>
+#include <QFile>
 
 #include "../simulateur.h"
 #include "../automate1d.h"
@@ -39,7 +40,7 @@ public:
     explicit ElementaireView(QWidget *parent = 0);
     ~ElementaireView();
 
-    QString save();
+    void save(QFile* f);
 private slots:
     void toggleCell(QTableWidgetItem* item);
     void next();

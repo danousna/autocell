@@ -244,3 +244,23 @@ void GoLView::randomGen() {
     }
 }
 
+void GoLView::save(QFile* f) {
+    QDataStream output(f);
+    output.setVersion(QDataStream::Qt_4_5);
+
+    QXmlStreamWriter stream(output.device());
+    stream.setAutoFormatting(true);
+    stream.setCodec("UTF-8");
+    stream.writeStartDocument();
+    stream.writeStartElement("automate");
+    stream.writeAttribute("type", "gol");
+    stream.writeTextElement("voisinsmin", QString::number(ui->inputVoisinsMin->value()));
+    stream.writeTextElement("voisinsmax", QString::number(ui->inputVoisinsMax->value()));
+    stream.writeTextElement("vitesse", QString::number(ui->inputSpeed->value()));
+    stream.writeTextElement("dimensions", QString::number(ui->inputDimensions->value()));
+    stream.writeTextElement("taillecell", QString::number(ui->inputTailleCell->value()));
+    stream.writeTextElement("steps", QString::number(ui->inputSteps->value()));
+    stream.writeEndElement(); // automate
+    stream.writeEndDocument();
+}
+

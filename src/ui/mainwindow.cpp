@@ -42,10 +42,18 @@ void MainWindow::showSaveDialog() {
             return;
         }
 
-        QDataStream out(&file);
-        out.setVersion(QDataStream::Qt_4_5);
-
-        out << elementaireAutomate->save();
+        if (ui->stackedWidget->currentIndex() == 0) {
+            elementaireAutomate->save(&file);
+        } 
+        else if (ui->stackedWidget->currentIndex() == 1) {
+            golAutomate->save(&file);
+        } 
+        else if (ui->stackedWidget->currentIndex() == 2) {
+            return;
+        } 
+        else {
+            return;
+        }
     }
 }
 
