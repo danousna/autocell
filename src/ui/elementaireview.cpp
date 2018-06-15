@@ -310,14 +310,45 @@ void ElementaireView::save(QFile* f) {
     QXmlStreamWriter stream(output.device());
     stream.setAutoFormatting(true);
     stream.setCodec("UTF-8");
+
     stream.writeStartDocument();
     stream.writeStartElement("automate");
+
+    // Config de l'automate
     stream.writeAttribute("type", "elementaire");
     stream.writeTextElement("numero", QString::number(ui->inputNumero->value()));
     stream.writeTextElement("vitesse", QString::number(ui->inputSpeed->value()));
     stream.writeTextElement("taille", QString::number(ui->inputTaille->value()));
     stream.writeTextElement("taillecell", QString::number(ui->inputTailleCell->value()));
     stream.writeTextElement("steps", QString::number(ui->inputSteps->value()));
+    
+    // Grille initiale
+    QString row("");
+    for (unsigned int i = 0; i < taille; i++) {
+        if (ui->grilleDepart->item(0, i)->background() == Qt::black) {
+            row += "1";
+        } else {
+            row += "0";
+        }
+    }
+    stream.writeTextElement("grilledepart", row);
+    
+    // Grille
+    stream.writeStartElement("grille");
+    for (unsigned int i = 0; i < steps; i++) {
+        QString label = QStringLiteral("row_%1").arg(i);
+        QString row("");
+        for (unsigned int j = 0; j < taille; j++) {
+            if (ui->grille->item(i, j)->background() == Qt::black) {
+                row += "1";
+            } else {
+                row += "0";
+            }
+        }
+        stream.writeTextElement(label, row);
+    }
+    stream.writeEndElement(); // grille
+    
     stream.writeEndElement(); // automate
     stream.writeEndDocument();
 }
