@@ -36,6 +36,7 @@ class WWView : public QWidget
     AutomateWW* automate;
 public:
     explicit WWView(QWidget *parent = 0);
+    int getTaille() { return dimensions; }
     ~WWView();
 private slots:
     void toggleCell(QTableWidgetItem* item);
@@ -51,6 +52,7 @@ private slots:
     void changeSpeed(int s);
     void changeSteps(int n);
     void randomGen();
+    void symetrie();
 };
 
 #endif // WWVIEW_H

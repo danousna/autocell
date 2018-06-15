@@ -39,6 +39,7 @@ class ElementaireView : public QWidget
 public:
     explicit ElementaireView(QWidget *parent = 0);
     ~ElementaireView();
+    int getTaille() { return taille; }
 
     void save(QFile* f);
 private slots:
@@ -57,6 +58,7 @@ private slots:
     void changeSpeed(int s);
     void changeSteps(int n);
     void randomGen();
+    void symetrie();
 };
 
 #endif // ELEMENTAIREVIEW_H

@@ -3,7 +3,7 @@
 
 WWView::WWView(QWidget *parent):
 QWidget(parent), ui(new Ui::WWView),
-dimensions(25), tailleCell(25), steps(11), stepState(0), speed(100), paused(true),
+dimensions(24), tailleCell(25), steps(21), stepState(0), speed(100), paused(true),
 automate(AutomateWW::getInstance()) {
     ui->setupUi(this);
 
@@ -20,6 +20,9 @@ automate(AutomateWW::getInstance()) {
 
     // UI Gen
     connect(ui->btnGenRandom, SIGNAL(clicked()), this, SLOT(randomGen()));
+
+    // UI Symetrie
+    connect(ui->btnSymetrie, SIGNAL(clicked()), this, SLOT(symetrie()));
 
     // UI play/pause et reset
     connect(ui->btnNext, SIGNAL(clicked()), this, SLOT(next()));
@@ -158,7 +161,7 @@ void WWView::syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT, bool se
     if (set) {
         for (unsigned int i = 0; i < grilleAutomate->getTaille(); i++) {
             for (unsigned int j = 0; j < grilleAutomate->getTaille(); j++) {
-                if (grilleAutomate->getCellVal(i, j) == 1) {
+                if (grilleAutomate->getCellVal(i, j) == 0) {
                     grilleQT->item(j, i)->setBackground(Qt::black);
                 } else if (grilleAutomate->getCellVal(i, j) == 1) {
                     grilleQT->item(j, i)->setBackground(Qt::yellow);
@@ -250,6 +253,17 @@ void WWView::randomGen() {
             } else {
                 ui->grille->item(j, i)->setBackground(Qt::red);
             }
+        }
+    }
+}
+
+void WWView::symetrie() {
+    int size = this->getTaille();
+    for (int i = 0; i < size/2; i++) {
+        for (int j = 0; j < size/2; j++) {
+            ui->grille->item(j, size-i-1)->setBackground(ui->grille->item(j, i)->background());
+            ui->grille->item(size-j-1, size-i-1)->setBackground(ui->grille->item(j, i)->background());
+            ui->grille->item(size-j-1, i)->setBackground(ui->grille->item(j, i)->background());
         }
     }
 }

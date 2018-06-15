@@ -3,7 +3,7 @@
 
 ElementaireView::ElementaireView(QWidget *parent): 
 QWidget(parent), ui(new Ui::ElementaireView), 
-taille(23), tailleCell(40), steps(11), stepState(0), speed(100), paused(true),
+taille(24), tailleCell(40), steps(21), stepState(0), speed(100), paused(true),
 automate(AutomateElementaire::getInstance(30)) {
     ui->setupUi(this);
 
@@ -39,6 +39,9 @@ automate(AutomateElementaire::getInstance(30)) {
 
     // UI Gen
     connect(ui->btnGenRandom, SIGNAL(clicked()), this, SLOT(randomGen()));
+
+    // UI Symetrie
+    connect(ui->btnSymetrie, SIGNAL(clicked()), this, SLOT(symetrie()));
 
     // Affichage et interaction avec la grille de départ.
     drawGrille(ui->grilleDepart, tailleCell, taille, 1);
@@ -286,9 +289,9 @@ void ElementaireView::changeSteps(int n) {
 }
 
 void ElementaireView::randomGen() {
-    int randZeroOne = 0;    
+    int randZeroOne = 0;
 
-    for (unsigned int i = 0; i < taille; i++) {
+    for (unsigned int i = 0; i < this->getTaille(); i++) {
         randZeroOne = rand() % 2;
 
         if (randZeroOne == 1) {
@@ -296,6 +299,13 @@ void ElementaireView::randomGen() {
         } else {
             ui->grilleDepart->item(0, i)->setBackground(Qt::white);
         }
+    }
+}
+
+void ElementaireView::symetrie() {
+    int size = this->getTaille();
+    for (int i = 0; i < size/2; i++) {
+        ui->grilleDepart->item(0, size-i-1)->setBackground(ui->grilleDepart->item(0, i)->background());
     }
 }
 
