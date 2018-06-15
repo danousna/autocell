@@ -66,8 +66,8 @@ AutomateWW::AutomateWW(): voisinsTeteMin(1), voisinsTeteMax(2) {
     etatsPossibles = new Etat[4];
     etatsPossibles[0] = vide;
     etatsPossibles[1] = conducteur;
-    etatsPossibles[1] = tete;
-    etatsPossibles[1] = queue;
+    etatsPossibles[2] = tete;
+    etatsPossibles[3] = queue;
 }
 
 void AutomateWW::appliquerTransition(Grille* dep, Grille* dest) const {
@@ -75,6 +75,7 @@ void AutomateWW::appliquerTransition(Grille* dep, Grille* dest) const {
 
     unsigned int taille = dep->getTaille();
     int newValeurs[taille][taille];
+    int tmp;
 
     for (unsigned int i = 0; i < taille; i++) {
         for (unsigned int j = 0; j < taille; j++) {
@@ -85,36 +86,37 @@ void AutomateWW::appliquerTransition(Grille* dep, Grille* dest) const {
              * 2 = tête d'électron
              * 3 = queue d'électron */
 
-            if (dep->getCellVal(i, j) == 0) {
+            tmp = dep->getCellVal(i, j);
+
+            if (tmp == 0) {
                 newValeurs[i][j] = 0;
-                break;
             }
 
-            if (dep->getCellVal(i, j) == 2) {
+            else if (tmp == 1) {
+                int sum = this->calculerSommeVoisinsTete(dep, i, j);
+
+                if (sum <= voisinsTeteMax && sum >= voisinsTeteMin) {
+                    newValeurs[i][j] = 2;
+                } else {
+                    newValeurs[i][j] = 1;
+                }
+            }
+
+            else if (tmp == 2) {
                 newValeurs[i][j] = 3;
-                break;
             }
 
-            if (dep->getCellVal(i, j) == 3) {
-                newValeurs[i][j] = 1;
-                break;
-            }
-
-            //if (dep->getCellVal(i, j) != 1) throw new AutoCellException("Erreur : une cellule a une valeur illégale.");
-
-            int sum = this->calculerSommeVoisinsTete(dep, i, j);
-
-            if (sum <= voisinsTeteMax && sum >= voisinsTeteMin) {
-                newValeurs[i][j] = 2;
-            } else {
+            else if (tmp == 3) {
                 newValeurs[i][j] = 1;
             }
+
+            else throw new AutoCellException("Erreur : une cellule a une valeur illégale.");
         }
     }
 
     for (unsigned int i = 0; i < taille; i++) {
         for (unsigned int j = 0; j < taille; j++) {
-            dest->setCell(Cell(Etat(newValeurs[i][j])), i, j);
+            dest->setCell(this->getEtatsPossibles()[newValeurs[i][j]], i, j);
         }
     }
 }
