@@ -37,21 +37,21 @@ WWView::~WWView()
 }
 
 void WWView::toggleCell(QTableWidgetItem* item) {
-    // Si une cellule était vide (noire), on la rend conductruce.
-    if (ui->grille->item(item->row(), item->column())->backgroundColor() == "black") {
-        ui->grille->item(item->row(), item->column())->setBackgroundColor("yellow");
+    // Si une cellule était vide (noire), on la rend conductrice.
+    if (ui->grille->item(item->row(), item->column())->background() == Qt::black) {
+        ui->grille->item(item->row(), item->column())->setBackground(Qt::yellow);
     }
     // Si elle était conductrice (jaune), on la rend tête d'électron.
-    if (ui->grille->item(item->row(), item->column())->backgroundColor() == "yellow") {
-        ui->grille->item(item->row(), item->column())->setBackgroundColor("blue");
+    else if (ui->grille->item(item->row(), item->column())->background() == Qt::yellow) {
+        ui->grille->item(item->row(), item->column())->setBackground(Qt::blue);
     }
     // Si elle était tête (bleue), on la rend queue.
-    if (ui->grille->item(item->row(), item->column())->backgroundColor() == "blue") {
-        ui->grille->item(item->row(), item->column())->setBackgroundColor("red");
+    else if (ui->grille->item(item->row(), item->column())->background() == Qt::blue) {
+        ui->grille->item(item->row(), item->column())->setBackground(Qt::red);
     }
     // Cas restant : elle était queue, on la rend vide
     else {
-        ui->grille->item(item->row(), item->column())->setBackgroundColor("black");
+        ui->grille->item(item->row(), item->column())->setBackground(Qt::black);
     }
 }
 
@@ -158,37 +158,32 @@ void WWView::syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT, bool se
     if (set) {
         for (unsigned int i = 0; i < grilleAutomate->getTaille(); i++) {
             for (unsigned int j = 0; j < grilleAutomate->getTaille(); j++) {
-                if (grilleAutomate->getCellVal(i, j) == 0) {
-                    grilleQT->item(j, i)->setBackgroundColor("black");
+                if (grilleAutomate->getCellVal(i, j) == 1) {
+                    grilleQT->item(j, i)->setBackground(Qt::black);
                 } else if (grilleAutomate->getCellVal(i, j) == 1) {
-                    grilleQT->item(j, i)->setBackgroundColor("yellow");
+                    grilleQT->item(j, i)->setBackground(Qt::yellow);
                 } else if (grilleAutomate->getCellVal(i, j) == 2) {
-                    grilleQT->item(j, i)->setBackgroundColor("blue");
+                    grilleQT->item(j, i)->setBackground(Qt::blue);
                 } else if (grilleAutomate->getCellVal(i, j) == 3) {
-                    grilleQT->item(j, i)->setBackgroundColor("red");
-                } else {
-                    throw new AutoCellException("La cellule a une valeur illégale.");
+                    grilleQT->item(j, i)->setBackground(Qt::red);
                 }
+                else throw new AutoCellException("Une cellule a une valeur illégale.");
             }
         }
     } else {
+        QBrush tmp;
         for (unsigned int i = 0; i < grilleAutomate->getTaille(); i++) {
             for (unsigned int j = 0; j < grilleAutomate->getTaille(); j++) {
-                if (grilleQT->item(j, i)->background().color() == QColor("black")) {
-                    Cell c(Etat(0, "vide"));
-                    grilleAutomate->setCell(c, i, j);
-                } else if (grilleQT->item(j, i)->background().color() == QColor("yellow")) {
-                    Cell c(Etat(1, "conductrice"));
-                    grilleAutomate->setCell(c, i, j);
-                } else if (grilleQT->item(j, i)->background().color() == QColor("blue")) {
-                    Cell c(Etat(2, "tête d'électron"));
-                    grilleAutomate->setCell(c, i, j);
-                } else if (grilleQT->item(j, i)->background().color() == QColor("red")) {
-                    Cell c(Etat(3, "queue d'électron"));
-                    grilleAutomate->setCell(c, i, j);
-                } else {
-                    throw new AutoCellException("La cellule est d'une couleur illégale.");
-                }
+                tmp = grilleQT->item(j, i)->background();
+                if (tmp == Qt::black) {
+                    grilleAutomate->setCell(automate->getEtatsPossibles()[0], i, j);
+                } else if (tmp == Qt::yellow) {
+                    grilleAutomate->setCell(automate->getEtatsPossibles()[1], i, j);
+                } else if (tmp == Qt::blue) {
+                    grilleAutomate->setCell(automate->getEtatsPossibles()[2], i, j);
+                } else if (tmp == Qt::red) {
+                    grilleAutomate->setCell(automate->getEtatsPossibles()[3], i, j);
+                } else throw new AutoCellException("Une cellule a une couleur illégale.");
             }
         }
     }
@@ -197,8 +192,8 @@ void WWView::syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT, bool se
 void WWView::viderGrille() {
     for (unsigned int i = 0; i < dimensions; i++) {
         for (unsigned int j = 0; j < dimensions; j++) {
-            ui->grille->item(i, j)->setBackgroundColor("black");
-            ui->grille->item(i, j)->setTextColor("black");
+            ui->grille->item(i, j)->setBackground(Qt::black);
+            //ui->grille->item(i, j)->setTextColor(Qt::black);
         }
     }
 }
@@ -215,8 +210,8 @@ void WWView::drawGrille(QTableWidget* grille, unsigned int tCell, unsigned int n
         for (unsigned int j = 0; j < n; j++) {
             grille->setColumnWidth(j, tCell);
             grille->setItem(i, j, new QTableWidgetItem(""));
-            grille->item(i, j)->setBackgroundColor("black");
-            grille->item(i, j)->setTextColor("black");
+            grille->item(i, j)->setBackground(Qt::black);
+            grille->item(i, j)->setTextColor(Qt::black);
         }
     }
 }
@@ -247,13 +242,13 @@ void WWView::randomGen() {
             randZeroThree = rand() % 4;
 
             if (randZeroThree == 0) {
-                ui->grille->item(j, i)->setBackgroundColor("black");
+                ui->grille->item(j, i)->setBackground(Qt::black);
             } else if (randZeroThree == 1) {
-                ui->grille->item(j, i)->setBackgroundColor("yellow");
+                ui->grille->item(j, i)->setBackground(Qt::yellow);
             } else if (randZeroThree == 2) {
-                ui->grille->item(j, i)->setBackgroundColor("blue");
+                ui->grille->item(j, i)->setBackground(Qt::blue);
             } else {
-                ui->grille->item(j, i)->setBackgroundColor("red");
+                ui->grille->item(j, i)->setBackground(Qt::red);
             }
         }
     }

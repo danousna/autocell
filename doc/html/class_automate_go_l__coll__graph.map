@@ -1,5 +1,5 @@
 <map id="AutomateGoL" name="AutomateGoL">
-<area shape="rect" id="node2" href="$class_automate2_d.html" title="Automate2D" alt="" coords="9,171,104,197"/>
-<area shape="rect" id="node3" href="$class_automate.html" title="Automate" alt="" coords="17,95,96,121"/>
-<area shape="rect" id="node4" href="$class_etat.html" title="Etat" alt="" coords="33,5,80,32"/>
+<area shape="rect" id="node2" href="$class_automate2_d.html" title="{Automate2D\n||+ Automate2D()\l+ Automate2D()\l+ appliquerTransition()\l}" alt="" coords="17,433,168,540"/>
+<area shape="rect" id="node3" href="$class_automate.html" title="{Automate\n|# dimension\l|+ Automate()\l+ Automate()\l+ ~Automate()\l+ getDimension()\l+ getEtatsPossibles()\l+ appliquerTransition()\l}" alt="" coords="17,233,168,384"/>
+<area shape="rect" id="node4" href="$class_etat.html" title="{Etat\n||+ Etat()\l+ Etat()\l+ Etat()\l+ Etat()\l+ getValeur()\l+ getDesc()\l+ operator=()\l}" alt="" coords="44,5,141,171"/>
 </map>

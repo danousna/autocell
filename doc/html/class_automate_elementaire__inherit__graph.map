@@ -1,4 +1,4 @@
 <map id="AutomateElementaire" name="AutomateElementaire">
-<area shape="rect" id="node2" href="$class_automate1_d.html" title="Automate1D" alt="" coords="31,80,126,107"/>
-<area shape="rect" id="node3" href="$class_automate.html" title="Automate" alt="" coords="39,5,118,32"/>
+<area shape="rect" id="node2" href="$class_automate1_d.html" title="{Automate1D\n||+ Automate1D()\l+ Automate1D()\l+ appliquerTransition()\l}" alt="" coords="13,219,164,325"/>
+<area shape="rect" id="node3" href="$class_automate.html" title="{Automate\n|# dimension\l# etatsPossibles\l|+ Automate()\l+ Automate()\l+ ~Automate()\l+ getDimension()\l+ getEtatsPossibles()\l+ appliquerTransition()\l}" alt="" coords="13,5,164,171"/>
 </map>

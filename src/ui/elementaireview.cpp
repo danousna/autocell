@@ -64,12 +64,12 @@ ElementaireView::~ElementaireView()
 
 void ElementaireView::toggleCell(QTableWidgetItem* item) {
     // Si elle était vivante (blanche), on la rends morte.
-    if (ui->grilleDepart->item(0, item->column())->backgroundColor() == "white") {
-        ui->grilleDepart->item(0, item->column())->setBackgroundColor("black");
+    if (ui->grilleDepart->item(0, item->column())->backgroundColor() == Qt::white) {
+        ui->grilleDepart->item(0, item->column())->setBackground(Qt::black);
     }
     // Cas contraire 
     else {
-        ui->grilleDepart->item(0, item->column())->setBackgroundColor("white");
+        ui->grilleDepart->item(0, item->column())->setBackground(Qt::white);
     }
 }
 
@@ -170,14 +170,14 @@ void ElementaireView::syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT
     if (set) {
         for (unsigned int i = 0; i < grilleAutomate->getTaille(); i++) {
             if (grilleAutomate->getCellVal(i, 0)) {
-                grilleQT->item(step, i)->setBackgroundColor("black");
+                grilleQT->item(step, i)->setBackground(Qt::black);
             } else {
-                grilleQT->item(step, i)->setBackgroundColor("white");
+                grilleQT->item(step, i)->setBackground(Qt::white);
             }
         }
     } else {
         for (unsigned int i = 0; i < grilleAutomate->getTaille(); i++) {
-            if (grilleQT->item(0, i)->background().color() == QColor("black")) {
+            if (grilleQT->item(0, i)->background() == Qt::black) {
                 Cell c(Etat(1, "vivante"));
                 grilleAutomate->setCell(c, i, 0);
             } else {
@@ -191,8 +191,8 @@ void ElementaireView::syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT
 void ElementaireView::viderGrille() {
     for (unsigned int i = 0; i < steps; ++i) {
         for (unsigned int j = 0; j < taille; j++) {
-            ui->grille->item(i, j)->setBackgroundColor("white");
-            ui->grille->item(i, j)->setTextColor("white");
+            ui->grille->item(i, j)->setBackground(Qt::white);
+            //ui->grille->item(i, j)->setTextColor("white");
         }
     }
 }
@@ -209,8 +209,8 @@ void ElementaireView::drawGrille(QTableWidget* grille, unsigned int tCell, unsig
             grille->setColumnWidth(i, tCell);
             grille->setItem(0, i, new QTableWidgetItem(""));
             if (grille->item(0, i) != NULL) {
-                grille->item(0, i)->setBackgroundColor("white");
-                grille->item(0, i)->setTextColor("white");
+                grille->item(0, i)->setBackground(Qt::white);
+                //grille->item(0, i)->setTextColor("white");
             }
         }
     }
@@ -224,8 +224,8 @@ void ElementaireView::drawGrille(QTableWidget* grille, unsigned int tCell, unsig
             for (unsigned int j = 0; j < t; j++) {
                 grille->setColumnWidth(j, tCell);
                 grille->setItem(i, j, new QTableWidgetItem(""));
-                grille->item(i, j)->setBackgroundColor("white");
-                grille->item(i, j)->setTextColor("white");
+                grille->item(i, j)->setBackground(Qt::white);
+                //grille->item(i, j)->setTextColor("white");
             }
         }
     }
@@ -296,9 +296,9 @@ void ElementaireView::randomGen() {
         randZeroOne = rand() % 2;
 
         if (randZeroOne == 1) {
-            ui->grilleDepart->item(0, i)->setBackgroundColor("black");
+            ui->grilleDepart->item(0, i)->setBackground(Qt::black);
         } else {
-            ui->grilleDepart->item(0, i)->setBackgroundColor("white");
+            ui->grilleDepart->item(0, i)->setBackground(Qt::white);
         }
     }
 }

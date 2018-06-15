@@ -3,7 +3,7 @@
 
 MainWindow::MainWindow(QWidget *parent):
 QMainWindow(parent), ui(new Ui::MainWindow),
-elementaireAutomate(new ElementaireView), golAutomate(new GoLView) {
+elementaireAutomate(new ElementaireView), golAutomate(new GoLView), wwAutomate(new WWView) {
     ui->setupUi(this);
 
     ui->menuBar->setNativeMenuBar(false);
@@ -87,6 +87,7 @@ void MainWindow::showSaveDialog() {
             golAutomate->save(&file);
         } 
         else if (ui->stackedWidget->currentIndex() == 2) {
+            //wwAutomate->save(&file);
             return;
         } 
         else {

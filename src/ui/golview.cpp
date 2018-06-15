@@ -47,13 +47,13 @@ GoLView::~GoLView()
 }
 
 void GoLView::toggleCell(QTableWidgetItem* item) {
-    // Si elle était vivante (blanche), on la rends morte.
-    if (ui->grille->item(item->row(), item->column())->backgroundColor() == "white") {
-        ui->grille->item(item->row(), item->column())->setBackgroundColor("black");
+    // Si elle était vivante (blanche), on la rend morte.
+    if (ui->grille->item(item->row(), item->column())->background() == Qt::white) {
+        ui->grille->item(item->row(), item->column())->setBackground(Qt::black);
     }
     // Cas contraire 
     else {
-        ui->grille->item(item->row(), item->column())->setBackgroundColor("white");
+        ui->grille->item(item->row(), item->column())->setBackground(Qt::white);
     }
 }
 
@@ -156,16 +156,16 @@ void GoLView::syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT, bool s
         for (unsigned int i = 0; i < grilleAutomate->getTaille(); i++) {
             for (unsigned int j = 0; j < grilleAutomate->getTaille(); j++) {
                 if (grilleAutomate->getCellVal(i, j)) {
-                    grilleQT->item(j, i)->setBackgroundColor("black");
+                    grilleQT->item(j, i)->setBackground(Qt::black);
                 } else {
-                    grilleQT->item(j, i)->setBackgroundColor("white");
+                    grilleQT->item(j, i)->setBackground(Qt::white);
                 }
             }
         }
     } else {
         for (unsigned int i = 0; i < grilleAutomate->getTaille(); i++) {
             for (unsigned int j = 0; j < grilleAutomate->getTaille(); j++) {
-                if (grilleQT->item(j, i)->background().color() == QColor("black")) {
+                if (grilleQT->item(j, i)->background() == Qt::black) {
                     Cell c(Etat(1, "vivante"));
                     grilleAutomate->setCell(c, i, j);
                 } else {
@@ -180,8 +180,8 @@ void GoLView::syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT, bool s
 void GoLView::viderGrille() {
     for (unsigned int i = 0; i < dimensions; i++) {
         for (unsigned int j = 0; j < dimensions; j++) {
-            ui->grille->item(i, j)->setBackgroundColor("white");
-            ui->grille->item(i, j)->setTextColor("white");
+            ui->grille->item(i, j)->setBackground(Qt::white);
+            //ui->grille->item(i, j)->setTextColor("white");
         }
     }
 }
@@ -198,8 +198,8 @@ void GoLView::drawGrille(QTableWidget* grille, unsigned int tCell, unsigned int 
         for (unsigned int j = 0; j < n; j++) {
             grille->setColumnWidth(j, tCell);
             grille->setItem(i, j, new QTableWidgetItem(""));
-            grille->item(i, j)->setBackgroundColor("white");
-            grille->item(i, j)->setTextColor("white");
+            grille->item(i, j)->setBackground(Qt::white);
+            //grille->item(i, j)->setTextColor("white");
         }
     }
 }
@@ -242,9 +242,9 @@ void GoLView::randomGen() {
             randZeroOne = rand() % 2;
 
             if (randZeroOne == 1) {
-                ui->grille->item(j, i)->setBackgroundColor("black");
+                ui->grille->item(j, i)->setBackground(Qt::black);
             } else {
-                ui->grille->item(j, i)->setBackgroundColor("white");
+                ui->grille->item(j, i)->setBackground(Qt::white);
             }
         }
     }
