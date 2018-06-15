@@ -3,7 +3,7 @@
 
 ElementaireView::ElementaireView(QWidget *parent): 
 QWidget(parent), ui(new Ui::ElementaireView), 
-taille(24), tailleCell(40), steps(21), stepState(0), speed(100), paused(true),
+taille(24), tailleCell(40), steps(20), stepState(0), speed(100), paused(true),
 automate(AutomateElementaire::getInstance(30)) {
     ui->setupUi(this);
 
