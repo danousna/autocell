@@ -1,7 +1,6 @@
 #include "golview.h"
 #include "ui_golview.h"
 
-
 GoLView::GoLView(QWidget *parent): QWidget(parent), ui(new Ui::GoLView), voisinsMin(2), voisinsMax(3), dimensions(24), tailleCell(25), steps(21), stepState(0), speed(100), paused(true), automate(AutomateGoL::getInstance()) {
     ui->setupUi(this);
 
