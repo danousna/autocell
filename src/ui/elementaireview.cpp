@@ -359,21 +359,53 @@ void ElementaireView::import(QXmlStreamReader* reader) {
             ui->inputNumero->setValue(reader->readElementText().toInt());
         }
         else if (reader->name() == "vitesse") {
-            ui->inputSpeed->setValue(reader->readElementText().toInt());
+            speed = reader->readElementText().toInt();
+            ui->inputSpeed->setValue(speed);
         } 
         else if (reader->name() == "taille") {
-            ui->inputTaille->setValue(reader->readElementText().toInt());
+            taille = reader->readElementText().toInt();
+            ui->inputTaille->setValue(taille);
         } 
         else if (reader->name() == "taillecell") {
-            ui->inputTailleCell->setValue(reader->readElementText().toInt());
+            tailleCell = reader->readElementText().toInt();
+            ui->inputTailleCell->setValue(tailleCell);
         }
         else if (reader->name() == "steps") {
-            ui->inputSteps->setValue(reader->readElementText().toInt());
+            steps = reader->readElementText().toInt();
+            ui->inputSteps->setValue(steps);
+        }
+        else if (reader->name() == "grilledepart") {
+            QString row = reader->readElementText();
+            refreshTaille();
+
+            for (unsigned int i = 0; i < row.length(); i++) {
+                if (row[i] == "1") {
+                    ui->grilleDepart->item(0, i)->setBackground(Qt::black);
+                } else {
+                    ui->grilleDepart->item(0, i)->setBackground(Qt::white);
+                }
+            }
+        }
+        else if (reader->isStartElement() && reader->name() == "grille") {
+            int row = 0;
+            QString rowString;
+
+            while (reader->readNextStartElement() && row <= taille) {
+                rowString = reader->readElementText();
+                for (unsigned int i = 0; i < rowString.length(); i++) {
+                    if (rowString[i] == "1") {
+                        ui->grille->item(row, i)->setBackground(Qt::black);
+                    } else {
+                        ui->grille->item(row, i)->setBackground(Qt::white);
+                    }
+                }
+                row++;
+            }
         }
         else {
             reader->skipCurrentElement();
         }
     }
 
-    QMessageBox::information(this, tr("Succès !"), tr("Automate importé"));
+    QMessageBox::information(this, tr("Succès"), tr("Automate importé."));
 }
