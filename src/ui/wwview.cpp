@@ -1,10 +1,7 @@
 #include "wwview.h"
 #include "ui_wwview.h"
 
-WWView::WWView(QWidget *parent):
-QWidget(parent), ui(new Ui::WWView),
-dimensions(23), tailleCell(40), steps(11), stepState(0), speed(100), paused(true),
-automate(AutomateWW::getInstance()) {
+WWView::WWView(QWidget *parent): QWidget(parent), ui(new Ui::WWView), dimensions(24), tailleCell(25), steps(21), stepState(0), speed(100), paused(true), automate(AutomateWW::getInstance()) {
     ui->setupUi(this);
 
     srand(time(NULL));
@@ -24,6 +21,9 @@ automate(AutomateWW::getInstance()) {
 
     // UI Gen
     connect(ui->btnGenRandom, SIGNAL(clicked()), this, SLOT(randomGen()));
+
+    // UI Symetrie
+    connect(ui->btnSymetrie, SIGNAL(clicked()), this, SLOT(symetrie()));
 
     // UI play/pause et reset
     connect(ui->btnNext, SIGNAL(clicked()), this, SLOT(next()));
@@ -272,6 +272,7 @@ void WWView::randomGen() {
     }
 }
 
+<<<<<<< HEAD
 void WWView::save(QFile* f, bool showDialog) {
     QDataStream output(f);
     output.setVersion(QDataStream::Qt_4_5);
@@ -363,6 +364,15 @@ void WWView::import(QXmlStreamReader* reader) {
         }
         else {
             reader->skipCurrentElement();
+=======
+void WWView::symetrie() {
+    int size = this->getTaille();
+    for (int i = 0; i < size/2; i++) {
+        for (int j = 0; j < size/2; j++) {
+            ui->grille->item(j, size-i-1)->setBackground(ui->grille->item(j, i)->background());
+            ui->grille->item(size-j-1, size-i-1)->setBackground(ui->grille->item(j, i)->background());
+            ui->grille->item(size-j-1, i)->setBackground(ui->grille->item(j, i)->background());
+>>>>>>> master
         }
     }
 }

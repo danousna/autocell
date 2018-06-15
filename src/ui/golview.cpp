@@ -1,10 +1,7 @@
 #include "golview.h"
 #include "ui_golview.h"
 
-GoLView::GoLView(QWidget *parent):
-QWidget(parent), ui(new Ui::GoLView),
-voisinsMin(2), voisinsMax(3), dimensions(23), tailleCell(40), steps(11), stepState(0), speed(100), paused(true),
-automate(AutomateGoL::getInstance()) {
+GoLView::GoLView(QWidget *parent): QWidget(parent), ui(new Ui::GoLView), voisinsMin(2), voisinsMax(3), dimensions(24), tailleCell(25), steps(21), stepState(0), speed(100), paused(true), automate(AutomateGoL::getInstance()) {
     ui->setupUi(this);
 
     srand(time(NULL));
@@ -30,6 +27,9 @@ automate(AutomateGoL::getInstance()) {
 
     // UI Gen
     connect(ui->btnGenRandom, SIGNAL(clicked()), this, SLOT(randomGen()));
+
+    // UI Symetrie
+    connect(ui->btnSymetrie, SIGNAL(clicked()), this, SLOT(symetrie()));
     
     // UI play/pause et reset
     connect(ui->btnNext, SIGNAL(clicked()), this, SLOT(next()));
@@ -250,6 +250,18 @@ void GoLView::randomGen() {
     }
 }
 
+void GoLView::symetrie() {
+    int size = this->getTaille();
+    for (int i = 0; i < size/2; i++) {
+        for (int j = 0; j < size/2; j++) {
+            ui->grille->item(j, size-i-1)->setBackground(ui->grille->item(j, i)->background());
+            ui->grille->item(size-j-1, size-i-1)->setBackground(ui->grille->item(j, i)->background());
+            ui->grille->item(size-j-1, i)->setBackground(ui->grille->item(j, i)->background());
+        }
+    }
+}
+
+void GoLView::save(QFile* f) {
 void GoLView::save(QFile* f, bool showDialog) {
     QDataStream output(f);
     output.setVersion(QDataStream::Qt_4_5);

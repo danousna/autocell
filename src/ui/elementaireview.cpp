@@ -3,7 +3,7 @@
 
 ElementaireView::ElementaireView(QWidget *parent): 
 QWidget(parent), ui(new Ui::ElementaireView), 
-taille(23), tailleCell(40), steps(11), stepState(0), speed(100), paused(true),
+taille(24), tailleCell(40), steps(20), stepState(0), speed(100), paused(true),
 automate(AutomateElementaire::getInstance(30)) {
     ui->setupUi(this);
 
@@ -44,6 +44,9 @@ automate(AutomateElementaire::getInstance(30)) {
     // UI Gen
     connect(ui->btnGenRandom, SIGNAL(clicked()), this, SLOT(randomGen()));
 
+    // UI Symetrie
+    connect(ui->btnSymetrie, SIGNAL(clicked()), this, SLOT(symetrie()));
+
     // Affichage et interaction avec la grille de départ.
     drawGrille(ui->grilleDepart, tailleCell, taille, 1);
     connect(ui->grilleDepart, SIGNAL(itemClicked(QTableWidgetItem*)), this, SLOT(toggleCell(QTableWidgetItem*)));
@@ -80,6 +83,7 @@ void ElementaireView::next() {
 
     for (int i = 0; i < steps; i++) {
         if (i <= stepState) {
+            ui->stepsLabel->setText(QStringLiteral("%1 sur").arg(i));
             this->syncGrilles(&s.dernier(), ui->grille, i, true);
             s.next();
         }
@@ -128,6 +132,7 @@ void ElementaireView::play(int startStep) {
         }
         else {
             if (!paused) {
+                ui->stepsLabel->setText(QStringLiteral("%1 sur").arg(i));
                 this->syncGrilles(&s.dernier(), ui->grille, i, true);
                 std::this_thread::sleep_for(std::chrono::milliseconds(speed));
                 QCoreApplication::processEvents();
@@ -151,6 +156,7 @@ void ElementaireView::reset() {
     viderGrille();
     ui->btnNext->setEnabled(true);
     ui->btnPlay->setEnabled(true);
+    ui->stepsLabel->setText(QString("0 sur"));
     stepState = 0;
 }
 
@@ -290,9 +296,9 @@ void ElementaireView::changeSteps(int n) {
 }
 
 void ElementaireView::randomGen() {
-    int randZeroOne = 0;    
+    int randZeroOne = 0;
 
-    for (unsigned int i = 0; i < taille; i++) {
+    for (unsigned int i = 0; i < this->getTaille(); i++) {
         randZeroOne = rand() % 2;
 
         if (randZeroOne == 1) {
@@ -303,6 +309,14 @@ void ElementaireView::randomGen() {
     }
 }
 
+void ElementaireView::symetrie() {
+    int size = this->getTaille();
+    for (int i = 0; i < size/2; i++) {
+        ui->grilleDepart->item(0, size-i-1)->setBackground(ui->grilleDepart->item(0, i)->background());
+    }
+}
+
+void ElementaireView::save(QFile* f) {
 void ElementaireView::save(QFile* f, bool showDialog) {
     QDataStream output(f);
     output.setVersion(QDataStream::Qt_4_5);

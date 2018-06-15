@@ -77,11 +77,15 @@ $(document).ready(function(){initNavTree('class_elementaire_view.html','');});
 Graphe d'héritage de ElementaireView:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_elementaire_view__inherit__graph.png" border="0" usemap="#_elementaire_view_inherit__map" alt="Inheritance graph"/></div>
+<map name="_elementaire_view_inherit__map" id="_elementaire_view_inherit__map">
+</map>
 </div>
 <div class="dynheader">
 Graphe de collaboration de ElementaireView:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_elementaire_view__coll__graph.png" border="0" usemap="#_elementaire_view_coll__map" alt="Collaboration graph"/></div>
+<map name="_elementaire_view_coll__map" id="_elementaire_view_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -90,12 +94,16 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:ae2127adf12e71441e4f85fc57f6a03f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0b7d67380c978106f43f1459788d0cf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_elementaire_view.html#af0b7d67380c978106f43f1459788d0cf">~ElementaireView</a> ()</td></tr>
 <tr class="separator:af0b7d67380c978106f43f1459788d0cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1aa85b65dd6d68552fc2b75be8f36bc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_elementaire_view.html#ad1aa85b65dd6d68552fc2b75be8f36bc">getTaille</a> ()</td></tr>
+<tr class="separator:ad1aa85b65dd6d68552fc2b75be8f36bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab519a6d5b85ecd7b5131053b006d8579"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_elementaire_view.html#ab519a6d5b85ecd7b5131053b006d8579">save</a> (QFile *f)</td></tr>
 <tr class="separator:ab519a6d5b85ecd7b5131053b006d8579"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5599ac0321e12d652d2b10f0fcd0d167"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_elementaire_view.html#a5599ac0321e12d652d2b10f0fcd0d167">import</a> (QXmlStreamReader *reader)</td></tr>
+<tr class="separator:a5599ac0321e12d652d2b10f0fcd0d167"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock">
-<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8h_source.html#l00024">24</a> du fichier <a class="el" href="elementaireview_8h_source.html">elementaireview.h</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8h_source.html#l00026">26</a> du fichier <a class="el" href="elementaireview_8h_source.html">elementaireview.h</a>.</p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="ae2127adf12e71441e4f85fc57f6a03f3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae2127adf12e71441e4f85fc57f6a03f3">&#9670;&nbsp;</a></span>ElementaireView()</h2>
@@ -150,11 +158,58 @@ Voici le graphe d'appel pour cette fonction :</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8cpp_source.html#l00056">56</a> du fichier <a class="el" href="elementaireview_8cpp_source.html">elementaireview.cpp</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8cpp_source.html#l00063">63</a> du fichier <a class="el" href="elementaireview_8cpp_source.html">elementaireview.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="ad1aa85b65dd6d68552fc2b75be8f36bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1aa85b65dd6d68552fc2b75be8f36bc">&#9670;&nbsp;</a></span>getTaille()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ElementaireView::getTaille </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8h_source.html#l00044">44</a> du fichier <a class="el" href="elementaireview_8h_source.html">elementaireview.h</a>.</p>
+
+</div>
+</div>
+<a id="a5599ac0321e12d652d2b10f0fcd0d167"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5599ac0321e12d652d2b10f0fcd0d167">&#9670;&nbsp;</a></span>import()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ElementaireView::import </td>
+          <td>(</td>
+          <td class="paramtype">QXmlStreamReader *&#160;</td>
+          <td class="paramname"><em>reader</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8cpp_source.html#l00366">366</a> du fichier <a class="el" href="elementaireview_8cpp_source.html">elementaireview.cpp</a>.</p>
+
+</div>
+</div>
 <a id="ab519a6d5b85ecd7b5131053b006d8579"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab519a6d5b85ecd7b5131053b006d8579">&#9670;&nbsp;</a></span>save()</h2>
 
@@ -171,7 +226,7 @@ Voici le graphe d'appel pour cette fonction :</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8cpp_source.html#l00302">302</a> du fichier <a class="el" href="elementaireview_8cpp_source.html">elementaireview.cpp</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8cpp_source.html#l00316">316</a> du fichier <a class="el" href="elementaireview_8cpp_source.html">elementaireview.cpp</a>.</p>
 
 </div>
 </div>

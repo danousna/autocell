@@ -77,25 +77,33 @@ $(document).ready(function(){initNavTree('class_go_l_view.html','');});
 Graphe d'héritage de GoLView:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_go_l_view__inherit__graph.png" border="0" usemap="#_go_l_view_inherit__map" alt="Inheritance graph"/></div>
+<map name="_go_l_view_inherit__map" id="_go_l_view_inherit__map">
+</map>
 </div>
 <div class="dynheader">
 Graphe de collaboration de GoLView:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_go_l_view__coll__graph.png" border="0" usemap="#_go_l_view_coll__map" alt="Collaboration graph"/></div>
+<map name="_go_l_view_coll__map" id="_go_l_view_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:aaae130253dece24286f2b90985e0d18c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_go_l_view.html#aaae130253dece24286f2b90985e0d18c">GoLView</a> (QWidget *parent=0)</td></tr>
 <tr class="separator:aaae130253dece24286f2b90985e0d18c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a369c124678466d0dcdc645a9079d4282"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_go_l_view.html#a369c124678466d0dcdc645a9079d4282">getTaille</a> ()</td></tr>
+<tr class="separator:a369c124678466d0dcdc645a9079d4282"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf7ba64ba1c64436d05f1594a10e4655"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_go_l_view.html#abf7ba64ba1c64436d05f1594a10e4655">~GoLView</a> ()</td></tr>
 <tr class="separator:abf7ba64ba1c64436d05f1594a10e4655"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad038de6e5c0c13ec269d9838dbc8ce44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_go_l_view.html#ad038de6e5c0c13ec269d9838dbc8ce44">save</a> (QFile *f)</td></tr>
 <tr class="separator:ad038de6e5c0c13ec269d9838dbc8ce44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b671130f5b35fb78e8434d6d10c94bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_go_l_view.html#a0b671130f5b35fb78e8434d6d10c94bd">import</a> (QXmlStreamReader *reader)</td></tr>
+<tr class="separator:a0b671130f5b35fb78e8434d6d10c94bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock">
-<p class="definition">Définition à la ligne <a class="el" href="golview_8h_source.html#l00024">24</a> du fichier <a class="el" href="golview_8h_source.html">golview.h</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="golview_8h_source.html#l00025">25</a> du fichier <a class="el" href="golview_8h_source.html">golview.h</a>.</p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="aaae130253dece24286f2b90985e0d18c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaae130253dece24286f2b90985e0d18c">&#9670;&nbsp;</a></span>GoLView()</h2>
@@ -121,7 +129,7 @@ Fonctions membres publiques</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="golview_8cpp_source.html#l00004">4</a> du fichier <a class="el" href="golview_8cpp_source.html">golview.cpp</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="golview_8cpp_source.html#l00005">5</a> du fichier <a class="el" href="golview_8cpp_source.html">golview.cpp</a>.</p>
 
 </div>
 </div>
@@ -140,11 +148,58 @@ Fonctions membres publiques</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="golview_8cpp_source.html#l00038">38</a> du fichier <a class="el" href="golview_8cpp_source.html">golview.cpp</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="golview_8cpp_source.html#l00045">45</a> du fichier <a class="el" href="golview_8cpp_source.html">golview.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a369c124678466d0dcdc645a9079d4282"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a369c124678466d0dcdc645a9079d4282">&#9670;&nbsp;</a></span>getTaille()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GoLView::getTaille </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="golview_8h_source.html#l00042">42</a> du fichier <a class="el" href="golview_8h_source.html">golview.h</a>.</p>
+
+</div>
+</div>
+<a id="a0b671130f5b35fb78e8434d6d10c94bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b671130f5b35fb78e8434d6d10c94bd">&#9670;&nbsp;</a></span>import()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GoLView::import </td>
+          <td>(</td>
+          <td class="paramtype">QXmlStreamReader *&#160;</td>
+          <td class="paramname"><em>reader</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="golview_8cpp_source.html#l00285">285</a> du fichier <a class="el" href="golview_8cpp_source.html">golview.cpp</a>.</p>
+
+</div>
+</div>
 <a id="ad038de6e5c0c13ec269d9838dbc8ce44"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad038de6e5c0c13ec269d9838dbc8ce44">&#9670;&nbsp;</a></span>save()</h2>
 
@@ -161,7 +216,7 @@ Fonctions membres publiques</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="golview_8cpp_source.html#l00247">247</a> du fichier <a class="el" href="golview_8cpp_source.html">golview.cpp</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="golview_8cpp_source.html#l00265">265</a> du fichier <a class="el" href="golview_8cpp_source.html">golview.cpp</a>.</p>
 
 </div>
 </div>
