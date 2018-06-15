@@ -19,11 +19,12 @@ elementaireAutomate(new ElementaireView), golAutomate(new GoLView), wwAutomate(n
 
     elementaireAutomate = new ElementaireView;
     golAutomate = new GoLView;
+    wwAutomate = new WWView;
 
     // Ajout des interfaces des automates au stackedWidget.
     ui->stackedWidget->insertWidget(0, elementaireAutomate);
     ui->stackedWidget->insertWidget(1, golAutomate);
-    ui->stackedWidget->insertWidget(2, new WWView);
+    ui->stackedWidget->insertWidget(2, wwAutomate);
 }
 
 MainWindow::~MainWindow() {
