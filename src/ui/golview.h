@@ -12,7 +12,6 @@
 #include <QTableWidget>
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
-#include <QTextCodec>
 #include <QMessageBox>
 #include <QFile>
 

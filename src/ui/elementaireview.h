@@ -13,7 +13,7 @@
 #include <QMessageBox>
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
-#include <QTextCodec>
+#include <QMessageBox>
 #include <QFile>
 
 #include "../simulateur.h"

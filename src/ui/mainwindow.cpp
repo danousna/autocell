@@ -55,12 +55,15 @@ void MainWindow::showImportDialog() {
 
                 if (type == "elementaire") {
                     elementaireAutomate->import(&xml);
+                    ui->stackedWidget->setCurrentIndex(0);
                 } 
                 else if (type == "gol") {
                     golAutomate->import(&xml);
+                    ui->stackedWidget->setCurrentIndex(1);
                 } 
                 else if (type == "ww") {
-                    //wwAutomate->import(&xml);
+                    wwAutomate->import(&xml);
+                    ui->stackedWidget->setCurrentIndex(2);
                 }
                 else QMessageBox::information(this, tr("Erreur"), tr("Type d'automate non reconnu."));
             } else QMessageBox::information(this, tr("Fichier non valide"), tr("Ce fichier est incompatible avec AutoCell."));
@@ -87,8 +90,7 @@ void MainWindow::showSaveDialog() {
             golAutomate->save(&file);
         } 
         else if (ui->stackedWidget->currentIndex() == 2) {
-            //wwAutomate->save(&file);
-            return;
+            wwAutomate->save(&file);
         } 
         else {
             return;
