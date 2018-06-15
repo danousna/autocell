@@ -100,7 +100,7 @@ void AutomateWW::appliquerTransition(Grille* dep, Grille* dest) const {
                 break;
             }
 
-            if (dep->getCellVal(i, j) != 1) throw new AutoCellException("Erreur : une cellule a une valeur illégale.");
+            //if (dep->getCellVal(i, j) != 1) throw new AutoCellException("Erreur : une cellule a une valeur illégale.");
 
             int sum = this->calculerSommeVoisinsTete(dep, i, j);
 

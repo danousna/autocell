@@ -1,4 +1,4 @@
 <map id="Automate2D" name="Automate2D">
-<area shape="rect" id="node2" href="$class_automate.html" title="Automate" alt="" coords="13,95,92,121"/>
-<area shape="rect" id="node3" href="$class_etat.html" title="Etat" alt="" coords="29,5,76,32"/>
+<area shape="rect" id="node2" href="$class_automate.html" title="{Automate\n|# dimension\l|+ Automate()\l+ Automate()\l+ ~Automate()\l+ getDimension()\l+ getEtatsPossibles()\l+ appliquerTransition()\l}" alt="" coords="5,233,156,384"/>
+<area shape="rect" id="node3" href="$class_etat.html" title="{Etat\n||+ Etat()\l+ Etat()\l+ Etat()\l+ Etat()\l+ getValeur()\l+ getDesc()\l+ operator=()\l}" alt="" coords="32,5,129,171"/>
 </map>

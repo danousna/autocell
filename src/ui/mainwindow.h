@@ -27,6 +27,7 @@ public:
     ~MainWindow();
     ElementaireView* elementaireAutomate;
     GoLView* golAutomate;
+    WWView* wwAutomate;
 private slots:
     void showImportDialog();
     void showSaveDialog();

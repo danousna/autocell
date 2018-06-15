@@ -79,20 +79,20 @@ Graphe d'héritage de AutomateElementaire:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_automate_elementaire__inherit__graph.png" border="0" usemap="#_automate_elementaire_inherit__map" alt="Inheritance graph"/></div>
 <map name="_automate_elementaire_inherit__map" id="_automate_elementaire_inherit__map">
-<area shape="rect" id="node2" href="class_automate1_d.html" title="Automate1D" alt="" coords="31,80,126,107"/>
-<area shape="rect" id="node3" href="class_automate.html" title="Automate" alt="" coords="39,5,118,32"/>
+<area shape="rect" id="node2" href="class_automate1_d.html" title="{Automate1D\n||+ Automate1D()\l+ Automate1D()\l+ appliquerTransition()\l}" alt="" coords="13,219,164,325"/>
+<area shape="rect" id="node3" href="class_automate.html" title="{Automate\n|# dimension\l# etatsPossibles\l|+ Automate()\l+ Automate()\l+ ~Automate()\l+ getDimension()\l+ getEtatsPossibles()\l+ appliquerTransition()\l}" alt="" coords="13,5,164,171"/>
 </map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">légende</a>]</span></center></div>
+</div>
 <div class="dynheader">
 Graphe de collaboration de AutomateElementaire:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_automate_elementaire__coll__graph.png" border="0" usemap="#_automate_elementaire_coll__map" alt="Collaboration graph"/></div>
 <map name="_automate_elementaire_coll__map" id="_automate_elementaire_coll__map">
-<area shape="rect" id="node2" href="class_automate1_d.html" title="Automate1D" alt="" coords="31,171,126,197"/>
-<area shape="rect" id="node3" href="class_automate.html" title="Automate" alt="" coords="39,95,118,121"/>
-<area shape="rect" id="node4" href="class_etat.html" title="Etat" alt="" coords="55,5,102,32"/>
+<area shape="rect" id="node2" href="class_automate1_d.html" title="{Automate1D\n||+ Automate1D()\l+ Automate1D()\l+ appliquerTransition()\l}" alt="" coords="13,433,164,540"/>
+<area shape="rect" id="node3" href="class_automate.html" title="{Automate\n|# dimension\l|+ Automate()\l+ Automate()\l+ ~Automate()\l+ getDimension()\l+ getEtatsPossibles()\l+ appliquerTransition()\l}" alt="" coords="13,233,164,384"/>
+<area shape="rect" id="node4" href="class_etat.html" title="{Etat\n||+ Etat()\l+ Etat()\l+ Etat()\l+ Etat()\l+ getValeur()\l+ getDesc()\l+ operator=()\l}" alt="" coords="40,5,137,171"/>
 </map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">légende</a>]</span></center></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
@@ -129,6 +129,8 @@ Fonctions membres publiques statiques</h2></td></tr>
 <tr class="separator:ab4f1befad8dea5c8485ddc2f0c956420"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a598ca70285886f4b1449d8556aeec4ca"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_automate_elementaire.html">AutomateElementaire</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automate_elementaire.html#a598ca70285886f4b1449d8556aeec4ca">getInstance</a> (const std::string &amp;num)</td></tr>
 <tr class="separator:a598ca70285886f4b1449d8556aeec4ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0677d6506fce57c25b6dbd821dbf42c6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_automate_elementaire.html">AutomateElementaire</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automate_elementaire.html#a0677d6506fce57c25b6dbd821dbf42c6">getCurrentInstance</a> ()</td></tr>
+<tr class="separator:a0677d6506fce57c25b6dbd821dbf42c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Membres hérités additionnels</h2></td></tr>
@@ -216,6 +218,33 @@ Voici le graphe d'appel pour cette fonction :</div>
 <area shape="rect" id="node4" href="class_grille.html#ab0aaac9029e9e78eff4a22082cb5ec4a" title="Grille::setCell" alt="" coords="209,107,310,133"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a0677d6506fce57c25b6dbd821dbf42c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0677d6506fce57c25b6dbd821dbf42c6">&#9670;&nbsp;</a></span>getCurrentInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_automate_elementaire.html">AutomateElementaire</a>* AutomateElementaire::getCurrentInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="automate1d_8h_source.html#l00051">51</a> du fichier <a class="el" href="automate1d_8h_source.html">automate1d.h</a>.</p>
 
 </div>
 </div>
@@ -314,7 +343,7 @@ Voici le graphe d'appel pour cette fonction :</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="automate1d_8h_source.html#l00053">53</a> du fichier <a class="el" href="automate1d_8h_source.html">automate1d.h</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="automate1d_8h_source.html#l00061">61</a> du fichier <a class="el" href="automate1d_8h_source.html">automate1d.h</a>.</p>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
@@ -350,7 +379,7 @@ Voici le graphe des appelants de cette fonction :</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="automate1d_8h_source.html#l00054">54</a> du fichier <a class="el" href="automate1d_8h_source.html">automate1d.h</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="automate1d_8h_source.html#l00062">62</a> du fichier <a class="el" href="automate1d_8h_source.html">automate1d.h</a>.</p>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">

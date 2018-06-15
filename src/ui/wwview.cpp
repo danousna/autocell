@@ -37,16 +37,16 @@ WWView::~WWView()
 }
 
 void WWView::toggleCell(QTableWidgetItem* item) {
-    // Si une cellule était vide (noire), on la rend conductruce.
+    // Si une cellule était vide (noire), on la rend conductrice.
     if (ui->grille->item(item->row(), item->column())->backgroundColor() == "black") {
         ui->grille->item(item->row(), item->column())->setBackgroundColor("yellow");
     }
     // Si elle était conductrice (jaune), on la rend tête d'électron.
-    if (ui->grille->item(item->row(), item->column())->backgroundColor() == "yellow") {
+    else if (ui->grille->item(item->row(), item->column())->backgroundColor() == "yellow") {
         ui->grille->item(item->row(), item->column())->setBackgroundColor("blue");
     }
     // Si elle était tête (bleue), on la rend queue.
-    if (ui->grille->item(item->row(), item->column())->backgroundColor() == "blue") {
+    else if (ui->grille->item(item->row(), item->column())->backgroundColor() == "blue") {
         ui->grille->item(item->row(), item->column())->setBackgroundColor("red");
     }
     // Cas restant : elle était queue, on la rend vide
@@ -164,10 +164,8 @@ void WWView::syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT, bool se
                     grilleQT->item(j, i)->setBackgroundColor("yellow");
                 } else if (grilleAutomate->getCellVal(i, j) == 2) {
                     grilleQT->item(j, i)->setBackgroundColor("blue");
-                } else if (grilleAutomate->getCellVal(i, j) == 3) {
-                    grilleQT->item(j, i)->setBackgroundColor("red");
                 } else {
-                    throw new AutoCellException("La cellule a une valeur illégale.");
+                    grilleQT->item(j, i)->setBackgroundColor("red");
                 }
             }
         }
@@ -183,11 +181,9 @@ void WWView::syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT, bool se
                 } else if (grilleQT->item(j, i)->background().color() == QColor("blue")) {
                     Cell c(Etat(2, "tête d'électron"));
                     grilleAutomate->setCell(c, i, j);
-                } else if (grilleQT->item(j, i)->background().color() == QColor("red")) {
+                } else {
                     Cell c(Etat(3, "queue d'électron"));
                     grilleAutomate->setCell(c, i, j);
-                } else {
-                    throw new AutoCellException("La cellule est d'une couleur illégale.");
                 }
             }
         }
