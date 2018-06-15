@@ -13,7 +13,7 @@
 #include <QMessageBox>
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
-#include <QTextCodec>
+#include <QMessageBox>
 #include <QFile>
 
 #include "../simulateur.h"
@@ -43,7 +43,7 @@ public:
     ~ElementaireView();
     int getTaille() { return taille; }
 
-    void save(QFile* f);
+    void save(QFile* f, bool showDialog);
     void import(QXmlStreamReader* reader);
 private slots:
     void toggleCell(QTableWidgetItem* item);

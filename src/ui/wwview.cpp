@@ -1,7 +1,10 @@
 #include "wwview.h"
 #include "ui_wwview.h"
 
-WWView::WWView(QWidget *parent): QWidget(parent), ui(new Ui::WWView), dimensions(24), tailleCell(25), steps(21), stepState(0), speed(100), paused(true), automate(AutomateWW::getInstance()) {
+WWView::WWView(QWidget *parent): 
+QWidget(parent), ui(new Ui::WWView), 
+dimensions(24), tailleCell(25), steps(21), stepState(0), speed(100), paused(true), 
+automate(AutomateWW::getInstance()) {
     ui->setupUi(this);
 
     srand(time(NULL));
@@ -268,6 +271,101 @@ void WWView::randomGen() {
             } else {
                 ui->grille->item(j, i)->setBackground(Qt::red);
             }
+        }
+    }
+}
+
+void WWView::save(QFile* f, bool showDialog) {
+    QDataStream output(f);
+    output.setVersion(QDataStream::Qt_4_5);
+
+    QXmlStreamWriter stream(output.device());
+    stream.setAutoFormatting(true);
+    stream.setCodec("UTF-8");
+
+    stream.writeStartDocument();
+    stream.writeStartElement("automate");
+
+    // Config de l'automate
+    stream.writeAttribute("type", "ww");
+    stream.writeTextElement("vitesse", QString::number(ui->inputSpeed->value()));
+    stream.writeTextElement("dimensions", QString::number(ui->inputDimensions->value()));
+    stream.writeTextElement("taillecell", QString::number(ui->inputTailleCell->value()));
+    stream.writeTextElement("steps", QString::number(ui->inputSteps->value()));
+
+    // Grille
+    stream.writeStartElement("grille");
+    for (unsigned int i = 0; i < dimensions; i++) {
+        QString label = QStringLiteral("row_%1").arg(i);
+        QString row("");
+        for (unsigned int j = 0; j < dimensions; j++) {
+            if (ui->grille->item(i, j)->background() == Qt::black) {
+                row += "0";
+            }
+            else if (ui->grille->item(i, j)->background() == Qt::yellow) {
+                row += "1";
+            }
+            else if (ui->grille->item(i, j)->background() == Qt::blue) {
+                row += "2";
+            } 
+            else if (ui->grille->item(i, j)->background() == Qt::red) {
+                row += "3";
+            }
+        }
+        stream.writeTextElement(label, row);
+    }
+    stream.writeEndElement(); // grille
+
+    stream.writeEndElement(); // automate
+    stream.writeEndDocument();
+
+    if (showDialog) {
+        QMessageBox::information(this, tr("Succès"), tr("Automate sauvegardé."));
+    }
+}
+
+void WWView::import(QXmlStreamReader* reader) {
+    while (reader->readNextStartElement()) {
+        if (reader->name() == "vitesse") {
+            speed = reader->readElementText().toInt();
+            ui->inputSpeed->setValue(speed);
+        } 
+        else if (reader->name() == "dimensions") {
+            dimensions = reader->readElementText().toInt();
+            ui->inputDimensions->setValue(dimensions);
+        } 
+        else if (reader->name() == "taillecell") {
+            tailleCell = reader->readElementText().toInt();
+            ui->inputTailleCell->setValue(tailleCell);
+        }
+        else if (reader->name() == "steps") {
+            steps = reader->readElementText().toInt();
+            ui->inputSteps->setValue(steps);
+        }
+        else if (reader->isStartElement() && reader->name() == "grille") {
+            int row = 0;
+            QString rowString;
+            refreshTaille();
+
+            while (reader->readNextStartElement() && row <= dimensions) {
+                rowString = reader->readElementText();
+
+                for (unsigned int i = 0; i < rowString.length(); i++) {
+                    if (rowString[i] == "0") {
+                        ui->grille->item(row, i)->setBackground(Qt::black);
+                    } else if (rowString[i] == "1") {
+                        ui->grille->item(row, i)->setBackground(Qt::yellow);
+                    } else if (rowString[i] == "2") {
+                        ui->grille->item(row, i)->setBackground(Qt::blue);
+                    } else if (rowString[i] == "3") {
+                        ui->grille->item(row, i)->setBackground(Qt::red);
+                    }
+                }
+                row++;
+            }
+        }
+        else {
+            reader->skipCurrentElement();
         }
     }
 }

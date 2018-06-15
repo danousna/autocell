@@ -169,7 +169,7 @@
          <item row="1" column="2">
           <widget class="QPushButton" name="btnSymetrie">
            <property name="text">
-            <string>Symétrie …</string>
+            <string>Génération symétrique</string>
            </property>
           </widget>
          </item>

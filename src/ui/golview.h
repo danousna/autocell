@@ -12,7 +12,7 @@
 #include <QTableWidget>
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
-#include <QTextCodec>
+#include <QMessageBox>
 #include <QFile>
 
 #include "../simulateur.h"
@@ -42,7 +42,7 @@ public:
     int getTaille() { return dimensions; }
     ~GoLView();
 
-    void save(QFile* f);
+    void save(QFile* f, bool showDialog);
     void import(QXmlStreamReader* reader);
 private slots:
     void toggleCell(QTableWidgetItem* item);

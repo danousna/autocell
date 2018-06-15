@@ -10,7 +10,10 @@
 #include <QLineEdit>
 #include <QIntValidator>
 #include <QTableWidget>
-#include <QString>
+#include <QXmlStreamWriter>
+#include <QXmlStreamReader>
+#include <QMessageBox>
+#include <QFile>
 
 #include "../simulateur.h"
 #include "../automate2d.h"
@@ -23,8 +26,6 @@ class WWView : public QWidget
 {
     Q_OBJECT
     Ui::WWView*ui;
-    int voisinsMin;
-    int voisinsMax;
     int dimensions;
     int tailleCell;
     int steps;
@@ -38,6 +39,9 @@ public:
     explicit WWView(QWidget *parent = 0);
     int getTaille() { return dimensions; }
     ~WWView();
+
+    void save(QFile* f, bool showDialog);
+    void import(QXmlStreamReader* reader);
 private slots:
     void toggleCell(QTableWidgetItem* item);
     void next();

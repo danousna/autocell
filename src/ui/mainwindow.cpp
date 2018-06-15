@@ -25,10 +25,65 @@ elementaireAutomate(new ElementaireView), golAutomate(new GoLView), wwAutomate(n
     ui->stackedWidget->insertWidget(0, elementaireAutomate);
     ui->stackedWidget->insertWidget(1, golAutomate);
     ui->stackedWidget->insertWidget(2, wwAutomate);
+
+    loadAppState();
 }
 
 MainWindow::~MainWindow() {
+    saveAppState();
     delete ui;
+}
+
+void MainWindow::saveAppState() {
+    QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+    QDir dir(path);
+
+    if (!dir.exists()) {
+        dir.mkpath(path);
+    }
+
+    QFile fileElementaire(path + "/elementaire.xml");
+    if (fileElementaire.open(QIODevice::WriteOnly)) {
+        elementaireAutomate->save(&fileElementaire, false);
+    }
+
+    QFile fileGoL(path + "/gol.xml");
+    if (fileGoL.open(QIODevice::WriteOnly)) {
+        golAutomate->save(&fileGoL, false);
+    }
+
+    QFile fileWW(path + "/ww.xml");
+    if (fileWW.open(QIODevice::WriteOnly)) {
+        wwAutomate->save(&fileWW, false);
+    }
+}
+
+void MainWindow::loadAppState() {
+    QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+
+    QFile fileElementaire(path + "/elementaire.xml");
+    if (fileElementaire.open(QIODevice::ReadOnly)) {
+        QDataStream in(&fileElementaire);
+        in.setVersion(QDataStream::Qt_4_5);
+        QXmlStreamReader xml(in.device());
+        import(xml);
+    }
+
+    QFile fileGoL(path + "/gol.xml");
+    if (fileGoL.open(QIODevice::ReadOnly)) {
+        QDataStream in(&fileGoL);
+        in.setVersion(QDataStream::Qt_4_5);
+        QXmlStreamReader xml(in.device());
+        import(xml);
+    }
+
+    QFile fileWW(path + "/ww.xml");
+    if (fileWW.open(QIODevice::ReadOnly)) {
+        QDataStream in(&fileWW);
+        in.setVersion(QDataStream::Qt_4_5);
+        QXmlStreamReader xml(in.device());
+        import(xml);
+    }
 }
 
 void MainWindow::showImportDialog() {
@@ -49,24 +104,30 @@ void MainWindow::showImportDialog() {
 
         QXmlStreamReader xml(in.device());
 
-        if(xml.readNextStartElement()) {
-            if (xml.name() == "automate" && xml.attributes().hasAttribute("type")) {
-                QString type = xml.attributes().value("type").toString();
-
-                if (type == "elementaire") {
-                    elementaireAutomate->import(&xml);
-                } 
-                else if (type == "gol") {
-                    golAutomate->import(&xml);
-                } 
-                else if (type == "ww") {
-                    // TODO
-                    return;
-                }
-                else QMessageBox::information(this, tr("Erreur"), tr("Type d'automate non reconnu."));
-            } else QMessageBox::information(this, tr("Fichier non valide"), tr("Ce fichier est incompatible avec AutoCell."));
-        } else QMessageBox::information(this, tr("Fichier non valide"), tr("Ce fichier est incompatible avec AutoCell."));
+        import(xml);
     }
+}
+
+void MainWindow::import(QXmlStreamReader& reader) {
+    if(reader.readNextStartElement()) {
+        if (reader.name() == "automate" && reader.attributes().hasAttribute("type")) {
+            QString type = reader.attributes().value("type").toString();
+
+            if (type == "elementaire") {
+                elementaireAutomate->import(&reader);
+                ui->stackedWidget->setCurrentIndex(0);
+            } 
+            else if (type == "gol") {
+                golAutomate->import(&reader);
+                ui->stackedWidget->setCurrentIndex(1);
+            } 
+            else if (type == "ww") {
+                wwAutomate->import(&reader);
+                ui->stackedWidget->setCurrentIndex(2);
+            }
+            else QMessageBox::information(this, tr("Erreur"), tr("Type d'automate non reconnu."));
+        } else QMessageBox::information(this, tr("Fichier non valide"), tr("Ce fichier est incompatible avec AutoCell."));
+    } else QMessageBox::information(this, tr("Fichier non valide"), tr("Ce fichier est incompatible avec AutoCell."));
 }
 
 void MainWindow::showSaveDialog() {
@@ -82,14 +143,13 @@ void MainWindow::showSaveDialog() {
         }
 
         if (ui->stackedWidget->currentIndex() == 0) {
-            elementaireAutomate->save(&file);
+            elementaireAutomate->save(&file, true);
         } 
         else if (ui->stackedWidget->currentIndex() == 1) {
-            golAutomate->save(&file);
+            golAutomate->save(&file, true);
         } 
         else if (ui->stackedWidget->currentIndex() == 2) {
-            //wwAutomate->save(&file);
-            return;
+            wwAutomate->save(&file, true);
         } 
         else {
             return;

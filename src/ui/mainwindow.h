@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QStandardPaths>
 
 #include "elementaireview.h"
 #include "golview.h"
@@ -28,6 +29,9 @@ public:
     ElementaireView* elementaireAutomate;
     GoLView* golAutomate;
     WWView* wwAutomate;
+    void saveAppState();
+    void loadAppState();
+    void import(QXmlStreamReader& reader);
 private slots:
     void showImportDialog();
     void showSaveDialog();
