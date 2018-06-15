@@ -39,6 +39,7 @@ class GoLView : public QWidget
     AutomateGoL* automate;
 public:
     explicit GoLView(QWidget *parent = 0);
+    int getTaille() { return dimensions; }
     ~GoLView();
 
     void save(QFile* f);
@@ -59,6 +60,7 @@ private slots:
     void changeSpeed(int s);
     void changeSteps(int n);
     void randomGen();
+    void symetrie();
 };
 
 #endif // GOLVIEW_H

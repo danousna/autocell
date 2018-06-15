@@ -36,18 +36,52 @@
      <item row="0" column="3">
       <layout class="QVBoxLayout" name="verticalLayout_12">
        <item>
-        <widget class="QPushButton" name="btnGenRandom">
-         <property name="text">
-          <string>Génération aléatoire</string>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Nombre de cases :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="inputTaille">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>200</number>
+           </property>
+           <property name="value">
+            <number>24</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
-        <widget class="QPushButton" name="bntGenSym">
-         <property name="text">
-          <string>Génération ...</string>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Taille des cases :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="inputTailleCell">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+           <property name="value">
+            <number>25</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
@@ -317,8 +351,73 @@
        </item>
       </layout>
      </item>
-     <item row="0" column="1">
-      <spacer name="horizontalSpacer_5">
+     <item row="5" column="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="0,0,1">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Nombre de générations :</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stepsLabel">
+         <property name="text">
+          <string>0 sur</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="inputSteps">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>50</number>
+         </property>
+         <property name="value">
+          <number>11</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="5" column="0">
+      <widget class="QPushButton" name="btnRefreshTaille">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Rafraichir les grilles</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <layout class="QVBoxLayout" name="verticalLayout_12">
+       <item>
+        <widget class="QPushButton" name="btnGenRandom">
+         <property name="text">
+          <string>Génération aléatoire</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnSymetrie">
+         <property name="toolTip">
+          <string>La partie supérieure gauche de la grille sera dupliquée sur le reste du tableau</string>
+         </property>
+         <property name="text">
+          <string>Symétrie …</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="3">
+      <spacer name="horizontalSpacer_4">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
