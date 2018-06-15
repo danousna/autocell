@@ -156,6 +156,7 @@ void ElementaireView::reset() {
     viderGrille();
     ui->btnNext->setEnabled(true);
     ui->btnPlay->setEnabled(true);
+    ui->stepsLabel->setText(QString("0 sur"));
     stepState = 0;
 }
 
