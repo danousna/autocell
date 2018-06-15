@@ -257,8 +257,11 @@ void GoLView::save(QFile* f) {
     QXmlStreamWriter stream(output.device());
     stream.setAutoFormatting(true);
     stream.setCodec("UTF-8");
+
     stream.writeStartDocument();
     stream.writeStartElement("automate");
+
+    // Config de l'automate
     stream.writeAttribute("type", "gol");
     stream.writeTextElement("voisinsmin", QString::number(ui->inputVoisinsMin->value()));
     stream.writeTextElement("voisinsmax", QString::number(ui->inputVoisinsMax->value()));
@@ -266,11 +269,78 @@ void GoLView::save(QFile* f) {
     stream.writeTextElement("dimensions", QString::number(ui->inputDimensions->value()));
     stream.writeTextElement("taillecell", QString::number(ui->inputTailleCell->value()));
     stream.writeTextElement("steps", QString::number(ui->inputSteps->value()));
+
+    // Grille
+    stream.writeStartElement("grille");
+    for (unsigned int i = 0; i < dimensions; i++) {
+        QString label = QStringLiteral("row_%1").arg(i);
+        QString row("");
+        for (unsigned int j = 0; j < dimensions; j++) {
+            if (ui->grille->item(i, j)->background() == Qt::black) {
+                row += "1";
+            } else {
+                row += "0";
+            }
+        }
+        stream.writeTextElement(label, row);
+    }
+    stream.writeEndElement(); // grille
+
     stream.writeEndElement(); // automate
     stream.writeEndDocument();
+
+    QMessageBox::information(this, tr("Succès"), tr("Automate sauvegardé."));
 }
 
 void GoLView::import(QXmlStreamReader* reader) {
-    
+    while (reader->readNextStartElement()) {
+        if (reader->name() == "voisinsmin") {
+            voisinsMin = reader->readElementText().toInt();
+            ui->inputVoisinsMin->setValue(voisinsMin);
+        }
+        else if (reader->name() == "voisinsmax") {
+            voisinsMax = reader->readElementText().toInt();
+            ui->inputVoisinsMax->setValue(voisinsMax);
+        }
+        else if (reader->name() == "vitesse") {
+            speed = reader->readElementText().toInt();
+            ui->inputSpeed->setValue(speed);
+        } 
+        else if (reader->name() == "dimensions") {
+            dimensions = reader->readElementText().toInt();
+            ui->inputDimensions->setValue(dimensions);
+        } 
+        else if (reader->name() == "taillecell") {
+            tailleCell = reader->readElementText().toInt();
+            ui->inputTailleCell->setValue(tailleCell);
+        }
+        else if (reader->name() == "steps") {
+            steps = reader->readElementText().toInt();
+            ui->inputSteps->setValue(steps);
+        }
+        else if (reader->isStartElement() && reader->name() == "grille") {
+            int row = 0;
+            QString rowString;
+            refreshTaille();
+
+            while (reader->readNextStartElement() && row <= dimensions) {
+                rowString = reader->readElementText();
+
+                for (unsigned int i = 0; i < rowString.length(); i++) {
+                    if (rowString[i] == "1") {
+                        ui->grille->item(row, i)->setBackground(Qt::black);
+                    } else {
+                        ui->grille->item(row, i)->setBackground(Qt::white);
+                    }
+                }
+                row++;
+            }
+        }
+        else {
+            reader->skipCurrentElement();
+        }
+    }
+
+    QMessageBox::information(this, tr("Succès"), tr("Automate importé."));
 }
 

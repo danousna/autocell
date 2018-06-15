@@ -351,6 +351,8 @@ void ElementaireView::save(QFile* f) {
     
     stream.writeEndElement(); // automate
     stream.writeEndDocument();
+
+    QMessageBox::information(this, tr("Succès"), tr("Automate sauvegardé."));
 }
 
 void ElementaireView::import(QXmlStreamReader* reader) {
@@ -392,6 +394,7 @@ void ElementaireView::import(QXmlStreamReader* reader) {
 
             while (reader->readNextStartElement() && row <= taille) {
                 rowString = reader->readElementText();
+                
                 for (unsigned int i = 0; i < rowString.length(); i++) {
                     if (rowString[i] == "1") {
                         ui->grille->item(row, i)->setBackground(Qt::black);

@@ -60,8 +60,7 @@ void MainWindow::showImportDialog() {
                     golAutomate->import(&xml);
                 } 
                 else if (type == "ww") {
-                    // TODO
-                    return;
+                    //wwAutomate->import(&xml);
                 }
                 else QMessageBox::information(this, tr("Erreur"), tr("Type d'automate non reconnu."));
             } else QMessageBox::information(this, tr("Fichier non valide"), tr("Ce fichier est incompatible avec AutoCell."));
