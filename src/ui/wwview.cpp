@@ -1,7 +1,10 @@
 #include "wwview.h"
 #include "ui_wwview.h"
 
-WWView::WWView(QWidget *parent): QWidget(parent), ui(new Ui::WWView), dimensions(24), tailleCell(25), steps(21), stepState(0), speed(100), paused(true), automate(AutomateWW::getInstance()) {
+WWView::WWView(QWidget *parent): 
+QWidget(parent), ui(new Ui::WWView), 
+dimensions(24), tailleCell(25), steps(21), stepState(0), speed(100), paused(true), 
+automate(AutomateWW::getInstance()) {
     ui->setupUi(this);
 
     srand(time(NULL));

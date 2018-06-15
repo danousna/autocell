@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>882</width>
+    <width>1229</width>
     <height>424</height>
    </rect>
   </property>
@@ -425,7 +425,7 @@
           <string>La partie supérieure gauche de la grille sera dupliquée sur le reste du tableau</string>
          </property>
          <property name="text">
-          <string>Symétrie …</string>
+          <string>Génération symétrique</string>
          </property>
         </widget>
        </item>
