@@ -303,7 +303,7 @@ void ElementaireView::randomGen() {
     }
 }
 
-void ElementaireView::save(QFile* f) {
+void ElementaireView::save(QFile* f, bool showDialog) {
     QDataStream output(f);
     output.setVersion(QDataStream::Qt_4_5);
 
@@ -352,7 +352,9 @@ void ElementaireView::save(QFile* f) {
     stream.writeEndElement(); // automate
     stream.writeEndDocument();
 
-    QMessageBox::information(this, tr("Succès"), tr("Automate sauvegardé."));
+    if (showDialog) {
+        QMessageBox::information(this, tr("Succès"), tr("Automate sauvegardé."));
+    }
 }
 
 void ElementaireView::import(QXmlStreamReader* reader) {
@@ -394,7 +396,7 @@ void ElementaireView::import(QXmlStreamReader* reader) {
 
             while (reader->readNextStartElement() && row <= taille) {
                 rowString = reader->readElementText();
-                
+
                 for (unsigned int i = 0; i < rowString.length(); i++) {
                     if (rowString[i] == "1") {
                         ui->grille->item(row, i)->setBackground(Qt::black);
@@ -409,6 +411,4 @@ void ElementaireView::import(QXmlStreamReader* reader) {
             reader->skipCurrentElement();
         }
     }
-
-    QMessageBox::information(this, tr("Succès"), tr("Automate importé."));
 }

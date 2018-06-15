@@ -250,7 +250,7 @@ void GoLView::randomGen() {
     }
 }
 
-void GoLView::save(QFile* f) {
+void GoLView::save(QFile* f, bool showDialog) {
     QDataStream output(f);
     output.setVersion(QDataStream::Qt_4_5);
 
@@ -289,7 +289,9 @@ void GoLView::save(QFile* f) {
     stream.writeEndElement(); // automate
     stream.writeEndDocument();
 
-    QMessageBox::information(this, tr("Succès"), tr("Automate sauvegardé."));
+    if (showDialog) {
+        QMessageBox::information(this, tr("Succès"), tr("Automate sauvegardé."));
+    }
 }
 
 void GoLView::import(QXmlStreamReader* reader) {
@@ -340,7 +342,5 @@ void GoLView::import(QXmlStreamReader* reader) {
             reader->skipCurrentElement();
         }
     }
-
-    QMessageBox::information(this, tr("Succès"), tr("Automate importé."));
 }
 

@@ -41,7 +41,7 @@ public:
     explicit GoLView(QWidget *parent = 0);
     ~GoLView();
 
-    void save(QFile* f);
+    void save(QFile* f, bool showDialog);
     void import(QXmlStreamReader* reader);
 private slots:
     void toggleCell(QTableWidgetItem* item);

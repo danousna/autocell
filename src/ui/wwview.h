@@ -39,7 +39,7 @@ public:
     explicit WWView(QWidget *parent = 0);
     ~WWView();
 
-    void save(QFile* f);
+    void save(QFile* f, bool showDialog);
     void import(QXmlStreamReader* reader);
 private slots:
     void toggleCell(QTableWidgetItem* item);
