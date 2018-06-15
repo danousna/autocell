@@ -11,6 +11,7 @@
 #include <QIntValidator>
 #include <QTableWidget>
 #include <QXmlStreamWriter>
+#include <QXmlStreamReader>
 #include <QTextCodec>
 #include <QFile>
 
@@ -42,6 +43,7 @@ public:
     ~GoLView();
 
     void save(QFile* f);
+    void import(QXmlStreamReader* reader);
 private slots:
     void toggleCell(QTableWidgetItem* item);
     void next();

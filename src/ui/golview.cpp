@@ -1,26 +1,29 @@
 #include "golview.h"
 #include "ui_golview.h"
 
-GoLView::GoLView(QWidget *parent):
-QWidget(parent), ui(new Ui::GoLView),
-voisinsMin(2), voisinsMax(3), dimensions(24), tailleCell(25), steps(21), stepState(0), speed(100), paused(true),
-automate(AutomateGoL::getInstance()) {
+GoLView::GoLView(QWidget *parent): QWidget(parent), ui(new Ui::GoLView), voisinsMin(2), voisinsMax(3), dimensions(24), tailleCell(25), steps(21), stepState(0), speed(100), paused(true), automate(AutomateGoL::getInstance()) {
     ui->setupUi(this);
 
     srand(time(NULL));
 
     // UI Speed
     connect(ui->inputSpeed, SIGNAL(valueChanged(int)), this, SLOT(changeSpeed(int)));
+    ui->inputSpeed->setValue(speed);
 
     // UI Taille
     connect(ui->btnRefreshTaille, SIGNAL(clicked()), this, SLOT(refreshTaille()));
+    ui->inputDimensions->setValue(dimensions);
+    ui->inputTailleCell->setValue(tailleCell);
 
     // UI Voisins
     connect(ui->inputVoisinsMin, SIGNAL(valueChanged(int)), this, SLOT(changeVoisinsMin(int)));
     connect(ui->inputVoisinsMax, SIGNAL(valueChanged(int)), this, SLOT(changeVoisinsMax(int)));
+    ui->inputVoisinsMin->setValue(voisinsMin);
+    ui->inputVoisinsMax->setValue(voisinsMax);
 
     // UI Steps
     connect(ui->inputSteps, SIGNAL(valueChanged(int)), this, SLOT(changeSteps(int)));
+    ui->inputSteps->setValue(steps);
 
     // UI Gen
     connect(ui->btnGenRandom, SIGNAL(clicked()), this, SLOT(randomGen()));
@@ -187,7 +190,7 @@ void GoLView::drawGrille(QTableWidget* grille, unsigned int tCell, unsigned int 
     grille->setColumnCount(n);
     grille->setRowCount(n);
 
-    grille->setFixedSize(tCell * n + 2, tCell * n - 2 * tCell);
+    // grille->setFixedSize(tCell * n + 2, tCell * n - 2 * tCell);
 
     for (unsigned int i = 0; i < n; ++i) {
         grille->setRowHeight(i, tCell);
@@ -276,5 +279,9 @@ void GoLView::save(QFile* f) {
     stream.writeTextElement("steps", QString::number(ui->inputSteps->value()));
     stream.writeEndElement(); // automate
     stream.writeEndDocument();
+}
+
+void GoLView::import(QXmlStreamReader* reader) {
+    
 }
 

@@ -11,9 +11,12 @@ automate(AutomateElementaire::getInstance(30)) {
 
     // UI Speed
     connect(ui->inputSpeed, SIGNAL(valueChanged(int)), this, SLOT(changeSpeed(int)));
+    ui->inputSpeed->setValue(speed);
 
     // UI Taille
     connect(ui->btnRefreshTaille, SIGNAL(clicked()), this, SLOT(refreshTaille()));
+    ui->inputTaille->setValue(taille);
+    ui->inputTailleCell->setValue(tailleCell);
 
     // UI Règle
     numeroBit[0] = ui->bit1;
@@ -24,11 +27,11 @@ automate(AutomateElementaire::getInstance(30)) {
     numeroBit[5] = ui->bit6;
     numeroBit[6] = ui->bit7;
     numeroBit[7] = ui->bit8;
-
     zeroOneValidator = new QIntValidator(this);
     zeroOneValidator->setRange(0, 1);
+    connect(ui->inputNumero, SIGNAL(valueChanged(int)), this, SLOT(synchronizeNumToNumBit(int)));
+    ui->inputNumero->setValue(30);
 
-    connect(ui->numeroInput, SIGNAL(valueChanged(int)), this, SLOT(synchronizeNumToNumBit(int)));
     for (unsigned int i = 0; i < 8; i++) {
         numeroBit[i]->setValidator(zeroOneValidator);
         connect(numeroBit[i], SIGNAL(textChanged(QString)), this, SLOT(synchronizeNumBitToNum(QString)));
@@ -36,6 +39,7 @@ automate(AutomateElementaire::getInstance(30)) {
 
     // UI Steps
     connect(ui->inputSteps, SIGNAL(valueChanged(int)), this, SLOT(changeSteps(int)));
+    ui->inputSteps->setValue(steps);
 
     // UI Gen
     connect(ui->btnGenRandom, SIGNAL(clicked()), this, SLOT(randomGen()));
@@ -236,7 +240,7 @@ void ElementaireView::toggleUI() {
     ui->inputSpeed->setEnabled(!enabled);
     ui->inputTaille->setEnabled(!enabled);
     ui->btnRefreshTaille->setEnabled(!enabled);
-    ui->numeroInput->setEnabled(!enabled);
+    ui->inputNumero->setEnabled(!enabled);
     ui->bit1->setEnabled(!enabled);
     ui->bit2->setEnabled(!enabled);
     ui->bit3->setEnabled(!enabled);
@@ -273,7 +277,7 @@ void ElementaireView::synchronizeNumBitToNum(const QString& s) {
 
     short unsigned int numero = NumBitToNum(string);
 
-    ui->numeroInput->setValue(numero);
+    ui->inputNumero->setValue(numero);
 
     // Charger l'automate correspondant.
     automate = AutomateElementaire::getInstance(numero);
@@ -316,14 +320,70 @@ void ElementaireView::save(QFile* f) {
     QXmlStreamWriter stream(output.device());
     stream.setAutoFormatting(true);
     stream.setCodec("UTF-8");
+
     stream.writeStartDocument();
     stream.writeStartElement("automate");
+
+    // Config de l'automate
     stream.writeAttribute("type", "elementaire");
-    stream.writeTextElement("numero", QString::number(ui->numeroInput->value()));
+    stream.writeTextElement("numero", QString::number(ui->inputNumero->value()));
     stream.writeTextElement("vitesse", QString::number(ui->inputSpeed->value()));
     stream.writeTextElement("taille", QString::number(ui->inputTaille->value()));
     stream.writeTextElement("taillecell", QString::number(ui->inputTailleCell->value()));
     stream.writeTextElement("steps", QString::number(ui->inputSteps->value()));
+    
+    // Grille initiale
+    QString row("");
+    for (unsigned int i = 0; i < taille; i++) {
+        if (ui->grilleDepart->item(0, i)->background() == Qt::black) {
+            row += "1";
+        } else {
+            row += "0";
+        }
+    }
+    stream.writeTextElement("grilledepart", row);
+    
+    // Grille
+    stream.writeStartElement("grille");
+    for (unsigned int i = 0; i < steps; i++) {
+        QString label = QStringLiteral("row_%1").arg(i);
+        QString row("");
+        for (unsigned int j = 0; j < taille; j++) {
+            if (ui->grille->item(i, j)->background() == Qt::black) {
+                row += "1";
+            } else {
+                row += "0";
+            }
+        }
+        stream.writeTextElement(label, row);
+    }
+    stream.writeEndElement(); // grille
+    
     stream.writeEndElement(); // automate
     stream.writeEndDocument();
+}
+
+void ElementaireView::import(QXmlStreamReader* reader) {
+    while (reader->readNextStartElement()) {
+        if (reader->name() == "numero") {
+            ui->inputNumero->setValue(reader->readElementText().toInt());
+        }
+        else if (reader->name() == "vitesse") {
+            ui->inputSpeed->setValue(reader->readElementText().toInt());
+        } 
+        else if (reader->name() == "taille") {
+            ui->inputTaille->setValue(reader->readElementText().toInt());
+        } 
+        else if (reader->name() == "taillecell") {
+            ui->inputTailleCell->setValue(reader->readElementText().toInt());
+        }
+        else if (reader->name() == "steps") {
+            ui->inputSteps->setValue(reader->readElementText().toInt());
+        }
+        else {
+            reader->skipCurrentElement();
+        }
+    }
+
+    QMessageBox::information(this, tr("Succès !"), tr("Automate importé"));
 }
