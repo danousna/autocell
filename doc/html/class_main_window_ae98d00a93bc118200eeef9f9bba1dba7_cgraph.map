@@ -1,0 +1,6 @@
+<map id="MainWindow::~MainWindow" name="MainWindow::~MainWindow">
+<area shape="rect" id="node2" href="$class_main_window.html#a94b693e3fa35f35ba200d2427b9cd419" title="MainWindow::saveAppState" alt="" coords="241,56,428,83"/>
+<area shape="rect" id="node3" href="$class_elementaire_view.html#a9fd54666dd4c5297cccad796b5f076ad" title="ElementaireView::save" alt="" coords="476,5,632,32"/>
+<area shape="rect" id="node4" href="$class_go_l_view.html#a3631d99bfbef5e568503632be404b04b" title="GoLView::save" alt="" coords="499,56,609,83"/>
+<area shape="rect" id="node5" href="$class_w_w_view.html#a127c8df6359e022936b1300cb12077f8" title="WWView::save" alt="" coords="497,107,611,133"/>
+</map>

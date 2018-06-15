@@ -78,6 +78,8 @@ $(document).ready(function(){initNavTree('class_main_window.html','');});
 Graphe d'héritage de MainWindow:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_main_window__inherit__graph.png" border="0" usemap="#_main_window_inherit__map" alt="Inheritance graph"/></div>
+<map name="_main_window_inherit__map" id="_main_window_inherit__map">
+</map>
 </div>
 <div class="dynheader">
 Graphe de collaboration de MainWindow:</div>
@@ -85,7 +87,7 @@ Graphe de collaboration de MainWindow:</div>
 <div class="center"><img src="class_main_window__coll__graph.png" border="0" usemap="#_main_window_coll__map" alt="Collaboration graph"/></div>
 <map name="_main_window_coll__map" id="_main_window_coll__map">
 <area shape="rect" id="node3" href="class_elementaire_view.html" title="{ElementaireView\n||+ ElementaireView()\l+ ~ElementaireView()\l+ getTaille()\l+ save()\l+ import()\l}" alt="" coords="137,132,285,268"/>
-<area shape="rect" id="node5" href="class_w_w_view.html" title="{WWView\n||+ WWView()\l+ getTaille()\l+ ~WWView()\l}" alt="" coords="309,147,414,253"/>
+<area shape="rect" id="node5" href="class_w_w_view.html" title="{WWView\n||+ WWView()\l+ getTaille()\l+ ~WWView()\l+ save()\l+ import()\l}" alt="" coords="309,132,414,268"/>
 <area shape="rect" id="node6" href="class_go_l_view.html" title="{GoLView\n||+ GoLView()\l+ getTaille()\l+ ~GoLView()\l+ save()\l+ import()\l}" alt="" coords="438,132,541,268"/>
 </map>
 </div>
@@ -96,6 +98,12 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a8b244be8b7b7db1b08de2a2acb9409db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae98d00a93bc118200eeef9f9bba1dba7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a> ()</td></tr>
 <tr class="separator:ae98d00a93bc118200eeef9f9bba1dba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94b693e3fa35f35ba200d2427b9cd419"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a94b693e3fa35f35ba200d2427b9cd419">saveAppState</a> ()</td></tr>
+<tr class="separator:a94b693e3fa35f35ba200d2427b9cd419"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42202960940c2305c80cf9d2e50e5564"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a42202960940c2305c80cf9d2e50e5564">loadAppState</a> ()</td></tr>
+<tr class="separator:a42202960940c2305c80cf9d2e50e5564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51a9c29c54bfbfd89ea5daf3c4382709"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a51a9c29c54bfbfd89ea5daf3c4382709">import</a> (QXmlStreamReader &amp;reader)</td></tr>
+<tr class="separator:a51a9c29c54bfbfd89ea5daf3c4382709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Attributs publics</h2></td></tr>
@@ -108,7 +116,7 @@ Attributs publics</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock">
-<p class="definition">Définition à la ligne <a class="el" href="mainwindow_8h_source.html#l00022">22</a> du fichier <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="mainwindow_8h_source.html#l00023">23</a> du fichier <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="a8b244be8b7b7db1b08de2a2acb9409db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8b244be8b7b7db1b08de2a2acb9409db">&#9670;&nbsp;</a></span>MainWindow()</h2>
@@ -135,6 +143,14 @@ Attributs publics</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Définition à la ligne <a class="el" href="mainwindow_8cpp_source.html#l00004">4</a> du fichier <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_main_window_a8b244be8b7b7db1b08de2a2acb9409db_cgraph.png" border="0" usemap="#class_main_window_a8b244be8b7b7db1b08de2a2acb9409db_cgraph" alt=""/></div>
+<map name="class_main_window_a8b244be8b7b7db1b08de2a2acb9409db_cgraph" id="class_main_window_a8b244be8b7b7db1b08de2a2acb9409db_cgraph">
+<area shape="rect" id="node2" href="class_main_window.html#a42202960940c2305c80cf9d2e50e5564" title="MainWindow::loadAppState" alt="" coords="233,5,416,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -153,7 +169,113 @@ Attributs publics</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="mainwindow_8cpp_source.html#l00030">30</a> du fichier <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="mainwindow_8cpp_source.html#l00032">32</a> du fichier <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_main_window_ae98d00a93bc118200eeef9f9bba1dba7_cgraph.png" border="0" usemap="#class_main_window_ae98d00a93bc118200eeef9f9bba1dba7_cgraph" alt=""/></div>
+<map name="class_main_window_ae98d00a93bc118200eeef9f9bba1dba7_cgraph" id="class_main_window_ae98d00a93bc118200eeef9f9bba1dba7_cgraph">
+<area shape="rect" id="node2" href="class_main_window.html#a94b693e3fa35f35ba200d2427b9cd419" title="MainWindow::saveAppState" alt="" coords="241,56,428,83"/>
+<area shape="rect" id="node3" href="class_elementaire_view.html#a9fd54666dd4c5297cccad796b5f076ad" title="ElementaireView::save" alt="" coords="476,5,632,32"/>
+<area shape="rect" id="node4" href="class_go_l_view.html#a3631d99bfbef5e568503632be404b04b" title="GoLView::save" alt="" coords="499,56,609,83"/>
+<area shape="rect" id="node5" href="class_w_w_view.html#a127c8df6359e022936b1300cb12077f8" title="WWView::save" alt="" coords="497,107,611,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a51a9c29c54bfbfd89ea5daf3c4382709"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51a9c29c54bfbfd89ea5daf3c4382709">&#9670;&nbsp;</a></span>import()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::import </td>
+          <td>(</td>
+          <td class="paramtype">QXmlStreamReader &amp;&#160;</td>
+          <td class="paramname"><em>reader</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="mainwindow_8cpp_source.html#l00111">111</a> du fichier <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_main_window_a51a9c29c54bfbfd89ea5daf3c4382709_cgraph.png" border="0" usemap="#class_main_window_a51a9c29c54bfbfd89ea5daf3c4382709_cgraph" alt=""/></div>
+<map name="class_main_window_a51a9c29c54bfbfd89ea5daf3c4382709_cgraph" id="class_main_window_a51a9c29c54bfbfd89ea5daf3c4382709_cgraph">
+<area shape="rect" id="node2" href="class_elementaire_view.html#a5599ac0321e12d652d2b10f0fcd0d167" title="ElementaireView::import" alt="" coords="195,5,359,32"/>
+<area shape="rect" id="node3" href="class_go_l_view.html#a0b671130f5b35fb78e8434d6d10c94bd" title="GoLView::import" alt="" coords="217,56,336,83"/>
+<area shape="rect" id="node4" href="class_w_w_view.html#a5c01bb5d2b29a401599c88e4b8b4a805" title="WWView::import" alt="" coords="216,107,337,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a42202960940c2305c80cf9d2e50e5564"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42202960940c2305c80cf9d2e50e5564">&#9670;&nbsp;</a></span>loadAppState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::loadAppState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="mainwindow_8cpp_source.html#l00061">61</a> du fichier <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_main_window_a42202960940c2305c80cf9d2e50e5564_icgraph.png" border="0" usemap="#class_main_window_a42202960940c2305c80cf9d2e50e5564_icgraph" alt=""/></div>
+<map name="class_main_window_a42202960940c2305c80cf9d2e50e5564_icgraph" id="class_main_window_a42202960940c2305c80cf9d2e50e5564_icgraph">
+<area shape="rect" id="node2" href="class_main_window.html#a8b244be8b7b7db1b08de2a2acb9409db" title="MainWindow::MainWindow" alt="" coords="236,5,416,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a94b693e3fa35f35ba200d2427b9cd419"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94b693e3fa35f35ba200d2427b9cd419">&#9670;&nbsp;</a></span>saveAppState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::saveAppState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="mainwindow_8cpp_source.html#l00037">37</a> du fichier <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_main_window_a94b693e3fa35f35ba200d2427b9cd419_cgraph.png" border="0" usemap="#class_main_window_a94b693e3fa35f35ba200d2427b9cd419_cgraph" alt=""/></div>
+<map name="class_main_window_a94b693e3fa35f35ba200d2427b9cd419_cgraph" id="class_main_window_a94b693e3fa35f35ba200d2427b9cd419_cgraph">
+<area shape="rect" id="node2" href="class_elementaire_view.html#a9fd54666dd4c5297cccad796b5f076ad" title="ElementaireView::save" alt="" coords="240,5,396,32"/>
+<area shape="rect" id="node3" href="class_go_l_view.html#a3631d99bfbef5e568503632be404b04b" title="GoLView::save" alt="" coords="263,56,373,83"/>
+<area shape="rect" id="node4" href="class_w_w_view.html#a127c8df6359e022936b1300cb12077f8" title="WWView::save" alt="" coords="261,107,375,133"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_main_window_a94b693e3fa35f35ba200d2427b9cd419_icgraph.png" border="0" usemap="#class_main_window_a94b693e3fa35f35ba200d2427b9cd419_icgraph" alt=""/></div>
+<map name="class_main_window_a94b693e3fa35f35ba200d2427b9cd419_icgraph" id="class_main_window_a94b693e3fa35f35ba200d2427b9cd419_icgraph">
+<area shape="rect" id="node2" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="240,5,428,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -170,7 +292,7 @@ Attributs publics</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="mainwindow_8h_source.html#l00028">28</a> du fichier <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="mainwindow_8h_source.html#l00029">29</a> du fichier <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 </div>
 </div>
@@ -186,7 +308,7 @@ Attributs publics</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="mainwindow_8h_source.html#l00029">29</a> du fichier <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="mainwindow_8h_source.html#l00030">30</a> du fichier <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 </div>
 </div>
@@ -202,7 +324,7 @@ Attributs publics</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="mainwindow_8h_source.html#l00030">30</a> du fichier <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="mainwindow_8h_source.html#l00031">31</a> du fichier <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 </div>
 </div>

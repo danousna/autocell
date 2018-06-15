@@ -77,15 +77,11 @@ $(document).ready(function(){initNavTree('class_elementaire_view.html','');});
 Graphe d'héritage de ElementaireView:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_elementaire_view__inherit__graph.png" border="0" usemap="#_elementaire_view_inherit__map" alt="Inheritance graph"/></div>
-<map name="_elementaire_view_inherit__map" id="_elementaire_view_inherit__map">
-</map>
 </div>
 <div class="dynheader">
 Graphe de collaboration de ElementaireView:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_elementaire_view__coll__graph.png" border="0" usemap="#_elementaire_view_coll__map" alt="Collaboration graph"/></div>
-<map name="_elementaire_view_coll__map" id="_elementaire_view_coll__map">
-</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -96,8 +92,8 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:af0b7d67380c978106f43f1459788d0cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1aa85b65dd6d68552fc2b75be8f36bc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_elementaire_view.html#ad1aa85b65dd6d68552fc2b75be8f36bc">getTaille</a> ()</td></tr>
 <tr class="separator:ad1aa85b65dd6d68552fc2b75be8f36bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab519a6d5b85ecd7b5131053b006d8579"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_elementaire_view.html#ab519a6d5b85ecd7b5131053b006d8579">save</a> (QFile *f)</td></tr>
-<tr class="separator:ab519a6d5b85ecd7b5131053b006d8579"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fd54666dd4c5297cccad796b5f076ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_elementaire_view.html#a9fd54666dd4c5297cccad796b5f076ad">save</a> (QFile *f, bool showDialog)</td></tr>
+<tr class="separator:a9fd54666dd4c5297cccad796b5f076ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5599ac0321e12d652d2b10f0fcd0d167"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_elementaire_view.html#a5599ac0321e12d652d2b10f0fcd0d167">import</a> (QXmlStreamReader *reader)</td></tr>
 <tr class="separator:a5599ac0321e12d652d2b10f0fcd0d167"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -206,12 +202,20 @@ Voici le graphe d'appel pour cette fonction :</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8cpp_source.html#l00366">366</a> du fichier <a class="el" href="elementaireview_8cpp_source.html">elementaireview.cpp</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8cpp_source.html#l00373">373</a> du fichier <a class="el" href="elementaireview_8cpp_source.html">elementaireview.cpp</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_elementaire_view_a5599ac0321e12d652d2b10f0fcd0d167_icgraph.png" border="0" usemap="#class_elementaire_view_a5599ac0321e12d652d2b10f0fcd0d167_icgraph" alt=""/></div>
+<map name="class_elementaire_view_a5599ac0321e12d652d2b10f0fcd0d167_icgraph" id="class_elementaire_view_a5599ac0321e12d652d2b10f0fcd0d167_icgraph">
+<area shape="rect" id="node2" href="class_main_window.html#a51a9c29c54bfbfd89ea5daf3c4382709" title="MainWindow::import" alt="" coords="217,5,359,32"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="ab519a6d5b85ecd7b5131053b006d8579"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab519a6d5b85ecd7b5131053b006d8579">&#9670;&nbsp;</a></span>save()</h2>
+<a id="a9fd54666dd4c5297cccad796b5f076ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fd54666dd4c5297cccad796b5f076ad">&#9670;&nbsp;</a></span>save()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -220,13 +224,32 @@ Voici le graphe d'appel pour cette fonction :</div>
           <td class="memname">void ElementaireView::save </td>
           <td>(</td>
           <td class="paramtype">QFile *&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>showDialog</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8cpp_source.html#l00316">316</a> du fichier <a class="el" href="elementaireview_8cpp_source.html">elementaireview.cpp</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8cpp_source.html#l00319">319</a> du fichier <a class="el" href="elementaireview_8cpp_source.html">elementaireview.cpp</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_elementaire_view_a9fd54666dd4c5297cccad796b5f076ad_icgraph.png" border="0" usemap="#class_elementaire_view_a9fd54666dd4c5297cccad796b5f076ad_icgraph" alt=""/></div>
+<map name="class_elementaire_view_a9fd54666dd4c5297cccad796b5f076ad_icgraph" id="class_elementaire_view_a9fd54666dd4c5297cccad796b5f076ad_icgraph">
+<area shape="rect" id="node2" href="class_main_window.html#a94b693e3fa35f35ba200d2427b9cd419" title="MainWindow::saveAppState" alt="" coords="209,5,396,32"/>
+<area shape="rect" id="node3" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="444,5,632,32"/>
+</map>
+</div>
 
 </div>
 </div>
