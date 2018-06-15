@@ -272,7 +272,6 @@ void WWView::randomGen() {
     }
 }
 
-<<<<<<< HEAD
 void WWView::save(QFile* f, bool showDialog) {
     QDataStream output(f);
     output.setVersion(QDataStream::Qt_4_5);
@@ -364,7 +363,10 @@ void WWView::import(QXmlStreamReader* reader) {
         }
         else {
             reader->skipCurrentElement();
-=======
+        }
+    }
+}
+
 void WWView::symetrie() {
     int size = this->getTaille();
     for (int i = 0; i < size/2; i++) {
@@ -372,7 +374,6 @@ void WWView::symetrie() {
             ui->grille->item(j, size-i-1)->setBackground(ui->grille->item(j, i)->background());
             ui->grille->item(size-j-1, size-i-1)->setBackground(ui->grille->item(j, i)->background());
             ui->grille->item(size-j-1, i)->setBackground(ui->grille->item(j, i)->background());
->>>>>>> master
         }
     }
 }

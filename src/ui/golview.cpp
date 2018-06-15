@@ -261,7 +261,6 @@ void GoLView::symetrie() {
     }
 }
 
-void GoLView::save(QFile* f) {
 void GoLView::save(QFile* f, bool showDialog) {
     QDataStream output(f);
     output.setVersion(QDataStream::Qt_4_5);

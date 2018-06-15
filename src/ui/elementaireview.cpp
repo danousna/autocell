@@ -316,7 +316,6 @@ void ElementaireView::symetrie() {
     }
 }
 
-void ElementaireView::save(QFile* f) {
 void ElementaireView::save(QFile* f, bool showDialog) {
     QDataStream output(f);
     output.setVersion(QDataStream::Qt_4_5);
