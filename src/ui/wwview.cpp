@@ -1,22 +1,23 @@
 #include "wwview.h"
 #include "ui_wwview.h"
 
-WWView::WWView(QWidget *parent):
-QWidget(parent), ui(new Ui::WWView),
-dimensions(24), tailleCell(25), steps(21), stepState(0), speed(100), paused(true),
-automate(AutomateWW::getInstance()) {
+WWView::WWView(QWidget *parent): QWidget(parent), ui(new Ui::WWView), dimensions(24), tailleCell(25), steps(21), stepState(0), speed(100), paused(true), automate(AutomateWW::getInstance()) {
     ui->setupUi(this);
 
     srand(time(NULL));
 
     // UI Speed
     connect(ui->inputSpeed, SIGNAL(valueChanged(int)), this, SLOT(changeSpeed(int)));
+    ui->inputSpeed->setValue(speed);
 
     // UI Taille
     connect(ui->btnRefreshTaille, SIGNAL(clicked()), this, SLOT(refreshTaille()));
+    ui->inputDimensions->setValue(dimensions);
+    ui->inputTailleCell->setValue(tailleCell);
 
     // UI Steps
     connect(ui->inputSteps, SIGNAL(valueChanged(int)), this, SLOT(changeSteps(int)));
+    ui->inputSteps->setValue(steps);
 
     // UI Gen
     connect(ui->btnGenRandom, SIGNAL(clicked()), this, SLOT(randomGen()));
@@ -60,14 +61,25 @@ void WWView::toggleCell(QTableWidgetItem* item) {
 
 void WWView::next() {
     Grille2D g(dimensions);
-    this->syncGrilles(&g, ui->grille, false);
+    
+    try {
+        this->syncGrilles(&g, ui->grille, false); 
+    } catch (AutoCellException* e) {
+        std::cout << e->getInfo();
+    }
+    
     Simulateur s(*automate, g, dimensions);
 
     for (int i = 0; i < steps; i++) {
         if (i <= stepState) {
             ui->stepsLabel->setText(QStringLiteral("%1 sur").arg(i));
-            this->syncGrilles(&s.dernier(), ui->grille, true);
-            s.next();
+            
+            try {
+                this->syncGrilles(&s.dernier(), ui->grille, true);
+                s.next();
+            } catch (AutoCellException* e) {
+                std::cout << e->getInfo();
+            }
         }
 
         if (i > stepState) {
@@ -163,11 +175,14 @@ void WWView::syncGrilles(Grille* grilleAutomate, QTableWidget* grilleQT, bool se
             for (unsigned int j = 0; j < grilleAutomate->getTaille(); j++) {
                 if (grilleAutomate->getCellVal(i, j) == 0) {
                     grilleQT->item(j, i)->setBackground(Qt::black);
-                } else if (grilleAutomate->getCellVal(i, j) == 1) {
+                } 
+                else if (grilleAutomate->getCellVal(i, j) == 1) {
                     grilleQT->item(j, i)->setBackground(Qt::yellow);
-                } else if (grilleAutomate->getCellVal(i, j) == 2) {
+                } 
+                else if (grilleAutomate->getCellVal(i, j) == 2) {
                     grilleQT->item(j, i)->setBackground(Qt::blue);
-                } else if (grilleAutomate->getCellVal(i, j) == 3) {
+                } 
+                else if (grilleAutomate->getCellVal(i, j) == 3) {
                     grilleQT->item(j, i)->setBackground(Qt::red);
                 }
                 else throw new AutoCellException("Une cellule a une valeur illégale.");
@@ -205,7 +220,7 @@ void WWView::drawGrille(QTableWidget* grille, unsigned int tCell, unsigned int n
     grille->setColumnCount(n);
     grille->setRowCount(n);
 
-    grille->setFixedSize(tCell * n + 2, tCell * n - 2 * tCell);
+    // grille->setFixedSize(tCell * n + 2, tCell * n - 2 * tCell);
 
     for (unsigned int i = 0; i < n; ++i) {
         grille->setRowHeight(i, tCell);

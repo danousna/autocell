@@ -17,10 +17,14 @@ elementaireAutomate(new ElementaireView), golAutomate(new GoLView), wwAutomate(n
     connect(ui->actionGoL, SIGNAL(triggered()), this, SLOT(showFenetreAutomateGoL()));
     connect(ui->actionWireworld, SIGNAL(triggered()), this, SLOT(showFenetreAutomateWireworld()));
 
+    elementaireAutomate = new ElementaireView;
+    golAutomate = new GoLView;
+    wwAutomate = new WWView;
+
     // Ajout des interfaces des automates au stackedWidget.
-    ui->stackedWidget->insertWidget(0, new ElementaireView);
-    ui->stackedWidget->insertWidget(1, new GoLView);
-    ui->stackedWidget->insertWidget(2, new WWView);
+    ui->stackedWidget->insertWidget(0, elementaireAutomate);
+    ui->stackedWidget->insertWidget(1, golAutomate);
+    ui->stackedWidget->insertWidget(2, wwAutomate);
 }
 
 MainWindow::~MainWindow() {
@@ -28,11 +32,45 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::showImportDialog() {
+    QString filename = QFileDialog::getOpenFileName(this, tr("Ouvrir un automate"), "/", tr("Fichier XML (*.xml);;Tous les fichiers (*)"));
 
+    if (filename.isEmpty()) {
+        return;
+    } else {
+        QFile file(filename);
+
+        if (!file.open(QIODevice::ReadOnly)) {
+            QMessageBox::information(this, tr("Impossible d'ouvrir le fichier."), file.errorString());
+            return;
+        }
+
+        QDataStream in(&file);
+        in.setVersion(QDataStream::Qt_4_5);
+
+        QXmlStreamReader xml(in.device());
+
+        if(xml.readNextStartElement()) {
+            if (xml.name() == "automate" && xml.attributes().hasAttribute("type")) {
+                QString type = xml.attributes().value("type").toString();
+
+                if (type == "elementaire") {
+                    elementaireAutomate->import(&xml);
+                } 
+                else if (type == "gol") {
+                    golAutomate->import(&xml);
+                } 
+                else if (type == "ww") {
+                    // TODO
+                    return;
+                }
+                else QMessageBox::information(this, tr("Erreur"), tr("Type d'automate non reconnu."));
+            } else QMessageBox::information(this, tr("Fichier non valide"), tr("Ce fichier est incompatible avec AutoCell."));
+        } else QMessageBox::information(this, tr("Fichier non valide"), tr("Ce fichier est incompatible avec AutoCell."));
+    }
 }
 
 void MainWindow::showSaveDialog() {
-    QString filename = QFileDialog::getSaveFileName(this, tr("Enregistrer l'automate"), "", tr("Fichier XML (*.xml)"));
+    QString filename = QFileDialog::getSaveFileName(this, tr("Enregistrer l'automate"), "/", tr("Fichier XML (*.xml)"));
 
     if (filename.isEmpty()) {
         return;

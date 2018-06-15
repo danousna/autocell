@@ -10,7 +10,9 @@
 #include <QLineEdit>
 #include <QIntValidator>
 #include <QTableWidget>
+#include <QMessageBox>
 #include <QXmlStreamWriter>
+#include <QXmlStreamReader>
 #include <QTextCodec>
 #include <QFile>
 
@@ -42,6 +44,7 @@ public:
     int getTaille() { return taille; }
 
     void save(QFile* f);
+    void import(QXmlStreamReader* reader);
 private slots:
     void toggleCell(QTableWidgetItem* item);
     void next();
