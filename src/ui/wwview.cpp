@@ -2,12 +2,16 @@
 #include "ui_wwview.h"
 
 WWView::WWView(QWidget *parent): 
-QWidget(parent), ui(new Ui::WWView), 
-dimensions(24), tailleCell(25), steps(21), stepState(0), speed(100), paused(true), 
-automate(AutomateWW::getInstance()) {
+AutomateView(parent, 25, 21, 0, 100, true, AutomateWW::getInstance()), ui(new Ui::WWView),
+dimensions(24) {
     ui->setupUi(this);
 
     srand(time(NULL));
+
+    // Assez bizarrement, le constructeur de AutomateView avec AutomateWW::getInstance()
+    // pour le membre automate ne fonctionne pas. On est obligé de faire une affectation 
+    // sinon automate est un pointeur null.
+    automate = AutomateWW::getInstance();
 
     // UI Speed
     connect(ui->inputSpeed, SIGNAL(valueChanged(int)), this, SLOT(changeSpeed(int)));

@@ -1,45 +1,26 @@
 #ifndef WWVIEW_H
 #define WWVIEW_H
 
-#include <thread>
-#include <chrono>
-#include <stdlib.h>
-#include <time.h>
-
-#include <QWidget>
-#include <QLineEdit>
-#include <QIntValidator>
-#include <QTableWidget>
-#include <QXmlStreamWriter>
-#include <QXmlStreamReader>
-#include <QMessageBox>
-#include <QFile>
-
-#include "../simulateur.h"
-#include "../automate2d.h"
+#include "automateview.h"
 
 namespace Ui {
 class WWView;
 }
 
-class WWView : public QWidget
+class WWView : public AutomateView
 {
     Q_OBJECT
     Ui::WWView*ui;
+
     int dimensions;
-    int tailleCell;
-    int steps;
-    int stepState;
-    int speed;
-    bool paused;
 
     // L'automate de cette view. C'est un singleton.
     AutomateWW* automate;
 public:
-    explicit WWView(QWidget *parent = 0);
-    int getTaille() { return dimensions; }
-    ~WWView();
+    WWView(QWidget *parent);
+    virtual ~WWView();
 
+    int getTaille() { return dimensions; }
     void save(QFile* f, bool showDialog);
     void import(QXmlStreamReader* reader);
 private slots:

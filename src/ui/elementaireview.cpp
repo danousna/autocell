@@ -2,9 +2,8 @@
 #include "ui_elementaireview.h"
 
 ElementaireView::ElementaireView(QWidget *parent): 
-QWidget(parent), ui(new Ui::ElementaireView), 
-taille(24), tailleCell(40), steps(20), stepState(0), speed(100), paused(true),
-automate(AutomateElementaire::getInstance(30)) {
+AutomateView(parent, 40, 20, 0, 100, true, AutomateElementaire::getInstance(30)), ui(new Ui::ElementaireView), 
+taille(24) {
     ui->setupUi(this);
 
     srand(time(NULL));

@@ -1,48 +1,25 @@
 #ifndef ELEMENTAIREVIEW_H
 #define ELEMENTAIREVIEW_H
 
-#include <thread>
-#include <chrono>
-#include <stdlib.h>
-#include <time.h>
-
-#include <QWidget>
-#include <QLineEdit>
-#include <QIntValidator>
-#include <QTableWidget>
-#include <QMessageBox>
-#include <QXmlStreamWriter>
-#include <QXmlStreamReader>
-#include <QMessageBox>
-#include <QFile>
-
-#include "../simulateur.h"
-#include "../automate1d.h"
+#include "automateview.h"
 
 namespace Ui {
 class ElementaireView;
 }
 
-class ElementaireView : public QWidget
+class ElementaireView : public AutomateView
 {
     Q_OBJECT
     Ui::ElementaireView *ui;
+
     QIntValidator* zeroOneValidator;
     QLineEdit* numeroBit[8];
     int taille;
-    int tailleCell;
-    int steps;
-    int stepState;
-    int speed;
-    bool paused;
-
-    // L'automate de cette view. C'est un singleton.
-    AutomateElementaire* automate;
 public:
-    explicit ElementaireView(QWidget *parent = 0);
-    ~ElementaireView();
+    ElementaireView(QWidget *parent);
+    virtual ~ElementaireView();
+    
     int getTaille() { return taille; }
-
     void save(QFile* f, bool showDialog);
     void import(QXmlStreamReader* reader);
 private slots:

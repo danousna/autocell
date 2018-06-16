@@ -1,47 +1,25 @@
 #ifndef GOLVIEW_H
 #define GOLVIEW_H
 
-#include <thread>
-#include <chrono>
-#include <stdlib.h>
-#include <time.h>
-
-#include <QWidget>
-#include <QLineEdit>
-#include <QIntValidator>
-#include <QTableWidget>
-#include <QXmlStreamWriter>
-#include <QXmlStreamReader>
-#include <QMessageBox>
-#include <QFile>
-
-#include "../simulateur.h"
-#include "../automate2d.h"
+#include "automateview.h"
 
 namespace Ui {
 class GoLView;
 }
 
-class GoLView : public QWidget
+class GoLView : public AutomateView
 {
     Q_OBJECT
     Ui::GoLView *ui;
+
     int voisinsMin;
     int voisinsMax;
     int dimensions;
-    int tailleCell;
-    int steps;
-    int stepState;
-    int speed;
-    bool paused;
-
-    // L'automate de cette view. C'est un singleton.
-    AutomateGoL* automate;
 public:
-    explicit GoLView(QWidget *parent = 0);
-    int getTaille() { return dimensions; }
-    ~GoLView();
+    GoLView(QWidget *parent);
+    virtual ~GoLView();
 
+    int getTaille() { return dimensions; }
     void save(QFile* f, bool showDialog);
     void import(QXmlStreamReader* reader);
 private slots:

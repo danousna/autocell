@@ -3,7 +3,7 @@
 
 MainWindow::MainWindow(QWidget *parent):
 QMainWindow(parent), ui(new Ui::MainWindow),
-elementaireAutomate(new ElementaireView), golAutomate(new GoLView), wwAutomate(new WWView) {
+elementaireAutomate(new ElementaireView(parent)), golAutomate(new GoLView(parent)), wwAutomate(new WWView(parent)) {
     ui->setupUi(this);
 
     ui->menuBar->setNativeMenuBar(false);
@@ -16,10 +16,6 @@ elementaireAutomate(new ElementaireView), golAutomate(new GoLView), wwAutomate(n
     connect(ui->actionElementaire, SIGNAL(triggered()), this, SLOT(showFenetreAutomateElementaire()));
     connect(ui->actionGoL, SIGNAL(triggered()), this, SLOT(showFenetreAutomateGoL()));
     connect(ui->actionWireworld, SIGNAL(triggered()), this, SLOT(showFenetreAutomateWireworld()));
-
-    elementaireAutomate = new ElementaireView;
-    golAutomate = new GoLView;
-    wwAutomate = new WWView;
 
     // Ajout des interfaces des automates au stackedWidget.
     ui->stackedWidget->insertWidget(0, elementaireAutomate);
