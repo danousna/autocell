@@ -221,7 +221,7 @@ void ElementaireView::drawGrille(QTableWidget* grille, unsigned int tCell, unsig
     }
     // 2D 
     else {
-        grille->setFixedSize(tCell * t + 2, tCell * 11 + 2);
+        grille->setFixedSize(tCell * t + 2, tCell * t - (t/2 * tCell));
 
         for (unsigned int i = 0; i < r; ++i) {
             grille->setRowHeight(i, tCell);

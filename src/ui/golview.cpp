@@ -2,7 +2,7 @@
 #include "ui_golview.h"
 
 GoLView::GoLView(QWidget *parent): 
-AutomateView(parent, 25, 21, 0, 100, true, AutomateGoL::getInstance()), ui(new Ui::GoLView), 
+AutomateView(parent, 40, 20, 0, 100, true, AutomateGoL::getInstance()), ui(new Ui::GoLView), 
 voisinsMin(2), voisinsMax(3), dimensions(24) {
     ui->setupUi(this);
 
@@ -192,7 +192,7 @@ void GoLView::drawGrille(QTableWidget* grille, unsigned int tCell, unsigned int 
     grille->setColumnCount(n);
     grille->setRowCount(n);
 
-    // grille->setFixedSize(tCell * n + 2, tCell * n - 2 * tCell);
+    grille->setFixedSize(tCell * n + 2, tCell * n - (n/2 * tCell));
 
     for (unsigned int i = 0; i < n; ++i) {
         grille->setRowHeight(i, tCell);

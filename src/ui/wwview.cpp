@@ -2,7 +2,7 @@
 #include "ui_wwview.h"
 
 WWView::WWView(QWidget *parent): 
-AutomateView(parent, 25, 21, 0, 100, true, AutomateWW::getInstance()), ui(new Ui::WWView),
+AutomateView(parent, 40, 20, 0, 100, true, AutomateWW::getInstance()), ui(new Ui::WWView),
 dimensions(24) {
     ui->setupUi(this);
 
@@ -227,7 +227,7 @@ void WWView::drawGrille(QTableWidget* grille, unsigned int tCell, unsigned int n
     grille->setColumnCount(n);
     grille->setRowCount(n);
 
-    // grille->setFixedSize(tCell * n + 2, tCell * n - 2 * tCell);
+    grille->setFixedSize(tCell * n + 2, tCell * n - 10 * tCell);
 
     for (unsigned int i = 0; i < n; ++i) {
         grille->setRowHeight(i, tCell);
