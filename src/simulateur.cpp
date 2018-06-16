@@ -3,7 +3,6 @@
 Simulateur::Simulateur(const Automate& a, unsigned int t, unsigned int b): 
 automate(a), taille(t), buffer(b), rang(0) {
     unsigned int dimension = a.getDimension();
-    // const Etat* etatsPossibles = a.getEtatsPossibles();
 
     // On crée un pointeur vers une liste de pointeurs de taille buffer.
     // Cette liste contient des pointeurs vers des tableaux de pointeurs de
@@ -24,7 +23,6 @@ automate(a), taille(t), buffer(b), rang(0) {
 Simulateur::Simulateur(const Automate& a, const Grille& depart, unsigned int t, unsigned int b):
 automate(a), grilleInitiale(depart.clone()), taille(t), buffer(b), rang(0) {
     unsigned int dimension = a.getDimension();
-    // const Etat* etatsPossibles = a.getEtatsPossibles();
 
     grilles = new Grille*[buffer];
 

@@ -197,7 +197,6 @@ void ElementaireView::viderGrille() {
     for (unsigned int i = 0; i < steps; ++i) {
         for (unsigned int j = 0; j < taille; j++) {
             ui->grille->item(i, j)->setBackground(Qt::white);
-            //ui->grille->item(i, j)->setTextColor("white");
         }
     }
 }
@@ -215,7 +214,6 @@ void ElementaireView::drawGrille(QTableWidget* grille, unsigned int tCell, unsig
             grille->setItem(0, i, new QTableWidgetItem(""));
             if (grille->item(0, i) != NULL) {
                 grille->item(0, i)->setBackground(Qt::white);
-                //grille->item(0, i)->setTextColor("white");
             }
         }
     }
@@ -230,7 +228,6 @@ void ElementaireView::drawGrille(QTableWidget* grille, unsigned int tCell, unsig
                 grille->setColumnWidth(j, tCell);
                 grille->setItem(i, j, new QTableWidgetItem(""));
                 grille->item(i, j)->setBackground(Qt::white);
-                //grille->item(i, j)->setTextColor("white");
             }
         }
     }

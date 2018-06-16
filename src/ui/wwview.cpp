@@ -218,7 +218,6 @@ void WWView::viderGrille() {
     for (unsigned int i = 0; i < dimensions; i++) {
         for (unsigned int j = 0; j < dimensions; j++) {
             ui->grille->item(i, j)->setBackground(Qt::black);
-            //ui->grille->item(i, j)->setTextColor(Qt::black);
         }
     }
 }

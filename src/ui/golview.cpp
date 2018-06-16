@@ -183,7 +183,6 @@ void GoLView::viderGrille() {
     for (unsigned int i = 0; i < dimensions; i++) {
         for (unsigned int j = 0; j < dimensions; j++) {
             ui->grille->item(i, j)->setBackground(Qt::white);
-            //ui->grille->item(i, j)->setTextColor("white");
         }
     }
 }
@@ -201,7 +200,6 @@ void GoLView::drawGrille(QTableWidget* grille, unsigned int tCell, unsigned int 
             grille->setColumnWidth(j, tCell);
             grille->setItem(i, j, new QTableWidgetItem(""));
             grille->item(i, j)->setBackground(Qt::white);
-            //grille->item(i, j)->setTextColor("white");
         }
     }
 }
