@@ -1,5 +1,9 @@
 var dir_da5c6b39c0a2f54e57df6799511cd3ab =
 [
+    [ "automateview.cpp", "automateview_8cpp.html", null ],
+    [ "automateview.h", "automateview_8h.html", [
+      [ "AutomateView", "class_automate_view.html", "class_automate_view" ]
+    ] ],
     [ "elementaireview.cpp", "elementaireview_8cpp.html", null ],
     [ "elementaireview.h", "elementaireview_8h.html", [
       [ "ElementaireView", "class_elementaire_view.html", "class_elementaire_view" ]

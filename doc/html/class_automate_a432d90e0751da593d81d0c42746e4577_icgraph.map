@@ -1,5 +1,4 @@
 <map id="Automate::appliquerTransition" name="Automate::appliquerTransition">
-<area shape="rect" id="node2" href="$class_simulateur.html#a47b0c7fb6d7519c0e484772842e655d6" title="Simulateur::next" alt="" coords="248,31,365,57"/>
-<area shape="rect" id="node3" href="$class_simulateur.html#a55370f3dd277edc64f92c09727ffad99" title="Simulateur::run" alt="" coords="471,5,582,32"/>
-<area shape="rect" id="node4" href="$class_elementaire_view.html#ae2127adf12e71441e4f85fc57f6a03f3" title="ElementaireView::ElementaireView" alt="" coords="413,56,640,83"/>
+<area shape="rect" id="node2" href="$class_simulateur.html#a47b0c7fb6d7519c0e484772842e655d6" title="Simulateur::next" alt="" coords="248,5,365,32"/>
+<area shape="rect" id="node3" href="$class_simulateur.html#a55370f3dd277edc64f92c09727ffad99" title="Simulateur::run" alt="" coords="413,5,524,32"/>
 </map>

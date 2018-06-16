@@ -1,2 +1,3 @@
 <map id="ElementaireView" name="ElementaireView">
+<area shape="rect" id="node2" href="$class_automate_view.html" title="{AutomateView\n|# tailleCell\l# steps\l# stepState\l# speed\l# paused\l# automate\l|+ AutomateView()\l+ ~AutomateView()\l+ getTaille()\l+ save()\l+ import()\l}" alt="" coords="12,131,147,340"/>
 </map>

@@ -77,18 +77,26 @@ $(document).ready(function(){initNavTree('class_elementaire_view.html','');});
 Graphe d'héritage de ElementaireView:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_elementaire_view__inherit__graph.png" border="0" usemap="#_elementaire_view_inherit__map" alt="Inheritance graph"/></div>
+<map name="_elementaire_view_inherit__map" id="_elementaire_view_inherit__map">
+<area shape="rect" id="node2" href="class_automate_view.html" title="{AutomateView\n|# tailleCell\l# steps\l# stepState\l# speed\l# paused\l# automate\l|+ AutomateView()\l+ ~AutomateView()\l+ getTaille()\l+ save()\l+ import()\l}" alt="" coords="12,131,147,340"/>
+</map>
 </div>
 <div class="dynheader">
 Graphe de collaboration de ElementaireView:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_elementaire_view__coll__graph.png" border="0" usemap="#_elementaire_view_coll__map" alt="Collaboration graph"/></div>
+<map name="_elementaire_view_coll__map" id="_elementaire_view_coll__map">
+<area shape="rect" id="node2" href="class_automate_view.html" title="{AutomateView\n|# tailleCell\l# steps\l# stepState\l# speed\l# paused\l|+ AutomateView()\l+ ~AutomateView()\l+ getTaille()\l+ save()\l+ import()\l}" alt="" coords="19,447,153,641"/>
+<area shape="rect" id="node4" href="class_automate.html" title="{Automate\n|# dimension\l|+ Automate()\l+ Automate()\l+ ~Automate()\l+ getDimension()\l+ getEtatsPossibles()\l+ appliquerTransition()\l}" alt="" coords="103,233,253,384"/>
+<area shape="rect" id="node5" href="class_etat.html" title="{Etat\n||+ Etat()\l+ Etat()\l+ Etat()\l+ Etat()\l+ getValeur()\l+ getDesc()\l+ operator=()\l}" alt="" coords="129,5,227,171"/>
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr class="memitem:ae2127adf12e71441e4f85fc57f6a03f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_elementaire_view.html#ae2127adf12e71441e4f85fc57f6a03f3">ElementaireView</a> (QWidget *parent=0)</td></tr>
-<tr class="separator:ae2127adf12e71441e4f85fc57f6a03f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0b7d67380c978106f43f1459788d0cf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_elementaire_view.html#af0b7d67380c978106f43f1459788d0cf">~ElementaireView</a> ()</td></tr>
+<tr class="memitem:a2f6a4dff8d06f3b0274931d52397cf0c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_elementaire_view.html#a2f6a4dff8d06f3b0274931d52397cf0c">ElementaireView</a> (QWidget *parent)</td></tr>
+<tr class="separator:a2f6a4dff8d06f3b0274931d52397cf0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0b7d67380c978106f43f1459788d0cf"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_elementaire_view.html#af0b7d67380c978106f43f1459788d0cf">~ElementaireView</a> ()</td></tr>
 <tr class="separator:af0b7d67380c978106f43f1459788d0cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1aa85b65dd6d68552fc2b75be8f36bc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_elementaire_view.html#ad1aa85b65dd6d68552fc2b75be8f36bc">getTaille</a> ()</td></tr>
 <tr class="separator:ad1aa85b65dd6d68552fc2b75be8f36bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -96,46 +104,49 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a9fd54666dd4c5297cccad796b5f076ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5599ac0321e12d652d2b10f0fcd0d167"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_elementaire_view.html#a5599ac0321e12d652d2b10f0fcd0d167">import</a> (QXmlStreamReader *reader)</td></tr>
 <tr class="separator:a5599ac0321e12d652d2b10f0fcd0d167"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_automate_view"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_automate_view')"><img src="closed.png" alt="-"/>&#160;Fonctions membres publiques hérités de <a class="el" href="class_automate_view.html">AutomateView</a></td></tr>
+<tr class="memitem:ae57e2f85431870560a50b724f1b91823 inherit pub_methods_class_automate_view"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automate_view.html#ae57e2f85431870560a50b724f1b91823">AutomateView</a> (QWidget *parent=0, int tCell=40, int s=21, int sS=0, int vitesse=100, bool p=true, <a class="el" href="class_automate.html">Automate</a> *a=0)</td></tr>
+<tr class="separator:ae57e2f85431870560a50b724f1b91823 inherit pub_methods_class_automate_view"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2df2a75a1e9a1a371c3ac90817caafc4 inherit pub_methods_class_automate_view"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automate_view.html#a2df2a75a1e9a1a371c3ac90817caafc4">~AutomateView</a> ()</td></tr>
+<tr class="separator:a2df2a75a1e9a1a371c3ac90817caafc4 inherit pub_methods_class_automate_view"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Membres hérités additionnels</h2></td></tr>
+<tr class="inherit_header pro_attribs_class_automate_view"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_automate_view')"><img src="closed.png" alt="-"/>&#160;Attributs protégés hérités de <a class="el" href="class_automate_view.html">AutomateView</a></td></tr>
+<tr class="memitem:a307c16e236156882c1e13539ced23115 inherit pro_attribs_class_automate_view"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automate_view.html#a307c16e236156882c1e13539ced23115">tailleCell</a></td></tr>
+<tr class="separator:a307c16e236156882c1e13539ced23115 inherit pro_attribs_class_automate_view"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ec510a8904182c3284933a143c0600d inherit pro_attribs_class_automate_view"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automate_view.html#a5ec510a8904182c3284933a143c0600d">steps</a></td></tr>
+<tr class="separator:a5ec510a8904182c3284933a143c0600d inherit pro_attribs_class_automate_view"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78a7ed0653524e9dbcd9e1ad698c49b2 inherit pro_attribs_class_automate_view"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automate_view.html#a78a7ed0653524e9dbcd9e1ad698c49b2">stepState</a></td></tr>
+<tr class="separator:a78a7ed0653524e9dbcd9e1ad698c49b2 inherit pro_attribs_class_automate_view"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8f467af72df946c0375e2b80895705b inherit pro_attribs_class_automate_view"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automate_view.html#ab8f467af72df946c0375e2b80895705b">speed</a></td></tr>
+<tr class="separator:ab8f467af72df946c0375e2b80895705b inherit pro_attribs_class_automate_view"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2462222f0058f47b7a28d2fb4e227bc1 inherit pro_attribs_class_automate_view"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automate_view.html#a2462222f0058f47b7a28d2fb4e227bc1">paused</a></td></tr>
+<tr class="separator:a2462222f0058f47b7a28d2fb4e227bc1 inherit pro_attribs_class_automate_view"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef3e919543fa692ceb6e053413e0dd99 inherit pro_attribs_class_automate_view"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_automate.html">Automate</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automate_view.html#aef3e919543fa692ceb6e053413e0dd99">automate</a></td></tr>
+<tr class="separator:aef3e919543fa692ceb6e053413e0dd99 inherit pro_attribs_class_automate_view"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock">
-<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8h_source.html#l00026">26</a> du fichier <a class="el" href="elementaireview_8h_source.html">elementaireview.h</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8h_source.html#l00010">10</a> du fichier <a class="el" href="elementaireview_8h_source.html">elementaireview.h</a>.</p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
-<a id="ae2127adf12e71441e4f85fc57f6a03f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2127adf12e71441e4f85fc57f6a03f3">&#9670;&nbsp;</a></span>ElementaireView()</h2>
+<a id="a2f6a4dff8d06f3b0274931d52397cf0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f6a4dff8d06f3b0274931d52397cf0c">&#9670;&nbsp;</a></span>ElementaireView()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">ElementaireView::ElementaireView </td>
           <td>(</td>
           <td class="paramtype">QWidget *&#160;</td>
-          <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="definition">Définition à la ligne <a class="el" href="elementaireview_8cpp_source.html#l00004">4</a> du fichier <a class="el" href="elementaireview_8cpp_source.html">elementaireview.cpp</a>.</p>
-<div class="dynheader">
-Voici le graphe d'appel pour cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="class_elementaire_view_ae2127adf12e71441e4f85fc57f6a03f3_cgraph.png" border="0" usemap="#class_elementaire_view_ae2127adf12e71441e4f85fc57f6a03f3_cgraph" alt=""/></div>
-<map name="class_elementaire_view_ae2127adf12e71441e4f85fc57f6a03f3_cgraph" id="class_elementaire_view_ae2127adf12e71441e4f85fc57f6a03f3_cgraph">
-<area shape="rect" id="node2" href="class_simulateur.html#a47b0c7fb6d7519c0e484772842e655d6" title="Simulateur::next" alt="" coords="282,5,399,32"/>
-<area shape="rect" id="node4" href="class_simulateur.html#a35659145c6c2833a88804bd823a3a097" title="Simulateur::reset" alt="" coords="280,56,401,83"/>
-<area shape="rect" id="node3" href="class_automate.html#a432d90e0751da593d81d0c42746e4577" title="Automate::appliquerTransition" alt="" coords="449,5,644,32"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -144,6 +155,9 @@ Voici le graphe d'appel pour cette fonction :</div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">ElementaireView::~ElementaireView </td>
@@ -152,9 +166,14 @@ Voici le graphe d'appel pour cette fonction :</div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8cpp_source.html#l00063">63</a> du fichier <a class="el" href="elementaireview_8cpp_source.html">elementaireview.cpp</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8cpp_source.html#l00062">62</a> du fichier <a class="el" href="elementaireview_8cpp_source.html">elementaireview.cpp</a>.</p>
 
 </div>
 </div>
@@ -177,12 +196,14 @@ Voici le graphe d'appel pour cette fonction :</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8h_source.html#l00044">44</a> du fichier <a class="el" href="elementaireview_8h_source.html">elementaireview.h</a>.</p>
+<p>Implémente <a class="el" href="class_automate_view.html#ae6eff34921e4723f9fca2f5e799219b2">AutomateView</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8h_source.html#l00022">22</a> du fichier <a class="el" href="elementaireview_8h_source.html">elementaireview.h</a>.</p>
 
 </div>
 </div>
@@ -191,6 +212,9 @@ Voici le graphe d'appel pour cette fonction :</div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ElementaireView::import </td>
@@ -200,9 +224,16 @@ Voici le graphe d'appel pour cette fonction :</div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8cpp_source.html#l00373">373</a> du fichier <a class="el" href="elementaireview_8cpp_source.html">elementaireview.cpp</a>.</p>
+<p>Implémente <a class="el" href="class_automate_view.html#ab1369fda2e973cec445768fb9e7866b6">AutomateView</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8cpp_source.html#l00369">369</a> du fichier <a class="el" href="elementaireview_8cpp_source.html">elementaireview.cpp</a>.</p>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
@@ -219,6 +250,9 @@ Voici le graphe des appelants de cette fonction :</div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ElementaireView::save </td>
@@ -238,9 +272,16 @@ Voici le graphe des appelants de cette fonction :</div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8cpp_source.html#l00319">319</a> du fichier <a class="el" href="elementaireview_8cpp_source.html">elementaireview.cpp</a>.</p>
+<p>Implémente <a class="el" href="class_automate_view.html#ac0f86cf201a562fdbc399861a1a03f70">AutomateView</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="elementaireview_8cpp_source.html#l00315">315</a> du fichier <a class="el" href="elementaireview_8cpp_source.html">elementaireview.cpp</a>.</p>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">

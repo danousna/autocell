@@ -1,0 +1,4 @@
+<map id="AutomateView" name="AutomateView">
+<area shape="rect" id="node3" href="$class_automate.html" title="{Automate\n|# dimension\l|+ Automate()\l+ Automate()\l+ ~Automate()\l+ getDimension()\l+ getEtatsPossibles()\l+ appliquerTransition()\l}" alt="" coords="103,233,253,384"/>
+<area shape="rect" id="node4" href="$class_etat.html" title="{Etat\n||+ Etat()\l+ Etat()\l+ Etat()\l+ Etat()\l+ getValeur()\l+ getDesc()\l+ operator=()\l}" alt="" coords="129,5,227,171"/>
+</map>

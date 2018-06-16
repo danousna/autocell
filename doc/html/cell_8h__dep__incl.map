@@ -1,22 +1,24 @@
 <map id="/mnt/DATA/aranelle/Documents/Scolaire/École/HuTech 04/LO21/autocell/src/cell.h" name="/mnt/DATA/aranelle/Documents/Scolaire/École/HuTech 04/LO21/autocell/src/cell.h">
-<area shape="rect" id="node2" href="$automate_8h.html" title="Fichier d&#39;en&#45;tête de la classe abstraite Automate. " alt="" coords="401,243,563,313"/>
-<area shape="rect" id="node19" href="$grille_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/grille.h" alt="" coords="520,124,681,195"/>
-<area shape="rect" id="node21" href="$cell_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/cell.cpp" alt="" coords="705,124,867,195"/>
-<area shape="rect" id="node3" href="$automate_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/automate.cpp" alt="" coords="187,361,363,432"/>
-<area shape="rect" id="node4" href="$automate1d_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/automate1d.h" alt="" coords="674,361,850,432"/>
-<area shape="rect" id="node17" href="$automate2d_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/automate2d.h" alt="" coords="387,361,563,432"/>
-<area shape="rect" id="node5" href="$automate1d_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/automate1d.cpp" alt="" coords="707,480,897,551"/>
-<area shape="rect" id="node6" href="$simulateur_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/simulateur.h" alt="" coords="516,480,683,551"/>
-<area shape="rect" id="node9" href="$elementaireview_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/elementaireview.h" alt="" coords="891,599,1105,669"/>
-<area shape="rect" id="node7" href="$main_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/main.cpp" alt="" coords="567,836,728,907"/>
-<area shape="rect" id="node8" href="$simulateur_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/simulateur.cpp" alt="" coords="685,599,866,669"/>
-<area shape="rect" id="node11" href="$mainwindow_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/mainwindow.h" alt="" coords="416,717,609,788"/>
-<area shape="rect" id="node13" href="$golview_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/golview.h" alt="" coords="394,599,559,669"/>
-<area shape="rect" id="node15" href="$wwview_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/wwview.h" alt="" coords="202,599,370,669"/>
-<area shape="rect" id="node10" href="$elementaireview_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/elementaireview.cpp" alt="" coords="883,717,1113,788"/>
-<area shape="rect" id="node12" href="$mainwindow_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/mainwindow.cpp" alt="" coords="336,836,543,907"/>
-<area shape="rect" id="node14" href="$golview_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/golview.cpp" alt="" coords="213,717,391,788"/>
-<area shape="rect" id="node16" href="$wwview_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/wwview.cpp" alt="" coords="5,717,188,788"/>
-<area shape="rect" id="node18" href="$automate2d_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/automate2d.cpp" alt="" coords="197,480,388,551"/>
-<area shape="rect" id="node20" href="$grille_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/grille.cpp" alt="" coords="639,243,800,313"/>
+<area shape="rect" id="node2" href="$automate_8h.html" title="Fichier d&#39;en&#45;tête de la classe abstraite Automate. " alt="" coords="412,243,575,313"/>
+<area shape="rect" id="node21" href="$grille_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/grille.h" alt="" coords="537,124,698,195"/>
+<area shape="rect" id="node23" href="$cell_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/cell.cpp" alt="" coords="722,124,883,195"/>
+<area shape="rect" id="node3" href="$automate_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/automate.cpp" alt="" coords="5,361,181,432"/>
+<area shape="rect" id="node4" href="$automate1d_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/automate1d.h" alt="" coords="205,361,381,432"/>
+<area shape="rect" id="node19" href="$automate2d_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/automate2d.h" alt="" coords="405,361,581,432"/>
+<area shape="rect" id="node5" href="$automate1d_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/automate1d.cpp" alt="" coords="106,480,297,551"/>
+<area shape="rect" id="node6" href="$simulateur_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/simulateur.h" alt="" coords="535,480,702,551"/>
+<area shape="rect" id="node7" href="$main_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/main.cpp" alt="" coords="445,955,606,1025"/>
+<area shape="rect" id="node8" href="$simulateur_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/simulateur.cpp" alt="" coords="863,599,1044,669"/>
+<area shape="rect" id="node9" href="$automateview_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/automateview.h" alt="" coords="636,599,839,669"/>
+<area shape="rect" id="node13" href="$mainwindow_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/mainwindow.h" alt="" coords="713,836,906,907"/>
+<area shape="rect" id="node10" href="$automateview_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/automateview.cpp" alt="" coords="729,717,945,788"/>
+<area shape="rect" id="node11" href="$elementaireview_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/elementaireview.h" alt="" coords="970,717,1185,788"/>
+<area shape="rect" id="node15" href="$golview_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/golview.h" alt="" coords="1209,717,1375,788"/>
+<area shape="rect" id="node17" href="$wwview_8h.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/wwview.h" alt="" coords="537,717,705,788"/>
+<area shape="rect" id="node12" href="$elementaireview_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/elementaireview.cpp" alt="" coords="956,836,1185,907"/>
+<area shape="rect" id="node14" href="$mainwindow_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/mainwindow.cpp" alt="" coords="706,955,913,1025"/>
+<area shape="rect" id="node16" href="$golview_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/golview.cpp" alt="" coords="1209,836,1388,907"/>
+<area shape="rect" id="node18" href="$wwview_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/ui/wwview.cpp" alt="" coords="506,836,689,907"/>
+<area shape="rect" id="node20" href="$automate2d_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/automate2d.cpp" alt="" coords="321,480,511,551"/>
+<area shape="rect" id="node22" href="$grille_8cpp.html" title="/mnt/DATA/aranelle\l/Documents/Scolaire\l/École/HuTech 04/LO21\l/autocell/src/grille.cpp" alt="" coords="657,243,818,313"/>
 </map>

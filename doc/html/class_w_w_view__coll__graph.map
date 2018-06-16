@@ -1,2 +1,5 @@
 <map id="WWView" name="WWView">
+<area shape="rect" id="node2" href="$class_automate_view.html" title="{AutomateView\n|# tailleCell\l# steps\l# stepState\l# speed\l# paused\l|+ AutomateView()\l+ ~AutomateView()\l+ getTaille()\l+ save()\l+ import()\l}" alt="" coords="19,447,153,641"/>
+<area shape="rect" id="node4" href="$class_automate.html" title="{Automate\n|# dimension\l|+ Automate()\l+ Automate()\l+ ~Automate()\l+ getDimension()\l+ getEtatsPossibles()\l+ appliquerTransition()\l}" alt="" coords="103,233,253,384"/>
+<area shape="rect" id="node5" href="$class_etat.html" title="{Etat\n||+ Etat()\l+ Etat()\l+ Etat()\l+ Etat()\l+ getValeur()\l+ getDesc()\l+ operator=()\l}" alt="" coords="129,5,227,171"/>
 </map>

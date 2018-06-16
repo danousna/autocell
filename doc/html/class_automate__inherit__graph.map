@@ -1,7 +1,7 @@
 <map id="Automate" name="Automate">
 <area shape="rect" id="node2" href="$class_automate1_d.html" title="{Automate1D\n||+ Automate1D()\l+ Automate1D()\l+ appliquerTransition()\l}" alt="" coords="23,219,173,325"/>
 <area shape="rect" id="node4" href="$class_automate2_d.html" title="{Automate2D\n||+ Automate2D()\l+ Automate2D()\l+ appliquerTransition()\l}" alt="" coords="208,219,359,325"/>
-<area shape="rect" id="node3" href="$class_automate_elementaire.html" title="{AutomateElementaire\n||+ AutomateElementaire()\l+ operator=()\l+ getNumero()\l+ getNumeroBit()\l+ appliquerTransition()\l+ getInstance()\l+ getInstance()\l+ getCurrentInstance()\l}" alt="" coords="5,381,172,561"/>
-<area shape="rect" id="node5" href="$class_automate_go_l.html" title="{AutomateGoL\n||+ AutomateGoL()\l+ operator=()\l+ getVoisinsVivantsMin()\l+ getVoisinsVivantsMax()\l+ appliquerTransition()\l+ calculerSommeVoisins()\l+ getInstance()\l+ getInstance()\l+ getCurrentInstance()\l}" alt="" coords="196,373,371,568"/>
-<area shape="rect" id="node6" href="$class_automate_w_w.html" title="{AutomateWW\n||+ AutomateWW()\l+ operator=()\l+ getVoisinsTeteMin()\l+ getVoisinsTeteMax()\l+ appliquerTransition()\l+ calculerSommeVoisinsTete()\l+ getInstance()\l}" alt="" coords="395,388,593,553"/>
+<area shape="rect" id="node3" href="$class_automate_elementaire.html" title="{AutomateElementaire\n||+ AutomateElementaire()\l+ operator=()\l+ getNumero()\l+ getNumeroBit()\l+ appliquerTransition()\l+ getInstance()\l+ getInstance()\l}" alt="" coords="5,381,172,546"/>
+<area shape="rect" id="node5" href="$class_automate_go_l.html" title="{AutomateGoL\n||+ AutomateGoL()\l+ operator=()\l+ getVoisinsVivantsMin()\l+ getVoisinsVivantsMax()\l+ appliquerTransition()\l+ calculerSommeVoisins()\l+ getInstance()\l+ getInstance()\l}" alt="" coords="196,373,371,553"/>
+<area shape="rect" id="node6" href="$class_automate_w_w.html" title="{AutomateWW\n||+ AutomateWW()\l+ operator=()\l+ getVoisinsTeteMin()\l+ getVoisinsTeteMax()\l+ appliquerTransition()\l+ calculerSommeVoisinsTete()\l+ getInstance()\l}" alt="" coords="395,381,593,546"/>
 </map>

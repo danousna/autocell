@@ -22,9 +22,11 @@ var hierarchy =
       [ "MainWindow", "class_main_window.html", null ]
     ] ],
     [ "QWidget", null, [
-      [ "ElementaireView", "class_elementaire_view.html", null ],
-      [ "GoLView", "class_go_l_view.html", null ],
-      [ "WWView", "class_w_w_view.html", null ]
+      [ "AutomateView", "class_automate_view.html", [
+        [ "ElementaireView", "class_elementaire_view.html", null ],
+        [ "GoLView", "class_go_l_view.html", null ],
+        [ "WWView", "class_w_w_view.html", null ]
+      ] ]
     ] ],
     [ "Simulateur", "class_simulateur.html", null ]
 ];

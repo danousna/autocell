@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Autocell:  Fichier source de /mnt/DATA/aranelle/Documents/Scolaire/École/HuTech 04/LO21/autocell/src/ui/automateview.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Autocell
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Automates cellulaires dans le cadre de l&#39;UV LO21</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','Recherche');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('automateview_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">automateview.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="automateview_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef AUTOMATEVIEW_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define AUTOMATEVIEW_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QLineEdit&gt;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QIntValidator&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QTableWidget&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QMessageBox&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;QXmlStreamWriter&gt;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;QXmlStreamReader&gt;</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;QMessageBox&gt;</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;QFile&gt;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;../simulateur.h&quot;</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_automate_view.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_automate_view.html">AutomateView</a> : <span class="keyword">public</span> QWidget</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    Q_OBJECT</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">protected</span>:</div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_automate_view.html#a307c16e236156882c1e13539ced23115">   25</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_automate_view.html#a307c16e236156882c1e13539ced23115">tailleCell</a>;</div><div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_automate_view.html#a5ec510a8904182c3284933a143c0600d">   26</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_automate_view.html#a5ec510a8904182c3284933a143c0600d">steps</a>;</div><div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_automate_view.html#a78a7ed0653524e9dbcd9e1ad698c49b2">   27</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_automate_view.html#a78a7ed0653524e9dbcd9e1ad698c49b2">stepState</a>;</div><div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_automate_view.html#ab8f467af72df946c0375e2b80895705b">   28</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_automate_view.html#ab8f467af72df946c0375e2b80895705b">speed</a>;</div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_automate_view.html#a2462222f0058f47b7a28d2fb4e227bc1">   29</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_automate_view.html#a2462222f0058f47b7a28d2fb4e227bc1">paused</a>;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">// L&#39;automate de la view. C&#39;est un singleton.</span></div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_automate_view.html#aef3e919543fa692ceb6e053413e0dd99">   32</a></span>&#160;    <a class="code" href="class_automate.html">Automate</a>* <a class="code" href="class_automate_view.html#aef3e919543fa692ceb6e053413e0dd99">automate</a>;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_automate_view.html#ae57e2f85431870560a50b724f1b91823">AutomateView</a>(QWidget *parent = 0, <span class="keywordtype">int</span> tCell = 40, <span class="keywordtype">int</span> s = 21, <span class="keywordtype">int</span> sS = 0, <span class="keywordtype">int</span> vitesse = 100, <span class="keywordtype">bool</span> p = <span class="keyword">true</span>, <a class="code" href="class_automate.html">Automate</a>* a = 0);</div><div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_automate_view.html#a2df2a75a1e9a1a371c3ac90817caafc4">   35</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_automate_view.html#a2df2a75a1e9a1a371c3ac90817caafc4">~AutomateView</a>() {}</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="class_automate_view.html#ae6eff34921e4723f9fca2f5e799219b2">getTaille</a>() = 0;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_automate_view.html#ac0f86cf201a562fdbc399861a1a03f70">save</a>(QFile* f, <span class="keywordtype">bool</span> showDialog) = 0;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <span class="keyword">import</span>(QXmlStreamReader* reader) = 0;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">private</span> slots:</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> toggleCell(QTableWidgetItem* item) = 0;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> next() = 0;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> play(<span class="keywordtype">int</span> startStep = 0) = 0;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> togglePlayPause() = 0;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> reset() = 0;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> refreshTaille() = 0;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif // AUTOMATEVIEW_H</span></div><div class="ttc" id="class_automate_html"><div class="ttname"><a href="class_automate.html">Automate</a></div><div class="ttdef"><b>Definition:</b> <a href="automate_8h_source.html#l00019">automate.h:19</a></div></div>
+<div class="ttc" id="class_automate_view_html_a78a7ed0653524e9dbcd9e1ad698c49b2"><div class="ttname"><a href="class_automate_view.html#a78a7ed0653524e9dbcd9e1ad698c49b2">AutomateView::stepState</a></div><div class="ttdeci">int stepState</div><div class="ttdef"><b>Definition:</b> <a href="automateview_8h_source.html#l00027">automateview.h:27</a></div></div>
+<div class="ttc" id="class_automate_view_html_ac0f86cf201a562fdbc399861a1a03f70"><div class="ttname"><a href="class_automate_view.html#ac0f86cf201a562fdbc399861a1a03f70">AutomateView::save</a></div><div class="ttdeci">virtual void save(QFile *f, bool showDialog)=0</div></div>
+<div class="ttc" id="class_automate_view_html"><div class="ttname"><a href="class_automate_view.html">AutomateView</a></div><div class="ttdef"><b>Definition:</b> <a href="automateview_8h_source.html#l00021">automateview.h:21</a></div></div>
+<div class="ttc" id="class_automate_view_html_ae6eff34921e4723f9fca2f5e799219b2"><div class="ttname"><a href="class_automate_view.html#ae6eff34921e4723f9fca2f5e799219b2">AutomateView::getTaille</a></div><div class="ttdeci">virtual int getTaille()=0</div></div>
+<div class="ttc" id="class_automate_view_html_aef3e919543fa692ceb6e053413e0dd99"><div class="ttname"><a href="class_automate_view.html#aef3e919543fa692ceb6e053413e0dd99">AutomateView::automate</a></div><div class="ttdeci">Automate * automate</div><div class="ttdef"><b>Definition:</b> <a href="automateview_8h_source.html#l00032">automateview.h:32</a></div></div>
+<div class="ttc" id="class_automate_view_html_a307c16e236156882c1e13539ced23115"><div class="ttname"><a href="class_automate_view.html#a307c16e236156882c1e13539ced23115">AutomateView::tailleCell</a></div><div class="ttdeci">int tailleCell</div><div class="ttdef"><b>Definition:</b> <a href="automateview_8h_source.html#l00025">automateview.h:25</a></div></div>
+<div class="ttc" id="class_automate_view_html_ab8f467af72df946c0375e2b80895705b"><div class="ttname"><a href="class_automate_view.html#ab8f467af72df946c0375e2b80895705b">AutomateView::speed</a></div><div class="ttdeci">int speed</div><div class="ttdef"><b>Definition:</b> <a href="automateview_8h_source.html#l00028">automateview.h:28</a></div></div>
+<div class="ttc" id="class_automate_view_html_a2462222f0058f47b7a28d2fb4e227bc1"><div class="ttname"><a href="class_automate_view.html#a2462222f0058f47b7a28d2fb4e227bc1">AutomateView::paused</a></div><div class="ttdeci">bool paused</div><div class="ttdef"><b>Definition:</b> <a href="automateview_8h_source.html#l00029">automateview.h:29</a></div></div>
+<div class="ttc" id="class_automate_view_html_ae57e2f85431870560a50b724f1b91823"><div class="ttname"><a href="class_automate_view.html#ae57e2f85431870560a50b724f1b91823">AutomateView::AutomateView</a></div><div class="ttdeci">AutomateView(QWidget *parent=0, int tCell=40, int s=21, int sS=0, int vitesse=100, bool p=true, Automate *a=0)</div><div class="ttdef"><b>Definition:</b> <a href="automateview_8cpp_source.html#l00003">automateview.cpp:3</a></div></div>
+<div class="ttc" id="class_automate_view_html_a2df2a75a1e9a1a371c3ac90817caafc4"><div class="ttname"><a href="class_automate_view.html#a2df2a75a1e9a1a371c3ac90817caafc4">AutomateView::~AutomateView</a></div><div class="ttdeci">virtual ~AutomateView()</div><div class="ttdef"><b>Definition:</b> <a href="automateview_8h_source.html#l00035">automateview.h:35</a></div></div>
+<div class="ttc" id="class_automate_view_html_a5ec510a8904182c3284933a143c0600d"><div class="ttname"><a href="class_automate_view.html#a5ec510a8904182c3284933a143c0600d">AutomateView::steps</a></div><div class="ttdeci">int steps</div><div class="ttdef"><b>Definition:</b> <a href="automateview_8h_source.html#l00026">automateview.h:26</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_da5c6b39c0a2f54e57df6799511cd3ab.html">ui</a></li><li class="navelem"><a class="el" href="automateview_8h.html">automateview.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

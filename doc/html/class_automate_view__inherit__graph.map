@@ -1,0 +1,5 @@
+<map id="AutomateView" name="AutomateView">
+<area shape="rect" id="node3" href="$class_elementaire_view.html" title="{ElementaireView\n||+ ElementaireView()\l+ ~ElementaireView()\l+ getTaille()\l+ save()\l+ import()\l}" alt="" coords="5,388,153,524"/>
+<area shape="rect" id="node4" href="$class_go_l_view.html" title="{GoLView\n||+ GoLView()\l+ ~GoLView()\l+ getTaille()\l+ save()\l+ import()\l}" alt="" coords="177,388,280,524"/>
+<area shape="rect" id="node5" href="$class_w_w_view.html" title="{WWView\n||+ WWView()\l+ ~WWView()\l+ getTaille()\l+ save()\l+ import()\l}" alt="" coords="304,388,409,524"/>
+</map>

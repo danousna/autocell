@@ -1,11 +1,12 @@
 <map id="/mnt/DATA/aranelle/Documents/Scolaire/École/HuTech 04/LO21/autocell/src/ui/elementaireview.cpp" name="/mnt/DATA/aranelle/Documents/Scolaire/École/HuTech 04/LO21/autocell/src/ui/elementaireview.cpp">
-<area shape="rect" id="node2" href="$elementaireview_8h.html" title="elementaireview.h" alt="" coords="593,124,719,151"/>
-<area shape="rect" id="node15" href="$simulateur_8h.html" title="../simulateur.h" alt="" coords="1324,199,1428,225"/>
-<area shape="rect" id="node16" href="$automate1d_8h.html" title="automate1d.h" alt="" coords="1441,273,1543,300"/>
-<area shape="rect" id="node23" href="$grille_8h.html" title="grille.h" alt="" coords="1249,423,1309,449"/>
-<area shape="rect" id="node24" href="$automate2d_8h.html" title="automate2d.h" alt="" coords="1316,273,1417,300"/>
-<area shape="rect" id="node17" href="$automate_8h.html" title="Fichier d&#39;en&#45;tête de la classe abstraite Automate. " alt="" coords="1338,348,1425,375"/>
-<area shape="rect" id="node20" href="$autocellexception_8h.html" title="autocellexception.h" alt="" coords="1189,647,1323,673"/>
-<area shape="rect" id="node21" href="$etat_8h.html" title="etat.h" alt="" coords="1251,572,1306,599"/>
-<area shape="rect" id="node22" href="$cell_8h.html" title="cell.h" alt="" coords="1371,497,1424,524"/>
+<area shape="rect" id="node2" href="$elementaireview_8h.html" title="elementaireview.h" alt="" coords="530,124,657,151"/>
+<area shape="rect" id="node3" href="$automateview_8h.html" title="automateview.h" alt="" coords="537,199,650,225"/>
+<area shape="rect" id="node16" href="$simulateur_8h.html" title="../simulateur.h" alt="" coords="1324,273,1428,300"/>
+<area shape="rect" id="node17" href="$automate1d_8h.html" title="automate1d.h" alt="" coords="1451,348,1552,375"/>
+<area shape="rect" id="node24" href="$grille_8h.html" title="grille.h" alt="" coords="1258,497,1318,524"/>
+<area shape="rect" id="node25" href="$automate2d_8h.html" title="automate2d.h" alt="" coords="1325,348,1427,375"/>
+<area shape="rect" id="node18" href="$automate_8h.html" title="Fichier d&#39;en&#45;tête de la classe abstraite Automate. " alt="" coords="1347,423,1434,449"/>
+<area shape="rect" id="node21" href="$autocellexception_8h.html" title="autocellexception.h" alt="" coords="1198,721,1333,748"/>
+<area shape="rect" id="node22" href="$etat_8h.html" title="etat.h" alt="" coords="1261,647,1315,673"/>
+<area shape="rect" id="node23" href="$cell_8h.html" title="cell.h" alt="" coords="1380,572,1433,599"/>
 </map>
