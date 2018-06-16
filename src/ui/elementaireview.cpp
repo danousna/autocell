@@ -83,7 +83,7 @@ void ElementaireView::next() {
 
     for (int i = 0; i < steps; i++) {
         if (i <= stepState) {
-            ui->stepsLabel->setText(QStringLiteral("%1 sur").arg(i));
+            ui->stepsLabel->setText(QStringLiteral("%1 sur").arg(i + 1));
             this->syncGrilles(&s.dernier(), ui->grille, i, true);
             s.next();
         }
@@ -132,7 +132,7 @@ void ElementaireView::play(int startStep) {
         }
         else {
             if (!paused) {
-                ui->stepsLabel->setText(QStringLiteral("%1 sur").arg(i));
+                ui->stepsLabel->setText(QStringLiteral("%1 sur").arg(i + 1));
                 this->syncGrilles(&s.dernier(), ui->grille, i, true);
                 std::this_thread::sleep_for(std::chrono::milliseconds(speed));
                 QCoreApplication::processEvents();
